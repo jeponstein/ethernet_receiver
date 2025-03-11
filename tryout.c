@@ -2,21 +2,27 @@
 #include <stdlib.h>
 #include <linux/if_ether.h>
 
+#include <string.h>
+
 #include "rawEthernetSocket.h"
 #include "ethernet.h"
+
+#define DATA_SIZE 32
 
 void writeToFile(char* content)
 {
     FILE *fptr; 
 
-    fptr = fopen("filename.txt", "w");
+    fptr = fopen("filename", "w");
+
+    fprintf(fptr,"Print content of packet: \n");
 
     fprintf(fptr, content);
 
     fclose(fptr);
 }
 
-int start_server(char* interface, char* received_packet)
+int start_server(char* interface, char received_packet[DATA_SIZE])
 {
     struct RawSocket* rawsocket = new_RawSocket(interface);
     int len;
@@ -45,9 +51,9 @@ int start_server(char* interface, char* received_packet)
             printf("%s", data->payload);
             printf("\n");
 
-            received_packet = data->payload;
-
-            printf("%s \n", received_packet);
+            strcpy(received_packet, data->payload);
+            
+            //printf("%s \n", received_packet);
 
             return(1);
 
@@ -67,11 +73,11 @@ int main(int argc, char *argv[]) //argc = no of strings used to call the program
 
     char* if_name = argv[1];
 
-    char* data = "";
+    char data[DATA_SIZE] = "";
 
     start_server(if_name, data);
 
-    printf("%s", data);
+    printf("%s \n", data);
 
     printf("Data should have been printed by now \n");
 
