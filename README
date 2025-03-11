@@ -1,0 +1,5 @@
+First make build with "make tryout"
+
+
+then run the program by running "sudo ./tryout <interface_name>" 
+<interface_name> is something like eth1
