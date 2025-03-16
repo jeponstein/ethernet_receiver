@@ -1,19 +1,14 @@
 import socketserver
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
-    """
-    The request handler class for our server.
-
-    It is instantiated once per connection to the server, and must
-    override the handle() method to implement communication to the
-    client.
-    """
 
     def handle(self):
-        # self.request is the TCP socket connected to the client
+
+        # pieces will be used to append the received data. the b means that the string '' is converted to bytes.
         pieces = [b'']
         total = 0
 
+        #check if the last received piece of data was not a newline char (end of message) & keep amount of data less then 10 000 bytes
         while b'\n' not in pieces[-1] and total < 10_000:
             pieces.append(self.request.recv(2000))
             total += len(pieces[-1])
@@ -28,8 +23,7 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
 if __name__ == "__main__":
     HOST, PORT = "localhost", 9998
 
-    # Create the server, binding to localhost on port 9999
+    # Create the server, binding to localhost on port 9998
     with socketserver.TCPServer((HOST, PORT), MyTCPHandler) as server:
-        # Activate the server; this will keep running until you
-        # interrupt the program with Ctrl-C
+        # Activate the server; this will keep running until the program is interrupted
         server.serve_forever()
