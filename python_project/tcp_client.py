@@ -2,17 +2,23 @@ import socket
 import sys
 
 HOST, PORT = "localhost", 9998
-data = " ".join(sys.argv[1:])
+# HOST, PORT = "10.1.2.3", 9998
+
+
+f = open("imageClient.jpeg", "rb")
+data = f.read()
 
 # Create a socket (SOCK_STREAM means a TCP socket)
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
     # Connect to server and send data
     sock.connect((HOST, PORT))
-    sock.sendall(bytes(data, "utf-8"))
+    sock.sendall(data)
     sock.sendall(b"\n")
 
     # Receive data from the server and shut down
-    received = str(sock.recv(1024), "utf-8")
+    received = sock.recv(1024)
 
-print("Sent:    ", data)
-print("Received:", received)
+
+f = open("imageReceived.jpeg", "wb")
+f.write(received)
+f.close()
