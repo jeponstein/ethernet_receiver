@@ -5,8 +5,12 @@ HOST, PORT = "localhost", 9998
 # HOST, PORT = "10.1.2.3", 9998
 
 
-f = open("imageClient.jpeg", "rb")
+# f = open("imageClient.jpeg", "rb")
+f = open("test.txt", "rb")
+
 data = f.read()
+
+f.close()
 
 # Create a socket (SOCK_STREAM means a TCP socket)
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
@@ -19,6 +23,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
     received = sock.recv(1024)
 
 
-f = open("imageReceived.jpeg", "wb")
+# f = open("imageReceived.jpeg", "wb")
+
+f = open("test_rx.txt", "wb")
+
 f.write(received)
 f.close()

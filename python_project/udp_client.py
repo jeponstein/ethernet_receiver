@@ -23,7 +23,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 data = b''
 
 for i in info:
-    sock.sendto(i , (HOST, PORT) )
+    sock.sendto( i , (HOST, PORT) )
     received = sock.recv(datagram_size+5)
     data += received
 

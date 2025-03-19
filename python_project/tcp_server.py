@@ -20,7 +20,8 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         print(f"Received from {self.client_address[0]}:")
         print(self.data)
         
-        f = open("imageReceived_ALT.jpeg", "wb")
+        # f = open("imageReceived_ALT.jpeg", "wb")
+        f = open("test_rx_alt.txt", "xb")
         f.write(self.data)
         f.close()
 
