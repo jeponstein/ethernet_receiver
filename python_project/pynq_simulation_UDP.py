@@ -11,6 +11,7 @@ def start_pynq_server():
     with socketserver.UDPServer( (PYNQ_HOST, PYNQ_PORT) , MyUDPHandler) as server:
         server.serve_forever()
 
+track_amount_received = 0
 
 class MyUDPHandler(socketserver.BaseRequestHandler):
     def handle(self):
@@ -19,13 +20,11 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
 
         print(f"{self.client_address[0]} wrote:")
 
-        print(data)
-        # time.sleep(1)
+        track_amount_received =+ 1
 
-        start_pynq_client(data)
-
-
-
+        if track_amount_received > 100:
+            start_pynq_client(b"100 packets received")
+            track_amount_received = 0
 
 
 def start_pynq_client(data):
@@ -33,7 +32,6 @@ def start_pynq_client(data):
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.sendto( data , (DT_HOST, PD_PORT) )
-
 
 
 if __name__ =="__main__":

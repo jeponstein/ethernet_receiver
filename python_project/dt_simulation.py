@@ -32,14 +32,22 @@ def start_dt_client(data):
     PYNQ_HOST, PYNQ_PORT = "localhost", 9997
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.sendto( data , (PYNQ_HOST, PYNQ_PORT) )
+    while True:
+        sock.sendto( data , (PYNQ_HOST, PYNQ_PORT) )
 
 
 
 if __name__ =="__main__":
 
-    start_dt_client(b" starting tranmission")
+    t1 = threading.Thread(target=start_dt_client, args=(b'message',) )
+    t2 = threading.Thread(target=start_dt_server)
 
-    start_dt_server()
+
+    t1.start()
+    t2.start()
+
+    t1.join()
+    t2.join()
+
     print(" exiting main function")
 

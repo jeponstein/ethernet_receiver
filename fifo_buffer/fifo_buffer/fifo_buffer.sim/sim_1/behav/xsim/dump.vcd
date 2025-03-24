@@ -1,0 +1,232 @@
+$date
+   Sun Mar 23 17:13:36 2025
+$end
+
+$version
+  2024.2.0
+  $dumpfile ("dump.vcd") 
+$end
+
+$timescale
+  1ps
+$end
+
+$scope module fifo_buffer_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " rst $end
+$var reg 1 # w_en $end
+$var reg 1 $ r_en $end
+$var reg 4 % data_in [3:0] $end
+$var wire 1 & empty $end
+$var wire 1 ' full $end
+$var wire 4 ( data_out [3:0] $end
+$scope module fifo_inst $end
+$var wire 1 ! clk $end
+$var wire 1 " rst $end
+$var wire 1 # w_en $end
+$var wire 1 $ r_en $end
+$var wire 4 % data_in [3:0] $end
+$var reg 16 ) data_out [15:0] $end
+$var wire 1 ' full $end
+$var wire 1 & empty $end
+$var reg 5 * w_ptr [4:0] $end
+$var reg 5 + r_ptr [4:0] $end
+$var reg 5 , count [4:0] $end
+$var integer 32 - i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+
+#0
+$dumpvars
+0!
+0"
+0#
+0$
+b0 %
+x&
+0'
+bx (
+bx )
+bx *
+bx +
+bx ,
+bx -
+$end
+
+#2000
+1!
+
+#4000
+0!
+
+#6000
+1!
+
+#8000
+0!
+
+#10000
+1!
+1"
+1&
+b0 (
+b0 )
+b0 *
+b0 +
+b0 ,
+
+#12000
+0!
+
+#14000
+1!
+
+#16000
+0!
+
+#18000
+1!
+
+#20000
+0!
+0"
+
+#22000
+1!
+
+#24000
+0!
+
+#26000
+1!
+
+#28000
+0!
+
+#30000
+1!
+1#
+b100 %
+0&
+b1 *
+b1 ,
+
+#32000
+0!
+
+#34000
+1!
+b10 *
+b10 ,
+
+#36000
+0!
+
+#38000
+1!
+b11 *
+b11 ,
+
+#40000
+0!
+b1 %
+
+#42000
+1!
+b100 *
+b100 ,
+
+#44000
+0!
+
+#46000
+1!
+b101 *
+b101 ,
+
+#48000
+0!
+
+#50000
+1!
+0#
+
+#52000
+0!
+
+#54000
+1!
+
+#56000
+0!
+
+#58000
+1!
+
+#60000
+0!
+
+#62000
+1!
+
+#64000
+0!
+
+#66000
+1!
+
+#68000
+0!
+
+#70000
+1!
+1$
+b100 (
+b1010001000100 )
+b100 +
+b1 ,
+b100 -
+
+#72000
+0!
+
+#74000
+1!
+b1 (
+bx0001 )
+b1000 +
+b11101 ,
+b100 -
+
+#76000
+0!
+
+#78000
+1!
+bx (
+bx )
+b1100 +
+b11001 ,
+b100 -
+
+#80000
+0!
+
+#82000
+1!
+b10000 +
+b10101 ,
+b100 -
+
+#84000
+0!
+
+#86000
+1!
+b10100 +
+b10001 ,
+b100 -
+
+#88000
+0!
