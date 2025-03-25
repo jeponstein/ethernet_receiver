@@ -21,9 +21,9 @@
 
 
 module fifo_buffer#(
-    parameter BUFFER_DEPTH = 32, BUFFER_WIDTH = 4, OUTPUT_SIZE = 4
-    // depth dictates amount of slots, width dictates amount of bits per slot. 
-    // equate buffer width to the size of the input bus -> each time it writes, one line is added
+    parameter BUFFER_DEPTH = 32'd32, BUFFER_WIDTH = 32'd4, OUTPUT_SIZE = 32'd4
+    // depth dictates amount of slots in buffer, should be 2^k, where k is integer
+    // the buffer width should be input size -> each write means one row is filled
     // output size is the amount of bits that is read at once. should be a multiple of the buffer width
     // 
     )(
@@ -31,12 +31,13 @@ module fifo_buffer#(
     input clk, rst, w_en, r_en,
     input [BUFFER_WIDTH-1:0] data_in,
     output reg [OUTPUT_SIZE-1:0] data_out,
-    output full, empty
+    output full, empty, allow_read
     
     );
     
-    reg [$clog2(BUFFER_DEPTH)-1:0] w_ptr, r_ptr, count;
-    reg [BUFFER_WIDTH-1:0] fifo[BUFFER_DEPTH-1:0];
+    reg [$clog2(BUFFER_DEPTH):0] count;
+    reg [$clog2(BUFFER_DEPTH)-1:0] w_ptr, r_ptr;
+    reg [BUFFER_WIDTH-1:0] fifo[BUFFER_DEPTH:0];
     
     localparam read_depth = $floor(OUTPUT_SIZE/BUFFER_WIDTH);
         
@@ -50,42 +51,45 @@ module fifo_buffer#(
           count <= 0;
           
         end else begin
-          case({w_en,r_en})
-            2'b00, 2'b11: count <= count;
-            2'b01: count <= count - read_depth;
-            2'b10: count <= count + 1'b1;
+          case({w_en,r_en, full})
+            3'b000, 3'b110, 3'b101, 3'b111, 3'b001: count <= count;
+            3'b010,3'b011: count <= count - read_depth;
+            3'b100: count <= count + 1'b1;
           endcase
         end
     end
     
     
-  // To write data to FIFO
-  always@(posedge clk) begin
-    if(w_en & !full)begin
-      fifo[w_ptr] <= data_in;
-      w_ptr <= w_ptr + 1;
-    end
-  end
-  
-  // To read data from FIFO
-  // 
+      // To write data to FIFO
+      always@(posedge clk) begin
+        if(w_en & !full)begin
+          fifo[w_ptr] <= data_in;
+          w_ptr <= w_ptr + 1;
+        end
+      end
+      
+      // To read data from FIFO
+      // 
       integer i;
 
-  always@(posedge clk) begin
+    always@(posedge clk) begin
   
-    if(r_en & !empty ) begin
+        if(r_en & !empty & allow_read) begin
+        
+            for(i=0; i < read_depth; i = i+1) begin
+                data_out[BUFFER_WIDTH*i +: BUFFER_WIDTH] <= fifo[r_ptr + i];
+                fifo[r_ptr + i] <= 1'b0;
+            end
     
-        for(i=0; i < read_depth; i = i+1) begin
-            data_out[BUFFER_WIDTH*i +: BUFFER_WIDTH] <= fifo[r_ptr + i];
+            r_ptr <= r_ptr + read_depth;
+          
         end
-
-        r_ptr <= r_ptr + read_depth;
-      
-    end
     
-  end
+    
+    end
   
-  assign full = (count == BUFFER_DEPTH);
-  assign empty = (count == 0);
+    assign full = (count == BUFFER_DEPTH);
+    assign empty = (count == 0);
+    assign allow_read = (count >= read_depth);
     
 endmodule
