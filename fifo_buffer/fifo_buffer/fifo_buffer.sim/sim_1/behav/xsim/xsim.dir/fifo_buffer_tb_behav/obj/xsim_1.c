@@ -83,12 +83,13 @@ IKI_DLLESPEC extern void transaction_12(char*, char*, unsigned, unsigned, unsign
 IKI_DLLESPEC extern void transaction_13(char*, char*, unsigned, unsigned, unsigned);
 IKI_DLLESPEC extern void transaction_14(char*, char*, unsigned, unsigned, unsigned);
 IKI_DLLESPEC extern void transaction_15(char*, char*, unsigned, unsigned, unsigned);
-funcp funcTab[29] = {(funcp)execute_6, (funcp)execute_7, (funcp)execute_13, (funcp)execute_22, (funcp)execute_3, (funcp)execute_4, (funcp)execute_5, (funcp)execute_19, (funcp)execute_20, (funcp)execute_21, (funcp)execute_15, (funcp)execute_16, (funcp)execute_17, (funcp)execute_18, (funcp)execute_23, (funcp)execute_24, (funcp)execute_25, (funcp)execute_26, (funcp)execute_27, (funcp)execute_28, (funcp)vlog_transfunc_eventcallback, (funcp)transaction_0, (funcp)transaction_9, (funcp)transaction_10, (funcp)transaction_11, (funcp)transaction_12, (funcp)transaction_13, (funcp)transaction_14, (funcp)transaction_15};
-const int NumRelocateId= 29;
+IKI_DLLESPEC extern void transaction_16(char*, char*, unsigned, unsigned, unsigned);
+funcp funcTab[30] = {(funcp)execute_6, (funcp)execute_7, (funcp)execute_13, (funcp)execute_22, (funcp)execute_3, (funcp)execute_4, (funcp)execute_5, (funcp)execute_19, (funcp)execute_20, (funcp)execute_21, (funcp)execute_15, (funcp)execute_16, (funcp)execute_17, (funcp)execute_18, (funcp)execute_23, (funcp)execute_24, (funcp)execute_25, (funcp)execute_26, (funcp)execute_27, (funcp)execute_28, (funcp)vlog_transfunc_eventcallback, (funcp)transaction_0, (funcp)transaction_9, (funcp)transaction_10, (funcp)transaction_11, (funcp)transaction_12, (funcp)transaction_13, (funcp)transaction_14, (funcp)transaction_15, (funcp)transaction_16};
+const int NumRelocateId= 30;
 
 void relocate(char *dp)
 {
-	iki_relocate(dp, "xsim.dir/fifo_buffer_tb_behav/xsim.reloc",  (void **)funcTab, 29);
+	iki_relocate(dp, "xsim.dir/fifo_buffer_tb_behav/xsim.reloc",  (void **)funcTab, 30);
 
 	/*Populate the transaction function pointer field in the whole net structure */
 }

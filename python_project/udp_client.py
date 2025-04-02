@@ -4,7 +4,7 @@ import socket
 import sys
 # data = " ".join(sys.argv[1:])
 
-HOST, PORT = "localhost", 9999
+HOST, PORT = "192.168.1.10", 9999
 
 f = open("imageClient.jpeg", "rb")
 data = f.read()

@@ -11,11 +11,11 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
 
         print(data)
         
-        socket.sendto(data, self.client_address)
+        # socket.sendto(data, self.client_address)
 
 if __name__ == "__main__":
 
-    HOST, PORT = "localhost", 9999
+    HOST, PORT = "169.254.113.239", 9000
 
     data = b''
 

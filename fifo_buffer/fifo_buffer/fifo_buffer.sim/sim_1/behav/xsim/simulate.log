@@ -1,0 +1,8 @@
+Time resolution is 1 ps
+Push In: w_en=1, r_en=0, data_in=0
+Push In: w_en=1, r_en=0, data_in=1
+Push In: w_en=1, r_en=0, data_in=1
+Push In: w_en=1, r_en=0, data_in=3
+Pop Out: w_en=0, r_en=1, data_out=1
+Pop Out: w_en=0, r_en=1, data_out=7
+$finish called at time : 163 ns : File "C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sim_1/new/fifo_buffer_tb.v" Line 42

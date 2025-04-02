@@ -1,5 +1,5 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jesperp/Documents/BEP/github_project/receiver/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/new/fifo_buffer.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/new/fifo_buffer.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fifo_buffer
-WARNING: [VRFC 10-9024] illegal argument of type reg [packed dim count:1] in math function 'floor()'; expected real type [/home/jesperp/Documents/BEP/github_project/receiver/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/new/fifo_buffer.v:42]
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jesperp/Documents/BEP/github_project/receiver/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sim_1/new/fifo_buffer_tb.v" into library xil_defaultlib
+WARNING: [VRFC 10-9024] illegal argument of type reg [packed dim count:1] in math function 'floor()'; expected real type [C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/new/fifo_buffer.v:42]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sim_1/new/fifo_buffer_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fifo_buffer_tb

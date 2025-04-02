@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module fifo_buffer_tb#(
-        parameter BUFFER_DEPTH = 32'd64, BUFFER_WIDTH = 32'd2, OUTPUT_SIZE = 32'd32
+        parameter BUFFER_DEPTH = 32'd64, BUFFER_WIDTH = 32'd2, OUTPUT_SIZE = 32'd4
     )(
        output reg clk, rst, w_en, r_en,
        reg [BUFFER_WIDTH-1:0] data_in,
@@ -31,6 +31,9 @@ module fifo_buffer_tb#(
         clk = 0; rst = 1;
         w_en = 0; r_en = 0;
         #3 rst = 0;
+        
+//        cont();
+        
 //        drive(20);
         drive(150);
 //        push10();
@@ -38,6 +41,20 @@ module fifo_buffer_tb#(
         #4
         $finish;
       end
+      
+//      task cont();
+//      begin
+//        //make task that continually (pseudo) pushes data in
+//        repeat(OUTPUT_SIZE*10) begin @(posedge clk) push(); end
+//        w_en = 0;
+//      end
+//      endtask
+//      always @(posedge allow_read) begin
+//        @(posedge clk) begin
+//            pop();
+//        end
+//        r_en <= 0;
+//      end
       
       task push10();
       begin

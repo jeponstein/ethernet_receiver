@@ -21,7 +21,7 @@
 
 
 module fifo_buffer#(
-    parameter BUFFER_DEPTH = 32'd32, BUFFER_WIDTH = 32'd4, OUTPUT_SIZE = 32'd4
+    parameter BUFFER_DEPTH = 32'd32, BUFFER_WIDTH = 32'd2, OUTPUT_SIZE = 32'd4
     // depth dictates amount of slots in buffer, should be 2^k, where k is integer
     // the buffer width should be input size -> each write means one row is filled
     // output size is the amount of bits that is read at once. should be a multiple of the buffer width
@@ -71,14 +71,15 @@ module fifo_buffer#(
       // To read data from FIFO
       // 
       integer i;
-
+     integer ptr;
     always@(posedge clk) begin
   
         if(r_en & !empty & allow_read) begin
         
             for(i=0; i < read_depth; i = i+1) begin
-                data_out[BUFFER_WIDTH*i +: BUFFER_WIDTH] <= fifo[r_ptr + i];
-                fifo[r_ptr + i] <= 1'b0;
+                ptr = r_ptr +read_depth - 1 -i;
+                data_out[BUFFER_WIDTH*i +: BUFFER_WIDTH] <= fifo[ptr];
+                fifo[ptr] <= 1'b0;
             end
     
             r_ptr <= r_ptr + read_depth;

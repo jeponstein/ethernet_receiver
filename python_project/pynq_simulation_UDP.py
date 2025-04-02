@@ -22,6 +22,8 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
 
         track_amount_received =+ 1
 
+        
+
         if track_amount_received > 100:
             start_pynq_client(b"100 packets received")
             track_amount_received = 0

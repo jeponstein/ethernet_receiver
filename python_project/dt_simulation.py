@@ -21,27 +21,19 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
         print(f"{self.client_address[0]} wrote:")
 
         print(data)
-        # time.sleep(1)
-        start_dt_client(data)
-
-
-
-
+        time.sleep(1)
+        # start_dt_client(data)
 
 def start_dt_client(data):
     PYNQ_HOST, PYNQ_PORT = "localhost", 9997
-
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     while True:
         sock.sendto( data , (PYNQ_HOST, PYNQ_PORT) )
-
-
 
 if __name__ =="__main__":
 
     t1 = threading.Thread(target=start_dt_client, args=(b'message',) )
     t2 = threading.Thread(target=start_dt_server)
-
 
     t1.start()
     t2.start()
@@ -50,4 +42,3 @@ if __name__ =="__main__":
     t2.join()
 
     print(" exiting main function")
-
