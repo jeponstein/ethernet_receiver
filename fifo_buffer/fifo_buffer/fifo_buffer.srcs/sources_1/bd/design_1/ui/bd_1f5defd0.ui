@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.565079",
-   "Default View_TopLeft":"-120,-398",
+   "Default View_TopLeft":"-120,-588",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
@@ -9,7 +9,7 @@ preplace port DDR -pg 1 -lvl 5 -x 1570 -y -50 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -lvl 5 -x 1570 -y -20 -defaultsOSRD
 preplace port mdio_rtl -pg 1 -lvl 5 -x 1570 -y 80 -defaultsOSRD
 preplace port gmii_rtl -pg 1 -lvl 5 -x 1570 -y 50 -defaultsOSRD
-preplace port port-id_sys_clock -pg 1 -lvl 0 -x -20 -y 80 -defaultsOSRD
+preplace port port-id_sys_clock -pg 1 -lvl 0 -x -30 -y 80 -defaultsOSRD
 preplace portBus reset_rtl -pg 1 -lvl 5 -x 1570 -y 20 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 2 -x 570 -y 10 -defaultsOSRD
 preplace inst rst_ps7_0_100M -pg 1 -lvl 3 -x 1000 -y -70 -defaultsOSRD
@@ -17,28 +17,28 @@ preplace inst axi_ethernet_0 -pg 1 -lvl 1 -x 210 -y -170 -defaultsOSRD
 preplace inst axi_ethernet_0_fifo -pg 1 -lvl 3 -x 1000 -y -260 -defaultsOSRD
 preplace inst axi_ethernet_0_refclk -pg 1 -lvl 1 -x 210 -y 80 -defaultsOSRD
 preplace inst axi_smc -pg 1 -lvl 4 -x 1410 -y -350 -defaultsOSRD
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 80 0 380 -100 810 40 1270
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 1 770 -90n
-preplace netloc axi_ethernet_0_fifo_mm2s_prmry_reset_out_n 1 0 4 10 190 NJ 190 NJ 190 1200
-preplace netloc axi_ethernet_0_fifo_mm2s_cntrl_reset_out_n 1 0 4 40 180 NJ 180 NJ 180 1170
-preplace netloc axi_ethernet_0_fifo_s2mm_prmry_reset_out_n 1 0 4 0 -420 NJ -420 NJ -420 1190
-preplace netloc axi_ethernet_0_refclk_clk_out1 1 0 2 50 -340 340
-preplace netloc axi_ethernet_0_refclk_clk_out2 1 0 2 20 -350 350
-preplace netloc axi_ethernet_0_phy_rst_n 1 1 4 NJ -110 780J 60 1280J 20 NJ
-preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 0 4 30 -360 NJ -360 820 -410 1220
+preplace netloc axi_ethernet_0_fifo_mm2s_cntrl_reset_out_n 1 0 4 30 180 NJ 180 NJ 180 1170
+preplace netloc axi_ethernet_0_fifo_mm2s_prmry_reset_out_n 1 0 4 0 190 NJ 190 NJ 190 1200
+preplace netloc axi_ethernet_0_fifo_s2mm_prmry_reset_out_n 1 0 4 -10 -420 NJ -420 NJ -420 1190
+preplace netloc axi_ethernet_0_phy_rst_n 1 1 4 NJ -110 770J 60 1280J 20 NJ
+preplace netloc axi_ethernet_0_refclk_clk_out1 1 0 2 40 -340 350
+preplace netloc axi_ethernet_0_refclk_clk_out2 1 0 2 10 -350 360
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 70 0 390 -100 810 40 1270
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 1 760 -90n
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 0 4 20 -360 NJ -360 820 -410 1220
 preplace netloc sys_clock_1 1 0 1 N 80
-preplace netloc processing_system7_0_DDR 1 2 3 760J -390 1260 -50 N
-preplace netloc processing_system7_0_FIXED_IO 1 2 3 790J -380 1230 -20 N
-preplace netloc axi_ethernet_0_fifo_AXI_STR_TXD 1 0 4 60 170 NJ 170 NJ 170 1210
-preplace netloc axi_ethernet_0_fifo_AXI_STR_TXC 1 0 4 70 160 NJ 160 NJ 160 1180
-preplace netloc axi_ethernet_0_m_axis_rxd 1 1 2 370 -270 NJ
-preplace netloc axi_ethernet_0_mdio 1 1 4 360 120 830J 80 NJ 80 NJ
-preplace netloc axi_ethernet_0_gmii 1 1 4 370 -120 800J 50 NJ 50 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 2 2 790J 30 1250J
-preplace netloc axi_smc_M00_AXI 1 0 5 80 -400 NJ -400 NJ -400 1280J -270 1550
+preplace netloc axi_ethernet_0_fifo_AXI_STR_TXC 1 0 4 60 160 NJ 160 NJ 160 1180
+preplace netloc axi_ethernet_0_fifo_AXI_STR_TXD 1 0 4 50 170 NJ 170 NJ 170 1210
+preplace netloc axi_ethernet_0_gmii 1 1 4 380 -120 790J 50 NJ 50 NJ
+preplace netloc axi_ethernet_0_m_axis_rxd 1 1 2 380 -270 NJ
+preplace netloc axi_ethernet_0_mdio 1 1 4 370 120 820J 80 NJ 80 NJ
+preplace netloc axi_smc_M00_AXI 1 0 5 70 -400 NJ -400 NJ -400 1280J -270 1550
 preplace netloc axi_smc_M01_AXI 1 2 3 830 -370 1240J -260 1540
-levelinfo -pg 1 -20 210 570 1000 1410 1570
-pagesize -pg 1 -db -bbox -sgen -130 -430 1700 470
+preplace netloc processing_system7_0_DDR 1 2 3 750J -390 1260 -50 N
+preplace netloc processing_system7_0_FIXED_IO 1 2 3 780J -380 1230 -20 N
+preplace netloc processing_system7_0_M_AXI_GP0 1 2 2 780J 30 1250J
+levelinfo -pg 1 -30 210 570 1000 1410 1570
+pagesize -pg 1 -db -bbox -sgen -150 -430 1720 470
 "
 }
 {
