@@ -208,7 +208,7 @@
 	      slv_reg0 <= 0;
 //	      slv_reg1 <= 0;
 	      slv_reg2 <= 0;
-	      slv_reg3 <= 0;
+//	      slv_reg3 <= 0;
 	    end 
 	  else begin
 	    if (S_AXI_WVALID)
@@ -235,18 +235,18 @@
 	                // Slave register 2
 	                slv_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
 	              end  
-	          2'h3:
-	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
-	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-	                // Respective byte enables are asserted as per write strobes 
-	                // Slave register 3
-	                slv_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-	              end  
+//	          2'h3:
+//	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+//	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+//	                // Respective byte enables are asserted as per write strobes 
+//	                // Slave register 3
+//	                slv_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+//	              end  
 	          default : begin
 	                      slv_reg0 <= slv_reg0;
 //	                      slv_reg1 <= slv_reg1;
 	                      slv_reg2 <= slv_reg2;
-	                      slv_reg3 <= slv_reg3;
+//	                      slv_reg3 <= slv_reg3;
 	                    end
 	        endcase
 	      end
@@ -310,15 +310,19 @@
 	  if ( S_AXI_ARESETN == 1'b0 )
 	  begin
 		slv_reg1 <= 0;
+		slv_reg3 <= 0;
 	  end 
 	  else
 	  begin
-	    slv_reg1 <= data_to_slvreg;
+	    slv_reg1 <= data_to_slvreg1;
+	    slv_reg3 <= data_to_slvreg3;
 	  end
     end
 	
 	wire enable_spitter;
-	wire [31:0] data_to_slvreg;
+	wire [31:0] data_to_slvreg1;
+	wire [31:0] data_to_slvreg3;
+	wire [31:0] spitter_data;
 	
 	fifo_buffer #(
         .BUFFER_DEPTH(32'd32),
@@ -327,20 +331,20 @@
         
         .clk(S_AXI_ACLK),
         .rst(!S_AXI_ARESETN),
-        .w_en(slv_reg2[0]), 
-        .r_en(slv_reg2[1]),
-        .data_in(slv_reg0),
-        .data_out(data_to_slvreg), // slv_reg1
-        .full(slv_reg2[2]),
-        .empty(slv_reg2[3]),
-        .allow_read(slv_reg2[4])    
+        .w_en(slv_reg2[0]),  // ouput into fifo
+        .r_en(slv_reg2[1]),  // ouput into axi
+        .data_in(spitter_data),
+        .data_out(data_to_slvreg1), // slv_reg1
+        .full(data_to_slvreg3[0]),  // input into axi
+        .empty(data_to_slvreg3[1]), // input into axi
+        .allow_read(data_to_slvreg3[2])    // input into axi
     );
     
     spitter spitter_inst(
         .clk(S_AXI_ACLK),
         .rst(!S_AXI_ARESETN),
         .enable(enable_spitter),
-        .data(slv_reg0)
+        .data(spitter_data)
     );
 
 	// User logic ends
