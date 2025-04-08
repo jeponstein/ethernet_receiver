@@ -21,8 +21,8 @@
 
 
 module spitter(
-        input clk, rst,
-        output reg [7:0] data
+        input clk, enable, rst,
+        output reg [31:0] data
     );
     
     reg [7:0] counter = 8'd0;
@@ -31,10 +31,15 @@ module spitter(
     
         if (rst) begin
             counter <= 8'd0;
-            data <= 0;
-        end else begin
+            data <= 32'd0;
+        end if (enable) begin
             counter <= counter + 8'd1;
-            data <= counter + 8'd1;
+            
+            data[7:0] <= counter + 8'd1;
+            data[15:8] <= counter + 8'd1;
+            data[23:16] <= counter + 8'd1;
+            data[31:24] <= counter + 8'd1;
+
         end
         
     end

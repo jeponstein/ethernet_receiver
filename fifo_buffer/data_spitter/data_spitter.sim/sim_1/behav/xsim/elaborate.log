@@ -7,6 +7,7 @@ WARNING: [XSIM 43-3431] One or more environment variables have been detected whi
 Starting static elaboration
 Pass Through NonSizing Optimizer
 WARNING: [VRFC 10-3129] assignment to input 'data' [C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/data_spitter/data_spitter.srcs/sim_1/new/spitter_tb.v:11]
+WARNING: [VRFC 10-5021] port 'enable' is not connected on this instance [C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/data_spitter/data_spitter.srcs/sim_1/new/spitter_tb.v:8]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
