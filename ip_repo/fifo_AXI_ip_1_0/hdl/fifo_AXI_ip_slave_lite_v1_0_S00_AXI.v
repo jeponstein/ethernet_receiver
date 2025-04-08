@@ -15,6 +15,7 @@
 	)
 	(
 		// Users to add ports here
+        input wire enable_spitter,
 
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -205,7 +206,7 @@
 	  if ( S_AXI_ARESETN == 1'b0 )
 	    begin
 	      slv_reg0 <= 0;
-	      slv_reg1 <= 0;
+//	      slv_reg1 <= 0;
 	      slv_reg2 <= 0;
 	      slv_reg3 <= 0;
 	    end 
@@ -220,13 +221,13 @@
 	                // Slave register 0
 	                slv_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
 	              end  
-	          2'h1:
-	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
-	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-	                // Respective byte enables are asserted as per write strobes 
-	                // Slave register 1
-	                slv_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-	              end  
+//	          2'h1:
+//	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+//	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+//	                // Respective byte enables are asserted as per write strobes 
+//	                // Slave register 1
+//	                slv_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+//	              end  
 	          2'h2:
 	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
 	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
@@ -243,7 +244,7 @@
 	              end  
 	          default : begin
 	                      slv_reg0 <= slv_reg0;
-	                      slv_reg1 <= slv_reg1;
+//	                      slv_reg1 <= slv_reg1;
 	                      slv_reg2 <= slv_reg2;
 	                      slv_reg3 <= slv_reg3;
 	                    end
@@ -300,8 +301,47 @@
 	          end                                       
 	        end                                         
 	// Implement memory mapped register select and read logic generation
-	  assign S_AXI_RDATA = (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h0) ? slv_reg0 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h1) ? slv_reg1 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h2) ? slv_reg2 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h3) ? slv_reg3 : 0; 
+	  assign S_AXI_RDATA = (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h0) ? slv_reg0 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h1) ? slv_reg2 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h3) ? slv_reg3 : 0; 
+//      assign S_AXI_RDATA = (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h0) ? slv_reg0 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h1) ? slv_reg1 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h2) ? slv_reg2 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h3) ? slv_reg3 : 0; 
+
 	// Add user logic here
+	always @( posedge S_AXI_ACLK )
+	begin 
+	  if ( S_AXI_ARESETN == 1'b0 )
+	  begin
+		slv_reg1 <= 0;
+	  end 
+	  else
+	  begin
+	    slv_reg1 <= data_to_slvreg;
+	  end
+    end
+	
+	wire enable_spitter;
+	wire [31:0] data_to_slvreg;
+	
+	fifo_buffer #(
+        .BUFFER_DEPTH(32'd32),
+        .BUFFER_WIDTH(32'd2),
+        .OUTPUT_SIZE(32'd4)) fifo_buffer_inst(
+        
+        .clk(S_AXI_ACLK),
+        .rst(!S_AXI_ARESETN),
+        .w_en(slv_reg2[0]), 
+        .r_en(slv_reg2[1]),
+        .data_in(slv_reg0),
+        .data_out(data_to_slvreg), // slv_reg1
+        .full(slv_reg2[2]),
+        .empty(slv_reg2[3]),
+        .allow_read(slv_reg2[4])    
+    );
+    
+    spitter spitter_inst(
+        .clk(S_AXI_ACLK),
+        .rst(!S_AXI_ARESETN),
+        .enable(enable_spitter),
+        .data(slv_reg0)
+    );
 
 	// User logic ends
 
