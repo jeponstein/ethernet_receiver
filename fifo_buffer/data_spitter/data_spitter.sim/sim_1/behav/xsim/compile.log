@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/data_spitter/data_spitter.srcs/sim_1/new/spitter_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spitter_tb
+ERROR: [VRFC 10-4982] syntax error near 'spitter' [C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/data_spitter/data_spitter.srcs/sim_1/new/spitter_tb.v:31]
+ERROR: [VRFC 10-4982] syntax error near '=' [C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/data_spitter/data_spitter.srcs/sim_1/new/spitter_tb.v:56]
+ERROR: [VRFC 10-1280] procedural assignment to a non-register clk is not permitted, left-hand side should be reg/integer/time/genvar [C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/data_spitter/data_spitter.srcs/sim_1/new/spitter_tb.v:39]
+ERROR: [VRFC 10-2969] 'rst' is not a type [C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/data_spitter/data_spitter.srcs/sim_1/new/spitter_tb.v:56]
+ERROR: [VRFC 10-2969] 'clk' is not a type [C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/data_spitter/data_spitter.srcs/sim_1/new/spitter_tb.v:57]
+ERROR: [VRFC 10-8530] module 'spitter_tb' is ignored due to previous errors [C:/Users/20223108/Documents/github/ethernet_receiver/fifo_buffer/data_spitter/data_spitter.srcs/sim_1/new/spitter_tb.v:23]

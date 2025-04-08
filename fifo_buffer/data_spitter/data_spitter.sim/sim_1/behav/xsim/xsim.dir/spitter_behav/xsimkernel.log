@@ -1,0 +1,7 @@
+Running: xsim.dir/spitter_behav/xsimk.exe -simmode gui -wdb spitter_behav.wdb -simrunnum 0 -socket 55552
+Design successfully loaded
+Design Loading Memory Usage: 26444 KB (Peak: 26444 KB)
+Design Loading CPU Usage: 999 ms
+Simulation completed
+Simulation Memory Usage: 27132 KB (Peak: 27132 KB)
+Simulation CPU Usage: 1061 ms
