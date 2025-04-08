@@ -20,30 +20,23 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module spitter#(
-        parameter SPEED = 8'd12
-    )(
+module spitter(
         input clk, rst,
-        output reg [0:0] data
+        output reg [7:0] data
     );
+    
+    reg [7:0] counter = 8'd0;
     
     always @(posedge clk) begin
     
         if (rst) begin
-        
+            counter <= 8'd0;
             data <= 0;
-        
         end else begin
-    
-            if ($random > 0) begin
-                data <= 0;
-            end else begin
-                data <= 1;
-            end     
-        
+            counter <= counter + 8'd1;
+            data <= counter + 8'd1;
         end
         
     end
-    
-    
+        
 endmodule
