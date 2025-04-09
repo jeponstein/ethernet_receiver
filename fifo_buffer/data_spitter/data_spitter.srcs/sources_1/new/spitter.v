@@ -30,7 +30,7 @@ module spitter(
     always @(posedge clk) begin
     
         if (rst) begin
-            counter <= 8'd0;
+            counter <= 8'd11;
             data <= 32'd0;
         end if (enable) begin
             counter <= counter + 8'd1;
