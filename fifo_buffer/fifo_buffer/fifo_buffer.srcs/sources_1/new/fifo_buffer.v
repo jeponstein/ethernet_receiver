@@ -28,10 +28,10 @@ module fifo_buffer#(
     // 
     )(
     
-    input clk, rst, w_en, r_en,
-    input [BUFFER_WIDTH-1:0] data_in,
+    input clk, rst, w_en, r_en, //w_en > write enable, write into the buffer. r_en > read enable, read received into buffer
+    input [BUFFER_WIDTH-1:0] data_in, 
     output reg [OUTPUT_SIZE-1:0] data_out,
-    output full, empty, allow_read
+    output full, empty, allow_read 
     
     );
     
@@ -39,8 +39,12 @@ module fifo_buffer#(
     reg [$clog2(BUFFER_DEPTH)-1:0] w_ptr, r_ptr;
     reg [BUFFER_WIDTH-1:0] fifo[BUFFER_DEPTH:0];
     
-    localparam read_depth = $floor(OUTPUT_SIZE/BUFFER_WIDTH);
+//    localparam read_depth = $floor(OUTPUT_SIZE/BUFFER_WIDTH);
+    localparam read_depth = 1;
         
+    integer i;    
+    integer ptr;
+ 
     always @(posedge clk) begin
     
         //general reset logic
@@ -57,23 +61,7 @@ module fifo_buffer#(
             3'b100: count <= count + 1'b1;
           endcase
         end
-    end
-    
-    
-      // To write data to FIFO
-      always@(posedge clk) begin
-        if(w_en & !full)begin
-          fifo[w_ptr] <= data_in;
-          w_ptr <= w_ptr + 1;
-        end
-      end
-      
-      // To read data from FIFO
-      // 
-      integer i;
-     integer ptr;
-    always@(posedge clk) begin
-  
+        
         if(r_en & !empty & allow_read) begin
         
             for(i=0; i < read_depth; i = i+1) begin
@@ -85,9 +73,18 @@ module fifo_buffer#(
             r_ptr <= r_ptr + read_depth;
           
         end
-    
-    
+        if(w_en & !full)begin
+          fifo[w_ptr] <= data_in;
+          w_ptr <= w_ptr + 1;
+        end
     end
+    
+    
+      // To write data to FIFO
+      
+      // To read data from FIFO
+      // 
+
   
     assign full = (count == BUFFER_DEPTH);
     assign empty = (count == 0);
