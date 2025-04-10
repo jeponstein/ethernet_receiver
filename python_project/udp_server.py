@@ -7,6 +7,7 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
         data = self.request[0].strip()
         socket = self.request[1]
 
+
         print(f"{self.client_address[0]} wrote:")
 
         print(data)
@@ -15,7 +16,9 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
 
 if __name__ == "__main__":
 
-    HOST, PORT = "169.254.113.239", 9000
+    # HOST, PORT = "169.254.113.239", 9000
+
+    HOST, PORT = "192.168.0.101", 9001
 
     data = b''
 
