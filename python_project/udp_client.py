@@ -1,33 +1,17 @@
-# this client will try to replicate the pynq board, as it sending packets from image files
 
 import socket
-import sys
-# data = " ".join(sys.argv[1:])
 
-HOST, PORT = "192.168.1.10", 9999
-
-f = open("imageClient.jpeg", "rb")
-data = f.read()
-# data += bytes("\n", "utf-8")
-
-datagram_size = 400
-info = [data[i:i+datagram_size] for i in range(0, len(data), datagram_size)]
+# HOST, PORT = "192.168.0.101", 9000
+HOST, PORT = "127.0.0.1", 9001
 
 
 # SOCK_DGRAM is the socket type to use for UDP sockets
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-# As you can see, there is no connect() call; UDP has no connections.
-# Instead, data is directly sent to the recipient via sendto().
-
-data = b''
+info = [b'starter', b'message1',b'message2',b'message3',b'message4', b'finish']
 
 for i in info:
     sock.sendto( i , (HOST, PORT) )
-    received = sock.recv(datagram_size+5)
-    data += received
+    print(i)
 
 
-f = open("imageReceived.jpeg", "wb")
-f.write(data)
-f.close()

@@ -1,16 +1,94 @@
-import socket
+from socket import *
+import socketserver
 
-PYNQ_HOST = "127.0.0.1"  # Standard loopback interface address (localhost)
-PYNQ_PORT = 65431       # Port to listen on (non-privileged ports are > 1023)
+####################################### DESKTOP VARIABLES       ################################################
 
-DESKTOP_HOST = " "
-DESKTOP_PORT = " "
+# interface names of interface
+interface = "enp37s0"
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+# TX MAC adresses used to send packets:
+src_addr = b'\x00\xd8\x61\x2d\x29\x41'
 
-    s.bind( (PYNQ_HOST, PYNQ_PORT) )
-    s.listen(1)
-    conn, addr = s.accept()
+# ip addres and port on which server listens
+# HOST, PORT = "192.168.0.101", 9001
+HOST, PORT = "127.0.0.1", 9001
 
+
+
+####################################### PYNQ VARIABLES          ################################################
+
+# # adress of pynq board maybe? idk
+# dst_addr = b'\x00\x0a\x35\x00\x01\x02'
+
+# # address of laptop Jesper (testing purposes)
+# dst_addr = b'\xa8\xb1\x3b\x94\xa0\xcb'
+
+
+
+####################################### DEBUGGING "MODE"        ################################################
+
+# (DEBUG:) loopback adress, uncomment when testing with pynq or other
+src_addr = b'\x00\x00\x00\x00\x00\x00'
+dst_addr = b'\x00\x00\x00\x00\x00\x00'
+interface = "lo"
+
+
+def sendPacket(data):
+    s = socket(AF_PACKET, SOCK_RAW)
+
+    s.bind( (interface, 0) )
+
+    checksum = b'\x00\x00\x00\x00'
+    ethertype = b'\x08\x01'
+
+
+    if(type(data) == str):
+        data = data.encode()
+    elif(type(data) == int):
+        data = data.to_bytes()
+
+    print(data)
+
+    s.send(dst_addr+src_addr+ethertype+data+checksum)
+
+    pass
+
+enable = 0
+received_bits = b''
+
+class MyUDPHandler(socketserver.BaseRequestHandler):
+
+    def handle(self):
+        global enable
+        global received_bits
+        data = self.request[0].strip()
+
+        print(data)
+
+        if (enable == 0):
+            if (data == b'starter'):
+                enable = 1
+                received_bits = b''
+                print("enable to 1")
+        elif(data != b'finish'):
+            print("appending to recv_bits")
+            received_bits += data
+        else:
+            enable = 0
+            print("enable back to 0")
+            print("All received bits: ")
+            print(received_bits)
+
+        
+
+
+def HandleReceiving():
+    with socketserver.UDPServer((HOST, PORT), MyUDPHandler) as receiver:
+        receiver.serve_forever()
+    
+
+if __name__ == "__main__":
+
+    HandleReceiving()
 
 
