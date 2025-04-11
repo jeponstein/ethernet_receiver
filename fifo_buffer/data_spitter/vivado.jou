@@ -29,3 +29,4 @@ source spitter_tb.tcl
 close_sim
 launch_simulation
 source spitter_tb.tcl
+close_sim

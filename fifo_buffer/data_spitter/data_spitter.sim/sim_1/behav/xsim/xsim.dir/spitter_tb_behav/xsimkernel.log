@@ -2,3 +2,6 @@ Running: xsim.dir/spitter_tb_behav/xsimk.exe -simmode gui -wdb spitter_tb_behav.
 Design successfully loaded
 Design Loading Memory Usage: 28580 KB (Peak: 28580 KB)
 Design Loading CPU Usage: 999 ms
+Simulation completed
+Simulation Memory Usage: 29516 KB (Peak: 29516 KB)
+Simulation CPU Usage: 1093 ms
