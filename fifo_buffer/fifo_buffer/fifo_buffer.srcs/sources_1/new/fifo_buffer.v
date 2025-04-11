@@ -31,7 +31,8 @@ module fifo_buffer#(
     input clk, rst, w_en, r_en, //w_en > write enable, write into the buffer. r_en > read enable, read received into buffer
     input [BUFFER_WIDTH-1:0] data_in, 
     output reg [OUTPUT_SIZE-1:0] data_out,
-    output full, empty, allow_read 
+    output full, empty,
+    output wire [3:0] allow_read 
     
     );
     
@@ -48,35 +49,41 @@ module fifo_buffer#(
     always @(posedge clk) begin
     
         //general reset logic
-        if (rst == 0) begin
+        if (rst == 1) begin
+        
           w_ptr <= 0; 
           r_ptr <= 0;
           data_out <= 0;
           count <= 0;
           
         end else begin
-          case({w_en,r_en, full})
-            3'b000, 3'b110, 3'b101, 3'b111, 3'b001: count <= count;
-            3'b010,3'b011: count <= count - read_depth;
-            3'b100: count <= count + 1'b1;
+        
+          case({w_en, r_en, full})
+            3'b000, 3'b110, 3'b001, 3'b111, 3'b101: count <= count;
+            3'b010, 3'b011: count <= count - 1;
+            3'b100: count <= count + 1;
           endcase
+          
         end
         
-        if(r_en & !empty & allow_read) begin
+        if(r_en & !empty) begin
         
-            for(i=0; i < read_depth; i = i+1) begin
-                ptr = r_ptr +read_depth - 1 -i;
-                data_out[BUFFER_WIDTH*i +: BUFFER_WIDTH] <= fifo[ptr];
-                fifo[ptr] <= 1'b0;
-            end
-    
+//            for(i=0; i < read_depth; i = i+1) begin
+//                ptr = r_ptr +read_depth - 1 -i;
+//                data_out[BUFFER_WIDTH*i +: BUFFER_WIDTH] <= fifo[ptr];
+//                fifo[ptr] <= 1'b0;
+//            end
+
+            data_out <= fifo[r_ptr];
             r_ptr <= r_ptr + read_depth;
           
         end
+        
         if(w_en & !full)begin
           fifo[w_ptr] <= data_in;
           w_ptr <= w_ptr + 1;
         end
+        
     end
     
     
@@ -88,6 +95,6 @@ module fifo_buffer#(
   
     assign full = (count == BUFFER_DEPTH);
     assign empty = (count == 0);
-    assign allow_read = (count >= read_depth);
+    assign allow_read = count;
     
 endmodule

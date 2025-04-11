@@ -13,8 +13,6 @@ src_addr = b'\x00\xd8\x61\x2d\x29\x41'
 # HOST, PORT = "192.168.0.101", 9001
 HOST, PORT = "127.0.0.1", 9001
 
-
-
 ####################################### PYNQ VARIABLES          ################################################
 
 # # adress of pynq board maybe? idk
@@ -22,8 +20,6 @@ HOST, PORT = "127.0.0.1", 9001
 
 # # address of laptop Jesper (testing purposes)
 # dst_addr = b'\xa8\xb1\x3b\x94\xa0\xcb'
-
-
 
 ####################################### DEBUGGING "MODE"        ################################################
 
