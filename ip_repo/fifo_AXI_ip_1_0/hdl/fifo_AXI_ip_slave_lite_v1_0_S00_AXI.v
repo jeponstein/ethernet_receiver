@@ -332,7 +332,7 @@
         .OUTPUT_SIZE(32'd4)) fifo_buffer_inst(
         
         .clk(S_AXI_ACLK),
-        .rst(!S_AXI_ARESETN),
+        .rst(enable_spitter),
         .w_en(slv_reg2[0]),  // ouput into fifo
         .r_en(slv_reg2[1]),  // ouput into axi
         .data_in(spitter_data),
@@ -344,7 +344,7 @@
     
     spitter spitter_inst(
         .clk(S_AXI_ACLK),
-        .rst(!S_AXI_ARESETN),
+        .rst(enable_spitter),
         .enable(enable_spitter),
         .data(spitter_data)
     );
