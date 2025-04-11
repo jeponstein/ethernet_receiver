@@ -32,7 +32,7 @@ module spitter(
         if (rst == 1) begin
             counter <= 8'd11;
             data <= 32'd11;
-        end if (enable == 1) begin
+        end else if (enable == 1) begin
             counter <= counter + 8'd1;
             
             data[7:0] <= counter + 8'd1;

@@ -55,3 +55,5 @@ update_compile_order -fileset sources_1
 add_files -norecurse -copy_to c:/Users/20212024/Github/ethernet_receiver/ip_repo/fifo_AXI_slavemaster_1_0/src {C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/data_spitter/data_spitter.srcs/sources_1/new/spitter.v C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/new/fifo_buffer.v}
 update_compile_order -fileset sources_1
 close_project
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Apr 11 10:51:49 2025...
