@@ -17,7 +17,7 @@
 		// Users to add ports here
         input wire [0:1] switches,
         input wire [0:3] buttons,
-        output reg [0:3] leds,
+        output wire [0:3] leds,
 
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -331,6 +331,9 @@
 	wire [31:0] data_out_buffer;
 	wire [31:0] metadata_buffer;
 	wire [31:0] spitter_data;
+	reg [3:0] ledreg;
+	
+	assign leds = ledreg;
 	
 	fifo_buffer #(
         .BUFFER_DEPTH(32'd32),

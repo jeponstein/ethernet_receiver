@@ -17,7 +17,7 @@
 		// Users to add ports here
         input wire [0:1] switches,
         input wire [0:3] buttons,
-        output reg [0:3] leds,
+        output wire [0:3] leds,
 		// User ports ends
 		// Do not modify the ports beyond this line
 

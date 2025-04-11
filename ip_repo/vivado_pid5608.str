@@ -504,3 +504,82 @@ selectMenuItem(PAResourceOtoP.PortAndInterfaceFacetTable_CREATE_INTERFACE_DEFINI
 selectButton(RDIResource.BaseDialog_CANCEL, "Cancel", "Create Interface Definition"); // a (RDIResource.BaseDialog_CANCEL)
 dismissDialog("Create Interface Definition"); // ad (dialog7)
 // [GUI Memory]: 207 MB (+1694kb) [00:56:51]
+// HMemoryUtils.trashcanNow. Engine heap size: 828 MB. GUI used memory: 111 MB. Current time: 4/11/25, 4:46:54 PM CEST
+// Elapsed time: 592 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 808, 208); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 51 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 383, 181); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 133, 342); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 181, 335); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 117, 333); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 117, 333, false, false, false, false, true); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v) - Double Click
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 338, 190); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 298, 251); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 10 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 334, 282); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 325, 216); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 01h:05m:41s
+// Elapsed time: 29 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_buffer.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 01h:05m:43s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_AXI_ip.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("fifo_AXI_ip.v", 117, 330); // ae (fifo_AXI_ip.v)
+selectCodeEditor("fifo_AXI_ip.v", 117, 330, false, false, false, false, true); // ae (fifo_AXI_ip.v) - Double Click
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 01h:05m:49s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 01h:05m:51s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Package IP - fifo_AXI_ip", 5); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "File Groups", 2); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+selectButton(PAResourceItoN.MessageBanner_CHANGES_DETECTED_IN_VIVADO_PROJECT_THAT, "Merge changes from File Groups Wizard"); // h (PAResourceItoN.MessageBanner_CHANGES_DETECTED_IN_VIVADO_PROJECT_THAT)
+// TclEventType: PACKAGER_COMPONENT_RESET
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: ipx::merge_project_changes files [ipx::current_core] 
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "Customization Parameters", 3); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+selectButton(PAResourceItoN.MessageBanner_CHANGES_DETECTED_IN_VIVADO_PROJECT_THAT, "Merge changes from Customization Parameters Wizard"); // h (PAResourceItoN.MessageBanner_CHANGES_DETECTED_IN_VIVADO_PROJECT_THAT)
+// TclEventType: PACKAGER_COMPONENT_RESET
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: ipx::merge_project_changes hdl_parameters [ipx::current_core] 
+// Tcl Message: INFO: [IP_Flow 19-3166] Bus Interface 'S00_AXI': References existing memory map 'S00_AXI'. 
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "File Groups", 2); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+selectButton(PAResourceOtoP.PackagerStepContentPanel_MESSAGES, "5"); // h (PAResourceOtoP.PackagerStepContentPanel_MESSAGES)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "Review and Package", 7); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+selectButton(PAResourceItoN.MessageBanner_CHANGES_DETECTED_IN_IP_THAT_REQUIRE, "IP has been modified."); // h (PAResourceItoN.MessageBanner_CHANGES_DETECTED_IN_IP_THAT_REQUIRE)
+// Tcl Message: ipx::update_checksums [ipx::current_core] 
+// Tcl Message: ipx::save_core [ipx::current_core] 
+// TclEventType: FILE_SET_CHANGE
+selectButton(PAResourceQtoS.ReviewContentPanel_RE_PACKAGE_IP, "Re-Package IP"); // a (PAResourceQtoS.ReviewContentPanel_RE_PACKAGE_IP)
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: set_property core_revision 19 [ipx::current_core] 
+// Tcl Message: ipx::create_xgui_files [ipx::current_core] 
+// Tcl Message: ipx::update_checksums [ipx::current_core] 
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: ipx::check_integrity [ipx::current_core] 
+// Tcl Message: INFO: [IP_Flow 19-2181] Payment is not required for this core. 
+// Tcl Message: INFO: [Ipptcl 7-1486] check_integrity: Integrity check passed. 
+// Tcl Message: ipx::save_core [ipx::current_core] 
+// TclEventType: CREATE_IP_CATALOG
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: CREATE_IP_CATALOG
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: update_ip_catalog -rebuild -repo_path c:/Users/20212024/Github/ethernet_receiver/ip_repo/fifo_AXI_ip_1_0 
+// Tcl Message: INFO: [IP_Flow 19-725] Reloaded user IP repository 'c:/Users/20212024/Github/ethernet_receiver/ip_repo/fifo_AXI_ip_1_0' 
+// TclEventType: FILE_SET_CHANGE
+selectButton("OptionPane.button", "OK", "Package IP"); // JButton (OptionPane.button)
