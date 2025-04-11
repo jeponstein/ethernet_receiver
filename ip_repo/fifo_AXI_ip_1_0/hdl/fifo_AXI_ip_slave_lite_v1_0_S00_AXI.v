@@ -15,7 +15,9 @@
 	)
 	(
 		// Users to add ports here
-        input wire enable_spitter,
+        input wire [0:1] switches,
+        input wire [0:3] buttons,
+        output reg [0:3] leds,
 
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -307,23 +309,27 @@
 	// Add user logic here
 	always @( posedge S_AXI_ACLK )
 	begin 
-	  if ( S_AXI_ARESETN == 1'b0 )
-	  begin
-		slv_reg0 <= 0; // slv_reg0 and slv_reg1 have been swapped purpose
-		slv_reg1 <= 0;
-		slv_reg3 <= 0;
-	  end 
-	  else
-	  begin
-	    slv_reg0 <= data_to_slvreg1;
-	    slv_reg1 <= spitter_data;
-	    slv_reg3 <= data_to_slvreg3;
+//	  if ( S_AXI_ARESETN == 1'b0 ) // Adding a reset does not make sense
+//	  begin
+//		slv_reg0 <= 0; // slv_reg0 and slv_reg1 have been swapped purpose
+//		slv_reg1 <= 0;
+//		slv_reg3 <= 0;
+//	  end 
+//	  else
+//	  begin
+        if (switches[0]) begin
+            slv_reg0 <= data_out_buffer;
+            slv_reg3 <= spitter_data;
+    //	    slv_reg3 <= metadata_buffer;
+        end else begin
+            slv_reg0 <= spitter_data;
+            slv_reg3 <= data_out_buffer;
 	  end
     end
 	
 	wire enable_spitter;
-	wire [31:0] data_to_slvreg1;
-	wire [31:0] data_to_slvreg3;
+	wire [31:0] data_out_buffer;
+	wire [31:0] metadata_buffer;
 	wire [31:0] spitter_data;
 	
 	fifo_buffer #(
@@ -332,20 +338,20 @@
         .OUTPUT_SIZE(32'd4)) fifo_buffer_inst(
         
         .clk(S_AXI_ACLK),
-        .rst(enable_spitter),
+        .rst(buttons[0]),
         .w_en(slv_reg2[0]),  // ouput into fifo
         .r_en(slv_reg2[1]),  // ouput into axi
         .data_in(spitter_data),
-        .data_out(data_to_slvreg1), // slv_reg1
-        .full(data_to_slvreg3[0]),  // input into axi
-        .empty(data_to_slvreg3[1]), // input into axi
-        .allow_read(data_to_slvreg3[2])    // input into axi
+        .data_out(data_out_buffer), // slv_reg1
+        .full(leds[0]),  // input into axi
+        .empty(leds[1]), // input into axi
+        .allow_read(leds[2])    // input into axi
     );
     
     spitter spitter_inst(
         .clk(S_AXI_ACLK),
-        .rst(enable_spitter),
-        .enable(enable_spitter),
+        .rst(buttons[0]),
+        .enable(switches[1]),
         .data(spitter_data)
     );
 

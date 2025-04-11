@@ -15,7 +15,9 @@
 	)
 	(
 		// Users to add ports here
-        input wire enable_spitter,
+        input wire [0:1] switches,
+        input wire [0:3] buttons,
+        output reg [0:3] leds,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -69,7 +71,9 @@
 		.S_AXI_RRESP(s00_axi_rresp),
 		.S_AXI_RVALID(s00_axi_rvalid),
 		.S_AXI_RREADY(s00_axi_rready),
-		.enable_spitter(enable_spitter)
+		.switches(switches),
+		.buttons(buttons),
+		.leds(leds)
 	);
 
 	// Add user logic here
