@@ -1,0 +1,432 @@
+/*
+
+AMD Vivado v2024.2 (64-bit) [Major: 2024, Minor: 2]
+SW Build: 5239630 on Fri Nov 08 22:35:27 MST 2024
+IP Build: 5239520 on Sun Nov 10 16:12:51 MST 2024
+IP Build: 5239520 on Sun Nov 10 16:12:51 MST 2024
+
+Process ID (PID): 8316
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Fri Apr 11 10:06:08 CEST 2025
+Time zone: 	Central European Standard Time (Europe/Amsterdam)
+
+OS: Windows 11
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 12
+
+Screen size: 1920x1080
+Local screen bounds: x = 0, y = 0, width = 1920, height = 1080
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+OS font scaling: 100%
+Anti-Alias Enabled: false
+
+Java version: 	21.0.1 64-bit
+
+Java home: 	C:/Xilinx/Vivado/2024.2/tps/win64/jre21.0.1_12
+Java executable: 	C:/Xilinx/Vivado/2024.2/tps/win64/jre21.0.1_12/bin/java.exe
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.d3d=false, -Dsun.awt.nopixfmt=true, -Dsun.java2d.dpiaware=true, -Dsun.java2d.uiScale.enabled=false, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, -XX:+UseStringDeduplication, -XX:MaxGCPauseMillis=200, -XX:ParallelGCThreads=4, -XX:+ParallelRefProcEnabled, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, -XX:NewSize=80m, -XX:MaxNewSize=80m, -Xms512m, -Xmx4072m, -Xss10m]
+Java initial memory (-Xms): 	512 MB
+Java maximum memory (-Xmx):	 3 GB
+
+User name: 	20212024
+User home directory: C:/Users/20212024
+User working directory: C:/Users/20212024/Github/ethernet_receiver/ip_repo
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2024.2
+RDI_DATADIR: C:/Xilinx/Vivado/2024.2/data
+RDI_BINDIR: C:/Xilinx/Vivado/2024.2/bin
+
+Vivado preferences file: C:/Users/20212024/AppData/Roaming/Xilinx/Vivado/2024.2/vivado.xml
+Vivado preferences directory: C:/Users/20212024/AppData/Roaming/Xilinx/Vivado/2024.2/
+Vivado layouts directory: C:/Users/20212024/AppData/Roaming/Xilinx/Vivado/2024.2/data/layouts
+PlanAhead jar file: 	C:/Xilinx/Vivado/2024.2/lib/classes/planAhead.jar
+Vivado log file: 	C:/Users/20212024/Github/ethernet_receiver/ip_repo/vivado.log
+Vivado journal file: 	C:/Users/20212024/Github/ethernet_receiver/ip_repo/vivado.jou
+Engine tmp dir: 	C:/Users/20212024/Github/ethernet_receiver/ip_repo/.Xil/Vivado-8316-s20212024
+Non-Default Parameters:	[]
+
+Xilinx & AMD Environment Variables
+--------------------------------------------------------------------------------------------
+POWERSHELL_DISTRIBUTION_CHANNEL: MSI:Windows 10 Enterprise
+RDI_APPROOT: C:/Xilinx/Vivado/2024.2
+RDI_ARGS:  -gui_launcher_event rodinguilauncherevent20876 "C:\Users\20212024\Github\ethernet_receiver\ip_repo\edit_fifo_AXI_ip_v1_0.xpr"
+RDI_ARGS_FUNCTION: RDI_EXEC_DEFAULT
+RDI_BASEROOT: C:/Xilinx/Vivado
+RDI_BINDIR: C:/Xilinx/Vivado/2024.2/bin
+RDI_BINROOT: C:/Xilinx/Vivado/2024.2/bin
+RDI_BUILD: yes
+RDI_CHECK_PROG: True
+RDI_DATADIR: C:/Xilinx/Vivado/2024.2/data
+RDI_INSTALLROOT: C:/Xilinx
+RDI_INSTALLVER: 2024.2
+RDI_INSTALLVERSION: 2024.2
+RDI_ISE_PLATFORM: nt64
+RDI_JAVACEFROOT: C:/Xilinx/Vivado/2024.2/tps/win64/java-cef-95.0.4638.69
+RDI_JAVAFXROOT: C:/Xilinx/Vivado/2024.2/tps/win64/javafx-sdk-21.0.1
+RDI_JAVAROOT: C:/Xilinx/Vivado/2024.2/tps/win64/jre21.0.1_12
+RDI_JAVA_VERSION: 21.0.1_12
+RDI_LIBDIR: C:/Xilinx/Vivado/2024.2/lib/win64.o
+RDI_MINGW_LIB: C:/Xilinx/Vivado/2024.2\tps\mingw\6.2.0\win64.o\nt\bin;C:/Xilinx/Vivado/2024.2\tps\mingw\6.2.0\win64.o\nt\libexec\gcc\x86_64-w64-mingw32\6.2.0
+RDI_OPT_EXT: .o
+RDI_PLATFORM: win64
+RDI_PREPEND_PATH: C:/Xilinx/Vitis/2024.2/bin;C:/Xilinx/Vivado/2024.2/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2024.2/ids_lite/ISE/lib/nt64
+RDI_PROG: C:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/vivado.exe
+RDI_PROGNAME: vivado.exe
+RDI_PYTHON3: C:/Xilinx/Vivado/2024.2\tps\win64\python-3.8.3
+RDI_PYTHON3_VERSION: 3.8.3
+RDI_PYTHONHOME: C:/Xilinx/Vivado/2024.2\tps\win64\python-3.8.3
+RDI_PYTHONPATH: C:/Xilinx/Vivado/2024.2\tps\win64\python-3.8.3;C:/Xilinx/Vivado/2024.2\tps\win64\python-3.8.3\bin;C:/Xilinx/Vivado/2024.2\tps\win64\python-3.8.3\lib;C:/Xilinx/Vivado/2024.2\tps\win64\python-3.8.3\lib\site-packages
+RDI_PYTHON_LD_LIBPATH: C:/Xilinx/Vivado/2024.2\tps\win64\python-3.8.3\lib
+RDI_SESSION_INFO: C:\Users\20212024\Github\ethernet_receiver\ip_repo:S20212024-Fri04-11-2025_10-05-30.07
+RDI_SHARED_DATA: C:/Xilinx/SharedData/2024.2/data
+RDI_TPS_ROOT: C:/Xilinx/Vivado/2024.2/tps/win64
+RDI_USE_JDK21: True
+RDI_VERBOSE: False
+XILINX: C:/Xilinx/Vivado/2024.2/ids_lite/ISE
+XILINX_DSP: C:/Xilinx/Vivado/2024.2/ids_lite/ISE
+XILINX_HLS: C:/Xilinx/Vitis/2024.2
+XILINX_PLANAHEAD: C:/Xilinx/Vivado/2024.2
+XILINX_SDK: C:/Xilinx/Vitis/2024.2
+XILINX_VITIS: C:/Xilinx/Vitis/2024.2
+XILINX_VIVADO: C:/Xilinx/Vivado/2024.2
+_RDI_BINROOT: C:\Xilinx\Vivado\2024.2\bin
+_RDI_CWD: C:\Users\20212024\Github\ethernet_receiver\ip_repo
+
+
+GUI allocated memory:	512 MB
+GUI max memory:		4,072 MB
+Engine allocated memory: 772 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// Tcl Message: INFO: [Common 17-1460] Use of init.tcl in C:/Users/20212024/AppData/Roaming/Xilinx/Vivado/init.tcl is deprecated. Please use Vivado_init.tcl  
+// Tcl Message: Sourcing tcl script 'C:/Users/20212024/AppData/Roaming/Xilinx/Vivado/init.tcl' 
+// TclEventType: PROJECT_OPEN_DIALOG
+// Opening Vivado Project: C:\Users\20212024\Github\ethernet_receiver\ip_repo\edit_fifo_AXI_ip_v1_0.xpr. Version: Vivado v2024.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project C:/Users/20212024/Github/ethernet_receiver/ip_repo/edit_fifo_AXI_ip_v1_0.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/20212024/Github/ethernet_receiver/ip_repo/edit_fifo_AXI_ip_v1_0.xpr 
+// Tcl Message: INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/20212024/Github/ethernet_receiver/ip_repo/edit_fifo_AXI_ip_v1_0.gen/sources_1'. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/20212024/Github/ethernet_receiver/ip_repo/fifo_AXI_ip_1_0'. 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 122 MB (+125789kb) [00:00:17]
+// [Engine Memory]: 755 MB (+639928kb) [00:00:17]
+// [GUI Memory]: 133 MB (+4234kb) [00:00:19]
+// WARNING: HEventQueue.dispatchEvent() is taking  3544 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.2/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 775 MB. GUI used memory: 78 MB. Current time: 4/11/25, 10:06:08 AM CEST
+// [Engine Memory]: 796 MB (+3825kb) [00:00:20]
+// Project name: edit_fifo_AXI_ip_v1_0; location: C:/Users/20212024/Github/ethernet_receiver/ip_repo; part: xc7z020clg400-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 1064.531 ; gain = 26.926 
+dismissDialog("Open Project"); // bh (Open Project Progress)
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 68 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fifo_AXI_ip (fifo_AXI_ip.v)]", 1, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fifo_AXI_ip (fifo_AXI_ip.v)]", 1, true, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fifo_AXI_ip (fifo_AXI_ip.v), fifo_AXI_ip_slave_lite_v1_0_S00_AXI_inst : fifo_AXI_ip_slave_lite_v1_0_S00_AXI (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)]", 2); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fifo_AXI_ip (fifo_AXI_ip.v), fifo_AXI_ip_slave_lite_v1_0_S00_AXI_inst : fifo_AXI_ip_slave_lite_v1_0_S00_AXI (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v), spitter_inst : spitter (spitter.v)]", 4, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fifo_AXI_ip (fifo_AXI_ip.v), fifo_AXI_ip_slave_lite_v1_0_S00_AXI_inst : fifo_AXI_ip_slave_lite_v1_0_S00_AXI (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v), spitter_inst : spitter (spitter.v)]", 4, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fifo_AXI_ip (fifo_AXI_ip.v), fifo_AXI_ip_slave_lite_v1_0_S00_AXI_inst : fifo_AXI_ip_slave_lite_v1_0_S00_AXI (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v), fifo_buffer_inst : fifo_buffer (fifo_buffer.v)]", 3, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fifo_AXI_ip (fifo_AXI_ip.v), fifo_AXI_ip_slave_lite_v1_0_S00_AXI_inst : fifo_AXI_ip_slave_lite_v1_0_S00_AXI (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v), fifo_buffer_inst : fifo_buffer (fifo_buffer.v)]", 3, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fifo_AXI_ip (fifo_AXI_ip.v), fifo_AXI_ip_slave_lite_v1_0_S00_AXI_inst : fifo_AXI_ip_slave_lite_v1_0_S00_AXI (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)]", 2, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fifo_AXI_ip (fifo_AXI_ip.v), fifo_AXI_ip_slave_lite_v1_0_S00_AXI_inst : fifo_AXI_ip_slave_lite_v1_0_S00_AXI (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)]", 2, true, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click - Node
+// [GUI Memory]: 153 MB (+14220kb) [00:01:38]
+// Elapsed time: 121 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 170, 246); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 131, 93); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 140, 99); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 179, 181); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 183, 518); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 183, 499); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 167, 191); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 101 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 126, 271); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 10 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 132, 278); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 14 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 143, 489); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 221, 373); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 228, 359); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 158, 369); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 124, 351); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 129, 333); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 195, 366); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 137, 311); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 78 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 126, 306); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 162, 296); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 140, 333); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 141, 266); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 137, 287); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 133, 259); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 126, 278); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 141, 538); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 176, 345); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 13 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 131, 313); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 132, 329); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 222, 346); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 141, 332); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 23 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 141, 524); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 130, 547); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 179, 353); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 108, 345); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 162, 375); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 160, 361); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 124, 534); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 168, 373); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 167, 374); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 173, 362); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 134, 521); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 14 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 190, 229); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 10m:46s
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 10m:47s
+// Elapsed time: 83 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 154, 261); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 87, 277); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 354 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 267, 398); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 163, 457); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 163, 457, false, false, false, false, true); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v) - Double Click
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 143, 409); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_buffer.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "spitter.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 49 seconds
+selectCodeEditor("spitter.v", 106, 260); // ae (spitter.v)
+selectCodeEditor("spitter.v", 156, 312); // ae (spitter.v)
+selectCodeEditor("spitter.v", 290, 318); // ae (spitter.v)
+// Elapsed time: 17 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_AXI_ip.v", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_buffer.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("fifo_buffer.v", 101, 39); // ae (fifo_buffer.v)
+selectCodeEditor("fifo_buffer.v", 106, 44); // ae (fifo_buffer.v)
+selectCodeEditor("fifo_buffer.v", 321, 102); // ae (fifo_buffer.v)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 78 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "spitter.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("spitter.v", 244, 183); // ae (spitter.v)
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 19m:51s
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: ERROR: [Common 17-180] Spawn failed: No error 
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 19m:53s
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 19m:55s
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 178, 471); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 178, 471, false, false, false, false, true); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "spitter.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("spitter.v", 265, 314); // ae (spitter.v)
+selectCodeEditor("spitter.v", 302, 347); // ae (spitter.v)
+selectCodeEditor("spitter.v", 290, 359); // ae (spitter.v)
+selectCodeEditor("spitter.v", 293, 386); // ae (spitter.v)
+selectCodeEditor("spitter.v", 347, 412); // ae (spitter.v)
+selectCodeEditor("spitter.v", 329, 433); // ae (spitter.v)
+selectCodeEditor("spitter.v", 323, 435); // ae (spitter.v)
+// Elapsed time: 12 seconds
+selectCodeEditor("spitter.v", 322, 459); // ae (spitter.v)
+selectCodeEditor("spitter.v", 323, 451); // ae (spitter.v)
+selectCodeEditor("spitter.v", 335, 418); // ae (spitter.v)
+typeControlKey((HResource) null, "spitter.v", 'c'); // ae (spitter.v)
+selectCodeEditor("spitter.v", 123, 455); // ae (spitter.v)
+typeControlKey((HResource) null, "spitter.v", 'v'); // ae (spitter.v)
+selectCodeEditor("spitter.v", 300, 338); // ae (spitter.v)
+typeControlKey((HResource) null, "spitter.v", 'c'); // ae (spitter.v)
+selectCodeEditor("spitter.v", 172, 435); // ae (spitter.v)
+typeControlKey((HResource) null, "spitter.v", 'v'); // ae (spitter.v)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_buffer.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 20m:51s
+// Tcl Message: ERROR: [Common 17-180] Spawn failed: No error ERROR: [Common 17-180] Spawn failed: No error 
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 20m:53s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 156, 486); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 229, 215); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 625, 79); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 615, 94); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 460, 210); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 467, 191); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 12 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 204, 218); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+typeControlKey(null, null, 'z');
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 21m:29s
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 21m:31s
+// Elapsed time: 24 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Edit Packaged IP]", 5, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_IP_PACKAGER
+dismissDialog("Open Project Manager"); // bh (Open Project Manager Progress)
+// TclEventType: LOAD_FEATURE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: LOAD_FEATURE
+// TclEventType: PACKAGER_CURRENT_CORE
+// Run Command: PAResourceCommand.PACommandNames_IP_PACKAGER
+// WARNING: HEventQueue.dispatchEvent() is taking  1335 ms.
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: ipx::open_ipxact_file C:/Users/20212024/Github/ethernet_receiver/ip_repo/fifo_AXI_ip_1_0/component.xml 
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: PACKAGER_OBJECT_CHANGE
+dismissDialog("IP Packager"); // bh (IP Packager Progress)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "File Groups", 2); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "Customization Parameters", 3); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "Ports and Interfaces", 4); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "Review and Package", 7); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+selectButton(PAResourceQtoS.ReviewContentPanel_RE_PACKAGE_IP, "Re-Package IP"); // a (PAResourceQtoS.ReviewContentPanel_RE_PACKAGE_IP)
+// Tcl Message: set_property core_revision 12 [ipx::current_core] 
+// Tcl Message: ipx::create_xgui_files [ipx::current_core] 
+// Tcl Message: ipx::update_checksums [ipx::current_core] 
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: ipx::check_integrity [ipx::current_core] 
+// Tcl Message: INFO: [IP_Flow 19-2181] Payment is not required for this core. 
+// Tcl Message: INFO: [Ipptcl 7-1486] check_integrity: Integrity check passed. 
+// Tcl Message: ipx::save_core [ipx::current_core] 
+// TclEventType: CREATE_IP_CATALOG
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: CREATE_IP_CATALOG
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: update_ip_catalog -rebuild -repo_path c:/Users/20212024/Github/ethernet_receiver/ip_repo/fifo_AXI_ip_1_0 
+// Tcl Message: INFO: [IP_Flow 19-725] Reloaded user IP repository 'c:/Users/20212024/Github/ethernet_receiver/ip_repo/fifo_AXI_ip_1_0' 
+// TclEventType: FILE_SET_CHANGE
+selectButton("OptionPane.button", "OK", "Package IP"); // JButton (OptionPane.button)
+// [GUI Memory]: 166 MB (+5379kb) [00:25:30]
+// HMemoryUtils.trashcanNow. Engine heap size: 816 MB. GUI used memory: 93 MB. Current time: 4/11/25, 10:36:08 AM CEST
+// Elapsed time: 979 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_buffer.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 172, 60); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 170, 180); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 34 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 599, 342); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 186, 247); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 10 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 138, 415); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "spitter.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 15 seconds
+selectCodeEditor("spitter.v", 229, 239); // ae (spitter.v)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 39m:37s
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 39m:39s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_buffer.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 98, 400); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// Elapsed time: 45 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "spitter.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 18 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 41m:11s
+// Tcl Message: ERROR: [Common 17-180] Spawn failed: No error ERROR: [Common 17-180] Spawn failed: No error 
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 41m:13s
+// Elapsed time: 29 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "spitter.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("spitter.v", 188, 226); // ae (spitter.v)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Package IP - fifo_AXI_ip", 5); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectButton(PAResourceQtoS.ReviewContentPanel_RE_PACKAGE_IP, "Re-Package IP"); // a (PAResourceQtoS.ReviewContentPanel_RE_PACKAGE_IP)
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: set_property core_revision 13 [ipx::current_core] 
+// Tcl Message: ipx::create_xgui_files [ipx::current_core] 
+// Tcl Message: ipx::update_checksums [ipx::current_core] 
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: ipx::check_integrity [ipx::current_core] 
+// Tcl Message: INFO: [IP_Flow 19-2181] Payment is not required for this core. 
+// Tcl Message: INFO: [Ipptcl 7-1486] check_integrity: Integrity check passed. 
+// Tcl Message: ipx::save_core [ipx::current_core] 
+// TclEventType: CREATE_IP_CATALOG
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: CREATE_IP_CATALOG
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: update_ip_catalog -rebuild -repo_path c:/Users/20212024/Github/ethernet_receiver/ip_repo/fifo_AXI_ip_1_0 
+// Tcl Message: INFO: [IP_Flow 19-725] Reloaded user IP repository 'c:/Users/20212024/Github/ethernet_receiver/ip_repo/fifo_AXI_ip_1_0' 
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: FILE_SET_CHANGE
+selectButton("OptionPane.button", "OK", "Package IP"); // JButton (OptionPane.button)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "File Groups", 2); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "File Groups", 2); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+selectButton(PAResourceItoN.MessageBanner_CHANGES_DETECTED_IN_VIVADO_PROJECT_THAT, "Merge changes from File Groups Wizard"); // h (PAResourceItoN.MessageBanner_CHANGES_DETECTED_IN_VIVADO_PROJECT_THAT)
+// TclEventType: PACKAGER_COMPONENT_RESET
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: ipx::merge_project_changes files [ipx::current_core] 
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "Review and Package", 7); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+selectButton(PAResourceQtoS.ReviewContentPanel_RE_PACKAGE_IP, "Re-Package IP"); // a (PAResourceQtoS.ReviewContentPanel_RE_PACKAGE_IP)
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: set_property core_revision 14 [ipx::current_core] 
+// Tcl Message: ipx::create_xgui_files [ipx::current_core] 
+// Tcl Message: ipx::update_checksums [ipx::current_core] 
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: ipx::check_integrity [ipx::current_core] 
+// Tcl Message: INFO: [IP_Flow 19-2181] Payment is not required for this core. 
+// Tcl Message: INFO: [Ipptcl 7-1486] check_integrity: Integrity check passed. 
+// Tcl Message: ipx::save_core [ipx::current_core] 
+// TclEventType: CREATE_IP_CATALOG
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: CREATE_IP_CATALOG
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: update_ip_catalog -rebuild -repo_path c:/Users/20212024/Github/ethernet_receiver/ip_repo/fifo_AXI_ip_1_0 
+// Tcl Message: INFO: [IP_Flow 19-725] Reloaded user IP repository 'c:/Users/20212024/Github/ethernet_receiver/ip_repo/fifo_AXI_ip_1_0' 
+// TclEventType: FILE_SET_CHANGE
+selectButton("OptionPane.button", "OK", "Package IP"); // JButton (OptionPane.button)
+// Elapsed time: 112 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fifo_AXI_ip (fifo_AXI_ip.v), fifo_AXI_ip_slave_lite_v1_0_S00_AXI_inst : fifo_AXI_ip_slave_lite_v1_0_S00_AXI (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)]", 2); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, IP-XACT]", 5); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+// [GUI Memory]: 177 MB (+3633kb) [00:44:12]

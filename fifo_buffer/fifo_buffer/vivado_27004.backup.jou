@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Thu Apr  3 12:41:54 2025
+# Process ID         : 27004
+# Current directory  : C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent26976 C:\Users\20212024\Github\ethernet_receiver\fifo_buffer\fifo_buffer\fifo_buffer.xpr
+# Log file           : C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/vivado.log
+# Journal file       : C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer\vivado.jou
+# Running On         : s20212024
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+# CPU Frequency      : 2592 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16919 MB
+# Swap memory        : 17775 MB
+# Total Virtual      : 34695 MB
+# Available Virtual  : 2503 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/bd/design_2/design_2.bd}
+open_bd_design {C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/bd/design_1/design_1.bd}
+export_ip_user_files -of_objects  [get_files C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v] -no_script -reset -force -quiet
+remove_files  C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+remove_files  C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+file delete -force C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+export_ip_user_files -of_objects  [get_files C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.gen/sources_1/bd/design_2/hdl/design_2_wrapper.v] -no_script -reset -force -quiet
+remove_files  C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.gen/sources_1/bd/design_2/hdl/design_2_wrapper.v
+file delete -force C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.gen/sources_1/bd/design_2/hdl/design_2_wrapper.v
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/bd/design_1/design_1.bd] -no_script -reset -force -quiet
+remove_files  C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/bd/design_1/design_1.bd
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/bd/design_2/design_2.bd] -no_script -reset -force -quiet
+remove_files  C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/bd/design_2/design_2.bd
+file delete -force C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/bd/design_2
+file delete -force c:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.gen/sources_1/bd/design_2
