@@ -18,6 +18,8 @@
         input wire [0:1] switches,
         input wire [0:3] buttons,
         output wire [0:3] leds,
+        output wire [0:2] rgbled0,
+        output wire [0:2] rgbled1,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -73,7 +75,9 @@
 		.S_AXI_RREADY(s00_axi_rready),
 		.switches(switches),
 		.buttons(buttons),
-		.leds(leds)
+		.leds(leds),
+		.rgbled0(rgbled0),
+		.rgbled1(rgbled1)
 	);
 
 	// Add user logic here

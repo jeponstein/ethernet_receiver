@@ -18,6 +18,9 @@
         input wire [0:1] switches,
         input wire [0:3] buttons,
         output wire [0:3] leds,
+        output wire [0:2] rgbled0,
+        output wire [0:2] rgbled1,
+        
 
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -307,6 +310,15 @@
 //      assign S_AXI_RDATA = (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h0) ? slv_reg0 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h1) ? slv_reg1 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h2) ? slv_reg2 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h3) ? slv_reg3 : 0; 
 
 	// Add user logic here
+	wire enable_spitter;
+	wire [31:0] data_out_buffer;
+	wire [31:0] metadata_buffer;
+	wire [31:0] spitter_data;
+	reg [3:0] ledreg;
+	
+	reg [2:0] rgbled0buf;
+	reg [2:0] rgbled1buf;
+	
 	always @( posedge S_AXI_ACLK )
 	begin 
 //	  if ( S_AXI_ARESETN == 1'b0 ) // Adding a reset does not make sense
@@ -325,15 +337,12 @@
             slv_reg0 <= spitter_data;
             slv_reg3 <= data_out_buffer;
 	  end
+	  rgbled0buf <= slv_reg2; 
     end
 	
-	wire enable_spitter;
-	wire [31:0] data_out_buffer;
-	wire [31:0] metadata_buffer;
-	wire [31:0] spitter_data;
-	reg [3:0] ledreg;
 	
 	assign leds = ledreg;
+	assign rgbled0 = rgbled0buf;
 	
 	fifo_buffer #(
         .BUFFER_DEPTH(32'd32),
