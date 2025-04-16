@@ -40,11 +40,11 @@ module spitter(
             data[23:16] <= counter + 8'd1;
             data[31:24] <= counter + 8'd1;
         end else begin
-            counter <= counter + 8'd1;
-            data[7:0] <= counter + 8'd1;
-            data[15:8] <= counter + 8'd1;
-            data[23:16] <= counter + 8'd1;
-            data[31:24] <= counter + 8'd1;
+//            counter <= counter + 8'd1;
+            data[7:0] <= 0;
+            data[15:8] <= 0;
+            data[23:16] <= 0;
+            data[31:24] <= 0;
         end
         
     end
