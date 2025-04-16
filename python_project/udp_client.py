@@ -1,8 +1,8 @@
 
 import socket
 
-# HOST, PORT = "192.168.0.101", 9000
-HOST, PORT = "127.0.0.1", 9001
+HOST, PORT = "192.168.0.10", 9000
+# HOST, PORT = "127.0.0.1", 9001
 
 
 # SOCK_DGRAM is the socket type to use for UDP sockets

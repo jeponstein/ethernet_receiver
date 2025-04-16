@@ -28,8 +28,32 @@ src_addr = b'\x00\x00\x00\x00\x00\x00'
 dst_addr = b'\x00\x00\x00\x00\x00\x00'
 interface = "lo"
 
+DEST_HOST, DEST_PORT = "127.0.0.1", 9001
+
+# This send packet works on mac adress levels, 
+#       apparently there is another that works for udp on IP level?
+# sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
+# sock.sendto(bytes(MESSAGE, "utf-8"), (UDP_IP, UDP_PORT))\
+
+def sendPacketIP(data):
+    # FUNCTION USES IP ADRESS, ALSO AVAILABLE ON WINDOWS
+    # (STILL NEEDS TO BE TESTED)
+    s = socket(AF_INET, SOCK_DGRAM)
+
+    if(type(data) == str):
+        data = data.encode()
+    elif(type(data) == int):
+        data = data.to_bytes()
+
+    print(data)
+
+
+    s.sendto(data, (DEST_HOST, DEST_PORT))
+    pass
+
 
 def sendPacket(data):
+    # FUNCTION USES MAC ADRESSES, ONLY AVAILABLE ON LINUX
     s = socket(AF_PACKET, SOCK_RAW)
 
     s.bind( (interface, 0) )
@@ -75,8 +99,6 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
             print("All received bits: ")
             print(received_bits)
 
-        
-
 
 def HandleReceiving():
     with socketserver.UDPServer((HOST, PORT), MyUDPHandler) as receiver:
@@ -85,6 +107,6 @@ def HandleReceiving():
 
 if __name__ == "__main__":
 
-    HandleReceiving()
+    sendPacketIP(b'90')
 
 

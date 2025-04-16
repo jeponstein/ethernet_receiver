@@ -21,33 +21,29 @@
 
 
 module fifo_buffer#(
-    parameter BUFFER_DEPTH = 32'd32, BUFFER_WIDTH = 32'd2, OUTPUT_SIZE = 32'd4
-    // depth dictates amount of slots in buffer, should be 2^k, where k is integer
-    // the buffer width should be input size -> each write means one row is filled
-    // output size is the amount of bits that is read at once. should be a multiple of the buffer width
-    // 
+
+    parameter BUFFER_DEPTH = 32'd32
+    
     )(
     
     input clk, rst, w_en, r_en, //w_en > write enable, write into the buffer. r_en > read enable, read received into buffer
-    input [BUFFER_WIDTH-1:0] data_in, 
-    output reg [OUTPUT_SIZE-1:0] data_out,
-    output full, empty,
-    output wire [3:0] allow_read 
+    input [31:0] data_in, 
+    output reg [31:0] data_out,
+    output full, empty, errorstate,
+    output wire [$clog2(BUFFER_DEPTH)-1:0] count_output
     
     );
     
-    reg [$clog2(BUFFER_DEPTH):0] count;
-    reg [$clog2(BUFFER_DEPTH)-1:0] w_ptr, r_ptr;
-    reg [BUFFER_WIDTH-1:0] fifo[BUFFER_DEPTH:0];
-    
-//    localparam read_depth = $floor(OUTPUT_SIZE/BUFFER_WIDTH);
-    localparam read_depth = 1;
-        
-    integer i;    
-    integer ptr;
+    reg [$clog2(BUFFER_DEPTH)-1:0] w_ptr, r_ptr, count;
+    reg [31:0] fifo[BUFFER_DEPTH:0];
+    reg error;
+ 
+`define incremental $clog2(BUFFER_DEPTH)-1
  
     always @(posedge clk) begin
     
+        error <= error;
+        
         //general reset logic
         if (rst == 1) begin
         
@@ -55,46 +51,56 @@ module fifo_buffer#(
           r_ptr <= 0;
           data_out <= 0;
           count <= 0;
+          error <= 0;
           
-        end else begin
-        
-          case({w_en, r_en, full})
-            3'b000, 3'b110, 3'b001, 3'b111, 3'b101: count <= count;
-            3'b010, 3'b011: count <= count - 1;
-            3'b100: count <= count + 1;
-          endcase
-          
+        end else if (!errorstate) begin
+                  
+          if(r_en & w_en & empty) begin
+                // trying to read & write while empty -> directly place input to output    
+                data_out <= data_in;
+                count <= count;
+                
+          end else if( w_en & full) begin
+                // trying to write while full. not possible. 
+                
+                count <= count;
+                error <= 1'b1;
+                
+          end else if (r_en & empty) begin
+                // trying to write while buffer is empty. not allowed
+                data_out <= 32'd0;
+                count <= count;
+                error <= 1'b1;
+                
+          end else if (r_en & w_en ) begin
+                // writing & reading at the same time while not empty 
+                
+                fifo[w_ptr] <= data_in;
+                data_out <= fifo[r_ptr];
+                w_ptr <= w_ptr + 1;
+                r_ptr <= r_ptr + 1;
+                count <= count;
+                
+          end else if (w_en) begin
+                // just writing while not full
+                
+                fifo[w_ptr] <= data_in;
+                count <= count + 1;
+                w_ptr <= w_ptr + 1;
+                
+          end else if (r_en) begin
+                // just reading while not empty
+                count <= count - 1;
+                data_out <= fifo[r_ptr];
+                r_ptr <= r_ptr + 1;
+          end
         end
         
-        if(r_en & !empty) begin
-        
-//            for(i=0; i < read_depth; i = i+1) begin
-//                ptr = r_ptr +read_depth - 1 -i;
-//                data_out[BUFFER_WIDTH*i +: BUFFER_WIDTH] <= fifo[ptr];
-//                fifo[ptr] <= 1'b0;
-//            end
-
-            data_out <= fifo[r_ptr];
-            r_ptr <= r_ptr + read_depth;
+    end  
           
-        end
-        
-        if(w_en & !full)begin
-          fifo[w_ptr] <= data_in;
-          w_ptr <= w_ptr + 1;
-        end
-        
-    end
-    
-    
-      // To write data to FIFO
-      
-      // To read data from FIFO
-      // 
-
-  
-    assign full = (count == BUFFER_DEPTH);
+    assign full = (count == BUFFER_DEPTH-1);
     assign empty = (count == 0);
-    assign allow_read = count;
+    assign count_output = count;
+    assign errorstate = error;
     
 endmodule
