@@ -318,6 +318,7 @@
 	
 	reg [2:0] rgbled0buf;
 	reg [2:0] rgbled1buf;
+	wire [4:0] count_output_buf;
 	
 	always @( posedge S_AXI_ACLK )
 	begin 
@@ -345,9 +346,7 @@
 	assign rgbled0 = rgbled0buf;
 	
 	fifo_buffer #(
-        .BUFFER_DEPTH(32'd32),
-        .BUFFER_WIDTH(32'd4),
-        .OUTPUT_SIZE(32'd4)) fifo_buffer_inst(
+        .BUFFER_DEPTH(32'd32)) fifo_buffer_inst(
         
         .clk(S_AXI_ACLK),
         .rst(buttons[0]),
@@ -357,7 +356,8 @@
         .data_out(data_out_buffer), // slv_reg1
         .full(leds[0]),  // input into axi
         .empty(leds[1]), // input into axi
-        .allow_read(leds[2])    // input into axi
+        .errorstate(leds[2]),    // input into axi
+        .count_output(count_output_buf)
     );
     
     spitter spitter_inst(
