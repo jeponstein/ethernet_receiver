@@ -7,7 +7,10 @@ import socketserver
 interface = "enp37s0"
 
 # TX MAC adresses used to send packets:
-src_addr = b'\x00\xd8\x61\x2d\x29\x41'
+# src_addr = b'\x00\xd8\x61\x2d\x29\x41'
+
+# laptop Michael
+src_addr = b'\xf4\xa8\x0d\x09\x21\x1e'
 
 # ip addres and port on which server listens
 # HOST, PORT = "192.168.0.101", 9001
@@ -15,18 +18,18 @@ HOST, PORT = "127.0.0.1", 9001
 
 ####################################### PYNQ VARIABLES          ################################################
 
-# # adress of pynq board maybe? idk
-# dst_addr = b'\x00\x0a\x35\x00\x01\x02'
+# default mac adress of pynq board 
+dst_addr = b'\x00\x0a\x35\x00\x01\x02'
 
 # # address of laptop Jesper (testing purposes)
 # dst_addr = b'\xa8\xb1\x3b\x94\xa0\xcb'
 
 ####################################### DEBUGGING "MODE"        ################################################
 
-# (DEBUG:) loopback adress, uncomment when testing with pynq or other
-src_addr = b'\x00\x00\x00\x00\x00\x00'
-dst_addr = b'\x00\x00\x00\x00\x00\x00'
-interface = "lo"
+# # (DEBUG:) loopback adress, uncomment when testing with pynq or other
+# src_addr = b'\x00\x00\x00\x00\x00\x00'
+# dst_addr = b'\x00\x00\x00\x00\x00\x00'
+# interface = "lo"
 
 DEST_HOST, DEST_PORT = "127.0.0.1", 9001
 
@@ -36,8 +39,6 @@ DEST_HOST, DEST_PORT = "127.0.0.1", 9001
 # sock.sendto(bytes(MESSAGE, "utf-8"), (UDP_IP, UDP_PORT))\
 
 def sendPacketIP(data):
-    # FUNCTION USES IP ADRESS, ALSO AVAILABLE ON WINDOWS
-    # (STILL NEEDS TO BE TESTED)
     s = socket(AF_INET, SOCK_DGRAM)
 
     if(type(data) == str):
@@ -107,6 +108,6 @@ def HandleReceiving():
 
 if __name__ == "__main__":
 
-    sendPacketIP(b'90')
+    sendPacket(b'90')
 
 
