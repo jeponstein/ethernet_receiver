@@ -44,3 +44,5 @@ ipx::edit_ip_in_project -upgrade true -name edit_extrawide_axi_buff_v1_0 -direct
 update_compile_order -fileset sources_1
 current_project edit_fifo_AXIexampleIP_v1_0
 close_project
+current_project fifo_buffer
+close_project

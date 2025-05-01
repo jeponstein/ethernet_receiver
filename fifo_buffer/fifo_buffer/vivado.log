@@ -91,3 +91,7 @@ WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-f
 ERROR: [Common 17-180] Spawn failed: No error
 current_project edit_fifo_AXIexampleIP_v1_0
 close_project
+current_project fifo_buffer
+close_project
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu May  1 16:50:03 2025...
