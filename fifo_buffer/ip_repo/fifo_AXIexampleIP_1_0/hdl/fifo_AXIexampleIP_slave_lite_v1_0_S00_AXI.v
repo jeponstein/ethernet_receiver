@@ -1,7 +1,7 @@
 
 `timescale 1 ns / 1 ps
 
-	module fifo_AXI_ip_slave_lite_v1_0_S00_AXI #
+	module fifo_AXIexampleIP_slave_lite_v1_0_S00_AXI #
 	(
 		// Users to add parameters here
 
@@ -15,12 +15,6 @@
 	)
 	(
 		// Users to add ports here
-        input wire [0:1] switches,
-        input wire [0:3] buttons,
-        output wire [0:3] leds,
-        output wire [0:2] rgbled0,
-        output wire [0:2] rgbled1,
-        
 
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -110,9 +104,9 @@
 	//------------------------------------------------
 	//-- Number of Slave Registers 4
 	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg0;
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg1; // out data
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg2; // in config
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg3; // out config
+	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg1;
+	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg2;
+	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg3;
 	integer	 byte_index;
 
 	// I/O Connections assignments
@@ -211,9 +205,9 @@
 	  if ( S_AXI_ARESETN == 1'b0 )
 	    begin
 	      slv_reg0 <= 0;
-//	      slv_reg1 <= 0;
+	      slv_reg1 <= 0;
 	      slv_reg2 <= 0;
-//	      slv_reg3 <= 0;
+	      slv_reg3 <= 0;
 	    end 
 	  else begin
 	    if (S_AXI_WVALID)
@@ -305,67 +299,9 @@
 	           endcase                                       
 	          end                                       
 	        end                                         
-	// Implement memory mapped register select and rea d logic generation
-//	  assign S_AXI_RDATA = (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h0) ? slv_reg2 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h3) ? slv_reg3 : 0; 
-      assign S_AXI_RDATA = (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h0) ? slv_reg0 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h1) ? slv_reg1 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h2) ? slv_reg2 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h3) ? slv_reg3 : 0; 
-
+	// Implement memory mapped register select and read logic generation
+	  assign S_AXI_RDATA = (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h0) ? slv_reg0 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h1) ? slv_reg1 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h2) ? slv_reg2 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h3) ? slv_reg3 : 0; 
 	// Add user logic here
-	wire enable_spitter;
-	wire [31:0] data_out_buffer;
-	wire [31:0] metadata_buffer;
-	wire [31:0] spitter_data;
-	reg [3:0] ledreg;
-	
-	reg [2:0] rgbled0buf;
-	reg [2:0] rgbled1buf;
-	wire [4:0] count_output_buf;
-	
-	always @( posedge S_AXI_ACLK )
-	begin 
-//	  if ( S_AXI_ARESETN == 1'b0 ) // Adding a reset does not make sense
-//	  begin
-//		slv_reg0 <= 0; // slv_reg0 and slv_reg1 have been swapped purpose
-//		slv_reg1 <= 0;
-//		slv_reg3 <= 0;
-//	  end 
-//	  else
-//	  begin
-        if (switches[0]) begin
-            slv_reg0 <= data_out_buffer;
-            slv_reg3 <= spitter_data;
-    //	    slv_reg3 <= metadata_buffer;
-        end else begin
-            slv_reg0 <= spitter_data;
-            slv_reg3 <= data_out_buffer;
-	  end
-	  rgbled0buf <= slv_reg2; 
-    end
-	
-	
-	assign leds = ledreg;
-	assign rgbled0 = rgbled0buf;
-	
-	fifo_buffer #(
-        .BUFFER_DEPTH(32'd32)) fifo_buffer_inst(
-        
-        .clk(S_AXI_ACLK),
-        .rst(buttons[0]),
-        .w_en(slv_reg2[0]),  // ouput into fifo
-        .r_en(slv_reg2[1]),  // ouput into axi
-        .data_in(spitter_data),
-        .data_out(data_out_buffer), // slv_reg1
-        .full(leds[0]),  // input into axi
-        .empty(leds[1]), // input into axi
-        .errorstate(leds[2]),    // input into axi
-        .count_output(count_output_buf)
-    );
-    
-    spitter spitter_inst(
-        .clk(S_AXI_ACLK),
-        .rst(buttons[0]),
-        .enable(switches[1]),
-        .data(spitter_data)
-    );
 
 	// User logic ends
 
