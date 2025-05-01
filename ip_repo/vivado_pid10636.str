@@ -507,3 +507,39 @@ selectButton(PAResourceQtoS.ReviewContentPanel_RE_PACKAGE_IP, "Re-Package IP"); 
 // WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 207ms to process. Increasing delay to 2000 ms.
 // Elapsed time: 1291 seconds
 selectButton("OptionPane.button", "OK", "Package IP"); // JButton (OptionPane.button)
+// HMemoryUtils.trashcanNow. Engine heap size: 908 MB. GUI used memory: 82 MB. Current time: 5/1/25, 5:26:23 PM CEST
+// Elapsed time: 616 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_buffer.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Package IP - fifo_AXI_ip", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Package IP - fifo_AXI_ip", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 32 seconds
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 672, 199); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 245, 198); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 245, 198, false, false, false, false, true); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v) - Double Click
+typeControlKey((HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 'c'); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 212, 178); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 212, 178, false, false, false, false, true); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v) - Double Click
+typeControlKey((HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 'v'); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 201, 113); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 200, 113, false, false, false, false, true); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v) - Double Click
+typeControlKey((HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 'c'); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 206, 88); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+selectCodeEditor("fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 206, 88, false, false, false, false, true); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v) - Double Click
+typeControlKey((HResource) null, "fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v", 'v'); // ae (fifo_AXI_ip_slave_lite_v1_0_S00_AXI.v)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Package IP - fifo_AXI_ip", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "File Groups", 2); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 06h:05m:42s
+selectButton(PAResourceItoN.MessageBanner_CHANGES_DETECTED_IN_VIVADO_PROJECT_THAT, "Merge changes from File Groups Wizard"); // h (PAResourceItoN.MessageBanner_CHANGES_DETECTED_IN_VIVADO_PROJECT_THAT)
+// TclEventType: PACKAGER_COMPONENT_RESET
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: ipx::merge_project_changes files [ipx::current_core] 
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 06h:05m:44s

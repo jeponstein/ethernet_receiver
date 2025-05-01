@@ -330,12 +330,12 @@
 	  end else begin
         if (switches[0]) begin
             slv_reg0 <= data_out_buffer;
-            slv_reg1 <= data_out_buffer;
+            slv_reg1 <= spitter_data;
             slv_reg3 <= spitter_data;
     //	    slv_reg3 <= metadata_buffer;
         end else begin
             slv_reg0 <= spitter_data;
-            slv_reg1 <= spitter_data;
+            slv_reg1 <= data_out_buffer;
             slv_reg3 <= data_out_buffer;
         end 
 	  end
