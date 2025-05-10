@@ -342,6 +342,7 @@
 	  slv_reg1[0] <= leds[0]; // full
 	  slv_reg1[1] <= leds[1]; // empty
 	  slv_reg1[2] <= leds[2]; // errorstate
+	  slv_reg1[3] <= leds[3]; // flipflop to axi
 	  rgbled0buf <= slv_reg2; 
     end
 	
@@ -355,12 +356,14 @@
         .clk(S_AXI_ACLK),
         .rst(buttons[0]),
         .w_en(slv_reg2[0]),  // ouput into fifo
-        .r_en(slv_reg2[1]),  // ouput into axi
+        .r_en(slv_reg2[1]),  // ouput from axi
+        .flipflopin(slv_reg2[2]), // ouput from axi
         .data_in(spitter_data),
         .data_out(data_out_buffer), // slv_reg1
         .full(leds[0]),  // input into axi
         .empty(leds[1]), // input into axi
         .errorstate(leds[2]),    // input into axi
+        .flipflopout(leds[3]),  // input into axi
         .count_output(count_output_buf)
     );
     

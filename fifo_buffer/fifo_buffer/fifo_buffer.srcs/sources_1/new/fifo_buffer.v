@@ -8,12 +8,15 @@ module fifo_buffer#(
     
     input clk, rst, w_en, r_en, //w_en > write enable, write into the buffer. r_en > read enable, read received into buffer
     input [31:0] data_in, 
+    input flipflopin,
     output reg [31:0] data_out,
     output full, empty, errorstate,
-    output wire [$clog2(BUFFER_DEPTH)-1:0] count_output
+    output wire [$clog2(BUFFER_DEPTH)-1:0] count_output,
+    output reg flipflopout
     
     );
     
+    reg flipflopflipped; // 1 if the flipflop had flipped
     reg [$clog2(BUFFER_DEPTH)-1:0] w_ptr, r_ptr, count;
     reg [31:0] fifo[BUFFER_DEPTH:0];
     reg error;
@@ -27,32 +30,40 @@ module fifo_buffer#(
         //general reset logic
         if (rst == 1) begin
         
-          w_ptr <= 0; 
-          r_ptr <= 0;
-          data_out <= 0;
-          count <= 0;
-          error <= 0;
+            w_ptr <= 0; 
+            r_ptr <= 0;
+            data_out <= 0;
+            count <= 0;
+            error <= 0;
+            flipflopout <= flipflopin;
           
         end else if (!errorstate) begin
-                  
-          if(r_en & w_en & empty) begin
+        
+            if (flipflopflipped) begin
+                flipflopout <= flipflopin; // flip the flippy floppies
+            end
+                      
+            // r_en is only valid when it is raised together with flipflopflipped
+            // otherwise it gotta wait
+            
+            if((r_en & flipflopflipped) & w_en & empty) begin
                 // trying to read & write while empty -> directly place input to output    
                 data_out <= data_in;
                 count <= count;
                 
-          end else if( w_en & full) begin
+            end else if( w_en & full) begin
                 // trying to write while full. not possible. 
                 
                 count <= count;
                 error <= 1'b1;
                 
-          end else if (r_en & empty) begin
+            end else if ((r_en & flipflopflipped) & empty) begin
                 // trying to write while buffer is empty. not allowed
                 data_out <= 32'd0;
                 count <= count;
                 error <= 1'b1;
                 
-          end else if (r_en & w_en ) begin
+            end else if ((r_en & flipflopflipped) & w_en ) begin
                 // writing & reading at the same time while not empty 
                 
                 fifo[w_ptr] <= data_in;
@@ -61,22 +72,30 @@ module fifo_buffer#(
                 r_ptr <= r_ptr + 1;
                 count <= count;
                 
-          end else if (w_en) begin
+            end else if (w_en) begin
                 // just writing while not full
                 
                 fifo[w_ptr] <= data_in;
                 count <= count + 1;
                 w_ptr <= w_ptr + 1;
                 
-          end else if (r_en) begin
+            end else if (r_en & flipflopflipped) begin
                 // just reading while not empty
                 count <= count - 1;
                 data_out <= fifo[r_ptr];
                 r_ptr <= r_ptr + 1;
-          end
+            end
         end
         
     end  
+    
+    always @(*) begin // Handle the flipping of the flipflop
+        if (flipflopin != flipflopout) begin
+            flipflopflipped = 1;
+        end else begin
+            flipflopflipped = 0;
+        end
+    end
           
     assign full = (count == BUFFER_DEPTH-1);
     assign empty = (count == 0);
