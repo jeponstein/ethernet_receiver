@@ -1,10 +1,22 @@
 from socket import *
 
-DEST_HOST, DEST_PORT = "192.168.1.10", 5001
+
+
+interface = "enp37s0"
+src_addr = b'\x00\xd8\x61\x2d\x29\x00'
+
+dst_addr = b'\x00\x0a\x35\x00\x01\x02'
 
 
 def sendPacket(data):
-    s = socket(AF_INET, SOCK_DGRAM)
+    # FUNCTION USES MAC ADRESSES, ONLY AVAILABLE ON LINUX
+    s = socket(AF_PACKET, SOCK_RAW)
+
+    s.bind( (interface, 0) )
+
+    checksum = b'\x00\x00\x00\x00'
+    ethertype = b'\x08\x04'
+
 
     if(type(data) == str):
         data = data.encode()
@@ -13,10 +25,7 @@ def sendPacket(data):
 
     print(data)
 
-
-    s.sendto(data, (DEST_HOST, DEST_PORT))
-    pass
-
+    s.send(dst_addr+src_addr+ethertype+data+checksum)
 
 
 if __name__ == "__main__":
