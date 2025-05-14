@@ -20,6 +20,8 @@
         output wire [0:3] leds,
         output wire [0:2] rgbled0,
         output wire [0:2] rgbled1,
+        output wire [0:7] qualityfactor,
+        output wire [0:7] metadata,
 		// User ports ends
 		// Do not modify the ports beyond this line
 

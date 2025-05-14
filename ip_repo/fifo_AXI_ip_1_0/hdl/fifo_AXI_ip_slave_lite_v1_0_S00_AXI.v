@@ -1,4 +1,3 @@
-
 `timescale 1 ns / 1 ps
 
 	module fifo_AXI_ip_slave_lite_v1_0_S00_AXI #
@@ -20,6 +19,8 @@
         output wire [0:3] leds,
         output wire [0:2] rgbled0,
         output wire [0:2] rgbled1,
+        output wire [0:7] qualityfactor,
+        output wire [0:7] metadata,
         
 
 		// User ports ends
@@ -344,11 +345,13 @@
 	  slv_reg1[2] <= leds[2]; // errorstate
 	  slv_reg1[3] <= leds[3]; // flipflop to axi
 	  rgbled0buf <= slv_reg2; 
+
     end
-	
 	
 	assign leds = ledreg;
 	assign rgbled0 = rgbled0buf;
+	assign qualityfactor = slv_reg2[31:24];
+	assign metadata = slv_reg2[23:16];
 	
 	fifo_buffer #(
         .BUFFER_DEPTH(32'd32)) fifo_buffer_inst(
