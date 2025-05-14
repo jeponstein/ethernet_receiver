@@ -1,14 +1,29 @@
-from multiprocessing import Process, Lock
+from socket import *
 
-def f(l, i):
-    l.acquire()
-    try:
-        print('hello world', i)
-    finally:
-        l.release()
+DEST_HOST, DEST_PORT = "192.168.1.10", 5001
 
-if __name__ == '__main__':
-    lock = Lock()
 
-    for num in range(10):
-        Process(target=f, args=(lock, num)).start()
+def sendPacket(data):
+    s = socket(AF_INET, SOCK_DGRAM)
+
+    if(type(data) == str):
+        data = data.encode()
+    elif(type(data) == int):
+        data = data.to_bytes()
+
+    print(data)
+
+
+    s.sendto(data, (DEST_HOST, DEST_PORT))
+    pass
+
+
+
+if __name__ == "__main__":
+
+
+    sendPacket(b'6')
+
+    sendPacket(b'9000000000000000000000000000000000000000000000000000000000000000000000000000000')
+
+    sendPacket(b'2')
