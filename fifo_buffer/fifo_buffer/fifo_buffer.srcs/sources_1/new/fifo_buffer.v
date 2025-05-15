@@ -36,7 +36,13 @@ module fifo_buffer#(
             count <= 0;
             error <= 0;
             flipflopout <= flipflopin;
-          
+
+            // reset the fifo itself, just doing it in case
+            for (integer i = 0; i < BUFFER_DEPTH; i = i + 1) begin
+                fifo[i] <= 32'd0;
+            end
+            flipflopflipped <= 0;
+
         end else if (!errorstate) begin
         
             if (flipflopflipped) begin
