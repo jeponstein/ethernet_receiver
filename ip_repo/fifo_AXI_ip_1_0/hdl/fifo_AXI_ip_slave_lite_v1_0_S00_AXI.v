@@ -22,6 +22,9 @@
         output wire [0:7] qualityfactor,
         output wire [0:7] metadata,
         
+//        input wire w_en, // write enable external
+//        input wire [0:31] write_reg
+        output wire full, empty, errorstate,         
 
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -320,6 +323,8 @@
 	reg [2:0] rgbled0buf;
 	reg [2:0] rgbled1buf;
 	wire [4:0] count_output_buf;
+
+	wire w_en; // Comment out when externally should be used
 	
 	always @( posedge S_AXI_ACLK )
 	begin 
@@ -353,12 +358,16 @@
 	assign qualityfactor = slv_reg2[31:24];
 	assign metadata = slv_reg2[23:16];
 	
+	assign full = leds[0];
+	assign empty = leds[1];
+	assign errorstate = leds[2]; // make the states external
+	
 	fifo_buffer #(
         .BUFFER_DEPTH(32'd32)) fifo_buffer_inst(
         
         .clk(S_AXI_ACLK),
         .rst(buttons[0]),
-        .w_en(slv_reg2[0]),  // ouput into fifo
+        .w_en(w_en),  // ouput into fifo // ex slv_reg2[0]
         .r_en(slv_reg2[1]),  // ouput from axi
         .flipflopin(slv_reg2[2]), // ouput from axi
         .data_in(spitter_data),
@@ -374,7 +383,9 @@
         .clk(S_AXI_ACLK),
         .rst(buttons[0]),
         .enable(switches[1]),
-        .data(spitter_data)
+		.full(leds[0]), // using temporary(ish) storage
+        .data(spitter_data),
+		.w_en(w_en) // write enable
     );
 
 	// User logic ends

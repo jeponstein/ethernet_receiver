@@ -22,6 +22,10 @@
         output wire [0:2] rgbled1,
         output wire [0:7] qualityfactor,
         output wire [0:7] metadata,
+        
+//        input wire w_en, // write enable external
+//        input wire [0:31] write_reg
+        output wire full, empty, errorstate,         
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -79,7 +83,9 @@
 		.buttons(buttons),
 		.leds(leds),
 		.rgbled0(rgbled0),
-		.rgbled1(rgbled1)
+		.rgbled1(rgbled1),
+		.qualityfactor(qualityfactor),
+		.metadata(metadata)
 	);
 
 	// Add user logic here
