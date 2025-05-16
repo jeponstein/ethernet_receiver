@@ -27,37 +27,28 @@ module spitter(
     );
     
     reg [7:0] counter = 8'd0;
+    reg [7:0] counter_nxt = 8'd0;
     
     always @(posedge clk) begin
         if (rst == 1) begin
-            counter <= 0;
-        end else if (w_en) begin // if w_en there is reason to count
-            counter <= counter + 8'd1;
-        end
-    end
-    
-    always @(*) begin
-    
-        if (rst == 1) begin
-//            counter <= 8'd11;
+            counter <= 8'd0;
             data = 32'd11;
             w_en = 0;
         end else if (enable == 1 && full != 1) begin
-//            counter <= counter + 8'd1;
-            
-            data[7:0] = counter + 8'd1;
-            data[15:8] = counter + 8'd1;
-            data[23:16] = counter + 8'd1;
-            data[31:24] = counter + 8'd1;
+            counter <= counter_nxt;
             w_en = 1;
         end else begin
-//            counter <= counter + 8'd1;
-            data[7:0] = 0;
-            data[15:8] = 0;
-            data[23:16] = 0;
-            data[31:24] = 0;
             w_en = 0;
         end
+        data[7:0] = counter;
+        data[15:8] = counter;
+        data[23:16] = counter;
+        data[31:24] = counter;
+    end
+    
+    always @(*) begin
+        counter_nxt = counter + 8'd1;
+        
         
     end
         

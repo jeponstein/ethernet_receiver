@@ -38,9 +38,9 @@ module fifo_buffer#(
             flipflopout <= flipflopin;
 
             // reset the fifo itself, just doing it in case
-            for (integer i = 0; i < BUFFER_DEPTH; i = i + 1) begin
-                fifo[i] <= 32'd0;
-            end
+            // for (integer i = 0; i < BUFFER_DEPTH; i = i + 1) begin
+            //     fifo[0] <= 32'd0;
+            // end
             flipflopflipped <= 0;
 
         end else if (!errorstate) begin
@@ -61,10 +61,10 @@ module fifo_buffer#(
                 // trying to write while full. not possible. 
                 
                 count <= count;
-                error <= 1'b1;
+                // error <= 1'b1; // temporarily disabled
                 
             end else if ((r_en & flipflopflipped) & empty) begin
-                // trying to write while buffer is empty. not allowed
+                // trying to read while buffer is empty. not allowed
                 data_out <= 32'd0;
                 count <= count;
                 error <= 1'b1;
