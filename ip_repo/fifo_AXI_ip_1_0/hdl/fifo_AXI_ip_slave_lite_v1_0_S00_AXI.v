@@ -356,6 +356,7 @@
 	
 	assign leds = ledreg;
 	assign rgbled0 = rgbled0buf;
+	assign rgbled1 = rgbled1buf;
 	assign qualityfactor = slv_reg2[31:24];
 	assign metadata = slv_reg2[23:16];
 	
