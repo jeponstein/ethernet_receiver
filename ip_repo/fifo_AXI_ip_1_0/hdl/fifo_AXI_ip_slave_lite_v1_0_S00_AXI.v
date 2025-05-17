@@ -325,15 +325,20 @@
 	wire [4:0] count_output_buf;
 
 	wire w_en; // Comment out when externally should be used
+	wire localreset;
 	
 	always @( posedge S_AXI_ACLK )
 	begin 
-        if ( S_AXI_ARESETN == 1'b0 ) // Adding a reset might not make sense
+        if ( localreset == 1'b0 ) // Adding a reset might not make sense
+		// used to be S_AXI_ARESETN
 	    begin
             slv_reg0 <= 32'd0; // slv_reg0 and slv_reg1 have been swapped purpose
             slv_reg1 <= 32'd0;
             slv_reg3 <= 32'd0;
+
+			rgbled1buf <= 3'd1; // reset led has to be turned on 
 	    end else begin
+			rgbled1buf[0] <= 0; // turn off the reset led
             if (switches[0]) begin
                 slv_reg0 <= data_out_buffer;
             //            slv_reg1 <= spitter_data;
@@ -351,7 +356,6 @@
             rgbled0buf <= slv_reg2; 
 	   end
 	  
-
     end
 	
 	assign leds = ledreg;
@@ -363,12 +367,14 @@
 	assign full = leds[0];
 	assign empty = leds[1];
 	assign errorstate = leds[2]; // make the states external
+
+	assign localreset = buttons[0] | S_AXI_ARESETN | slv_reg2[3]; // reset button, slvreg2 or external reset perform a reset
 	
 	fifo_buffer #(
         .BUFFER_DEPTH(32'd32)) fifo_buffer_inst(
         
         .clk(S_AXI_ACLK),
-        .rst(buttons[0]),
+        .rst(localreset),
         .w_en(w_en),  // ouput into fifo // ex slv_reg2[0]
         .r_en(slv_reg2[1]),  // ouput from axi
         .flipflopin(slv_reg2[2]), // ouput from axi
@@ -383,7 +389,7 @@
     
     spitter spitter_inst(
         .clk(S_AXI_ACLK),
-        .rst(buttons[0]),
+        .rst(localreset),
         .enable(switches[1]),
 		.full(leds[0]), // using temporary(ish) storage
         .data(spitter_data),

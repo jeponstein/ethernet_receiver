@@ -38,16 +38,14 @@ module fifo_buffer#(
             flipflopout <= flipflopin;
 
             // reset the fifo itself, just doing it in case
-            // for (integer i = 0; i < BUFFER_DEPTH; i = i + 1) begin
-            //     fifo[0] <= 32'd0;
-            // end
+            
             flipflopflipped <= 0;
 
         end else if (!errorstate) begin
         
-            if (flipflopflipped) begin
-                flipflopout <= flipflopin; // flip the flippy floppies
-            end
+            // if (flipflopflipped) begin // disable this for now and only do on read
+            //     flipflopout <= flipflopin; // flip the flippy floppies
+            // end
                       
             // r_en is only valid when it is raised together with flipflopflipped
             // otherwise it gotta wait
@@ -56,6 +54,7 @@ module fifo_buffer#(
                 // trying to read & write while empty -> directly place input to output    
                 data_out <= data_in;
                 count <= count;
+                flipflopout <= flipflopin; // flip the flippy floppies
                 
             end else if( w_en & full) begin
                 // trying to write while full. not possible. 
@@ -68,6 +67,7 @@ module fifo_buffer#(
                 data_out <= 32'd0;
                 count <= count;
                 error <= 1'b1;
+                // flipflopout <= flipflopin; // flip the flippy floppies
                 
             end else if ((r_en & flipflopflipped) & w_en ) begin
                 // writing & reading at the same time while not empty 
@@ -77,6 +77,7 @@ module fifo_buffer#(
                 w_ptr <= w_ptr + 1;
                 r_ptr <= r_ptr + 1;
                 count <= count;
+                flipflopout <= flipflopin; // flip the flippy floppies
                 
             end else if (w_en) begin
                 // just writing while not full
@@ -90,6 +91,7 @@ module fifo_buffer#(
                 count <= count - 1;
                 data_out <= fifo[r_ptr];
                 r_ptr <= r_ptr + 1;
+                flipflopout <= flipflopin; // flip the flippy floppies
             end
         end
         
