@@ -321,7 +321,7 @@
 	reg [3:0] ledreg;
 	
 	// reg [2:0] rgbled0buf;
-	wire [2:0] rgbled1buf; // temp wire for function outputs
+	// wire [2:0] rgbled1buf; // temp wire for function outputs
 	wire [4:0] count_output_buf;
 
 	wire w_en; // Comment out when externally should be used
@@ -360,7 +360,7 @@
 	
 	assign leds = ledreg;
 	// assign rgbled0 = rgbled0buf; // disable buffer as output of function needs to be wire
-	assign rgbled1 = {rgbled1buf[2], rgbled1buf[1], localreset};
+	assign rgbled1[0] = localreset; // reset led
 
 	assign qualityfactor = slv_reg2[31:24];
 	assign metadata = slv_reg2[23:16];
@@ -386,7 +386,7 @@
         .errorstate(leds[2]),    // input into axi
         .flipflopout(leds[3]),  // input into axi
         .count_output(count_output_buf),
-		.flipflopflipped(rgbled1buf[1]), // led to check flipflopflipped
+		.flipflopflipped(rgbled1[1]), // led to check flipflopflipped
 		.branch_debug(rgbled0) // debug signal to check which if signal is being used
     );
     
