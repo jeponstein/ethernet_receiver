@@ -214,7 +214,7 @@
 	begin
 	  if ( S_AXI_ARESETN == 1'b0 )
 	    begin
-	      slv_reg0 <= 0;
+	    //   slv_reg0 <= 0;
 //	      slv_reg1 <= 0;
 	      slv_reg2 <= 0;
 //	      slv_reg3 <= 0;
@@ -314,7 +314,7 @@
       assign S_AXI_RDATA = (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h0) ? slv_reg0 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h1) ? slv_reg1 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h2) ? slv_reg2 : (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h3) ? slv_reg3 : 0; 
 
 	// Add user logic here
-	wire enable_spitter;
+	// wire enable_spitter;
 	wire [31:0] data_out_buffer;
 	wire [31:0] metadata_buffer;
 	wire [31:0] spitter_data;
@@ -328,33 +328,33 @@
 	
 	always @( posedge S_AXI_ACLK )
 	begin 
-        if ( localreset == 1'b1 ) // Adding a reset might not make sense
+        // if ( localreset == 1'b1 ) // Adding a reset might not make sense
 		// used to be S_AXI_ARESETN (negative), swapped for positive localreset
-	    begin
-            slv_reg0 <= 32'd0; // slv_reg0 and slv_reg1 have been swapped purpose
-            slv_reg1 <= 32'd0;
-            slv_reg3 <= 32'd0;
+	    // begin
+        //     slv_reg0 <= 32'd0; // slv_reg0 and slv_reg1 have been swapped purpose
+        //     slv_reg1 <= 32'd0;
+        //     slv_reg3 <= 32'd0;
 
 			// rgbled1buf <= 3'd1; // reset led has to be turned on 
-	    end else begin
-			// rgbled1buf[0] <= 0; // turn off the reset led
-            if (switches[0]) begin
-                slv_reg0 <= data_out_buffer;
-            //            slv_reg1 <= spitter_data;
-                slv_reg3 <= spitter_data;
-            //	    slv_reg3 <= metadata_buffer;
-            end else begin
-                slv_reg0 <= spitter_data;
-            //            slv_reg1 <= data_out_buffer;
-                slv_reg3 <= data_out_buffer;
-            end 
+	    // end else begin
+		// rgbled1buf[0] <= 0; // turn off the reset led
+		if (switches[0]) begin
+			slv_reg0 <= data_out_buffer;
+		//            slv_reg1 <= spitter_data;
+			slv_reg3 <= spitter_data;
+		//	    slv_reg3 <= metadata_buffer;
+		end else begin
+			slv_reg0 <= spitter_data;
+		//            slv_reg1 <= data_out_buffer;
+			slv_reg3 <= data_out_buffer;
+		end 
 
-            slv_reg1[0] <= leds[0]; // full
-            slv_reg1[1] <= leds[1]; // empty
-            slv_reg1[2] <= leds[2]; // errorstate
-            slv_reg1[3] <= leds[3]; // flipflop to axi
-            // rgbled0buf <= slv_reg2; 
-	   end
+		slv_reg1[0] <= leds[0]; // full
+		slv_reg1[1] <= leds[1]; // empty
+		slv_reg1[2] <= leds[2]; // errorstate
+		slv_reg1[3] <= leds[3]; // flipflop to axi
+		// rgbled0buf <= slv_reg2; 
+	//    end
     end
 	
 	// assign rgbled0 = rgbled0buf; // disable buffer as output of function needs to be wire

@@ -39,8 +39,6 @@ module fifo_buffer#(
             error <= 0;
             flipflopout <= flipflopin;
             branch_debug <= 3'b000; // reset the branch debug signal	
-
-            // reset the fifo itself, just doing it in case
             
             // flipflopflipped <= 0;
 
