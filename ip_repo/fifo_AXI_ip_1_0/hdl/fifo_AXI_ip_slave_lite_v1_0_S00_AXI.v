@@ -320,8 +320,8 @@
 	wire [31:0] spitter_data;
 	reg [3:0] ledreg;
 	
-	reg [2:0] rgbled0buf;
-	reg [2:0] rgbled1buf;
+	// reg [2:0] rgbled0buf;
+	wire [2:0] rgbled1buf; // temp wire for function outputs
 	wire [4:0] count_output_buf;
 
 	wire w_en; // Comment out when externally should be used
@@ -336,9 +336,9 @@
             slv_reg1 <= 32'd0;
             slv_reg3 <= 32'd0;
 
-			rgbled1buf <= 3'd1; // reset led has to be turned on 
+			// rgbled1buf <= 3'd1; // reset led has to be turned on 
 	    end else begin
-			rgbled1buf[0] <= 0; // turn off the reset led
+			// rgbled1buf[0] <= 0; // turn off the reset led
             if (switches[0]) begin
                 slv_reg0 <= data_out_buffer;
             //            slv_reg1 <= spitter_data;
@@ -359,8 +359,9 @@
     end
 	
 	assign leds = ledreg;
-	assign rgbled0 = rgbled0buf;
-	assign rgbled1 = rgbled1buf;
+	// assign rgbled0 = rgbled0buf; // disable buffer as output of function needs to be wire
+	assign rgbled1 = {rgbled1buf[2], rgbled1buf[1], localreset};
+
 	assign qualityfactor = slv_reg2[31:24];
 	assign metadata = slv_reg2[23:16];
 	
@@ -386,7 +387,7 @@
         .flipflopout(leds[3]),  // input into axi
         .count_output(count_output_buf),
 		.flipflopflipped(rgbled1buf[1]), // led to check flipflopflipped
-		.branch_debug(rgbled0buf) // debug signal to check which if signal is being used
+		.branch_debug(rgbled0) // debug signal to check which if signal is being used
     );
     
     spitter spitter_inst(
