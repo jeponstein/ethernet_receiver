@@ -329,8 +329,8 @@
 	
 	always @( posedge S_AXI_ACLK )
 	begin 
-        if ( localreset == 1'b0 ) // Adding a reset might not make sense
-		// used to be S_AXI_ARESETN
+        if ( localreset == 1'b1 ) // Adding a reset might not make sense
+		// used to be S_AXI_ARESETN (negative), swapped for positive localreset
 	    begin
             slv_reg0 <= 32'd0; // slv_reg0 and slv_reg1 have been swapped purpose
             slv_reg1 <= 32'd0;
@@ -355,7 +355,6 @@
             slv_reg1[3] <= leds[3]; // flipflop to axi
             rgbled0buf <= slv_reg2; 
 	   end
-	  
     end
 	
 	assign leds = ledreg;
@@ -368,7 +367,7 @@
 	assign empty = leds[1];
 	assign errorstate = leds[2]; // make the states external
 
-	assign localreset = buttons[0] | S_AXI_ARESETN | slv_reg2[3]; // reset button, slvreg2 or external reset perform a reset
+	assign localreset = buttons[0] | !S_AXI_ARESETN | slv_reg2[3]; // reset button, slvreg2 or external reset perform a reset
 	
 	fifo_buffer #(
         .BUFFER_DEPTH(32'd32)) fifo_buffer_inst(
