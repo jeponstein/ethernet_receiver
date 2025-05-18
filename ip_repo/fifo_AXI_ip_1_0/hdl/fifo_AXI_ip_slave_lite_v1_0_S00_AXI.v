@@ -318,7 +318,6 @@
 	wire [31:0] data_out_buffer;
 	wire [31:0] metadata_buffer;
 	wire [31:0] spitter_data;
-	reg [3:0] ledreg;
 	
 	// reg [2:0] rgbled0buf;
 	// wire [2:0] rgbled1buf; // temp wire for function outputs
@@ -358,9 +357,9 @@
 	   end
     end
 	
-	assign leds = ledreg;
 	// assign rgbled0 = rgbled0buf; // disable buffer as output of function needs to be wire
 	assign rgbled1[0] = localreset; // reset led
+	assign rgbled1[2] = 0; 
 
 	assign qualityfactor = slv_reg2[31:24];
 	assign metadata = slv_reg2[23:16];

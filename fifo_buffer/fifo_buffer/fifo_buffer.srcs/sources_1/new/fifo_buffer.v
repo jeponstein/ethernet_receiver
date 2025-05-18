@@ -103,8 +103,8 @@ module fifo_buffer#(
                 branch_debug <= 3'b110;
             end else begin
                 // no action taken
-                data_out <= data_out; // unsure whether this is needed
-                count <= count;
+                // data_out <= data_out; // unsure whether this is needed
+                // count <= count;
                 branch_debug <= 3'b111;
             end
         end
