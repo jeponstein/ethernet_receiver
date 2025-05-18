@@ -349,11 +349,12 @@
             //            slv_reg1 <= data_out_buffer;
                 slv_reg3 <= data_out_buffer;
             end 
+
             slv_reg1[0] <= leds[0]; // full
             slv_reg1[1] <= leds[1]; // empty
             slv_reg1[2] <= leds[2]; // errorstate
             slv_reg1[3] <= leds[3]; // flipflop to axi
-            rgbled0buf <= slv_reg2; 
+            // rgbled0buf <= slv_reg2; 
 	   end
     end
 	
@@ -383,7 +384,9 @@
         .empty(leds[1]), // input into axi
         .errorstate(leds[2]),    // input into axi
         .flipflopout(leds[3]),  // input into axi
-        .count_output(count_output_buf)
+        .count_output(count_output_buf),
+		.flipflopflipped(rgbled1buf[1]), // led to check flipflopflipped
+		.branch_debug(rgbled0buf) // debug signal to check which if signal is being used
     );
     
     spitter spitter_inst(

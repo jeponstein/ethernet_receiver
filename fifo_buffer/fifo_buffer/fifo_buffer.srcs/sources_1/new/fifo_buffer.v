@@ -12,11 +12,13 @@ module fifo_buffer#(
     output reg [31:0] data_out,
     output full, empty, errorstate,
     output wire [$clog2(BUFFER_DEPTH)-1:0] count_output,
-    output reg flipflopout
+    output reg flipflopout,
+    output wire flipflopflipped,
+    output reg [0:2] branch_debug // debug signal to check which if signal is being used
     
     );
     
-    reg flipflopflipped; // 1 if the flipflop had flipped
+    // reg flipflopflipped; // 1 if the flipflop had flipped
     reg [$clog2(BUFFER_DEPTH)-1:0] w_ptr, r_ptr, count;
     reg [31:0] fifo[BUFFER_DEPTH:0];
     reg error;
@@ -36,10 +38,11 @@ module fifo_buffer#(
             count <= 0;
             error <= 0;
             flipflopout <= flipflopin;
+            branch_debug <= 3'b000; // reset the branch debug signal	
 
             // reset the fifo itself, just doing it in case
             
-            flipflopflipped <= 0;
+            // flipflopflipped <= 0;
 
         end else if (!errorstate) begin
         
@@ -55,11 +58,13 @@ module fifo_buffer#(
                 data_out <= data_in;
                 count <= count;
                 flipflopout <= flipflopin; // flip the flippy floppies
+                branch_debug <= 3'b001; 
                 
             end else if( w_en & full) begin
                 // trying to write while full. not possible. 
                 
                 count <= count;
+                branch_debug <= 3'b010;
                 // error <= 1'b1; // temporarily disabled
                 
             end else if ((r_en & flipflopflipped) & empty) begin
@@ -67,6 +72,7 @@ module fifo_buffer#(
                 data_out <= 32'd0;
                 count <= count;
                 error <= 1'b1;
+                branch_debug <= 3'b011;
                 // flipflopout <= flipflopin; // flip the flippy floppies
                 
             end else if ((r_en & flipflopflipped) & w_en ) begin
@@ -78,6 +84,7 @@ module fifo_buffer#(
                 r_ptr <= r_ptr + 1;
                 count <= count;
                 flipflopout <= flipflopin; // flip the flippy floppies
+                branch_debug <= 3'b100;
                 
             end else if (w_en) begin
                 // just writing while not full
@@ -85,6 +92,7 @@ module fifo_buffer#(
                 fifo[w_ptr] <= data_in;
                 count <= count + 1;
                 w_ptr <= w_ptr + 1;
+                branch_debug <= 3'b101;
                 
             end else if (r_en & flipflopflipped) begin
                 // just reading while not empty
@@ -92,18 +100,26 @@ module fifo_buffer#(
                 data_out <= fifo[r_ptr];
                 r_ptr <= r_ptr + 1;
                 flipflopout <= flipflopin; // flip the flippy floppies
+                branch_debug <= 3'b110;
+            end else begin
+                // no action taken
+                data_out <= data_out; // unsure whether this is needed
+                count <= count;
+                branch_debug <= 3'b111;
             end
         end
         
     end  
     
-    always @(*) begin // Handle the flipping of the flipflop
-        if (flipflopin != flipflopout) begin
-            flipflopflipped = 1;
-        end else begin
-            flipflopflipped = 0;
-        end
-    end
+    // always @(*) begin // Handle the flipping of the flipflop
+    //     if (flipflopin != flipflopout) begin
+    //         flipflopflipped = 1;
+    //     end else begin
+    //         flipflopflipped = 0;
+    //     end
+    // end
+
+    assign flipflopflipped = (flipflopin != flipflopout) ? 1 : 0; // Handle the flipping of the flipflop
           
     assign full = (count == BUFFER_DEPTH-1);
     assign empty = (count == 0);
