@@ -1,4 +1,4 @@
-Running: xsim.dir/fifo_spitter_tb_behav/xsimk.exe -simmode gui -wdb fifo_spitter_tb_behav.wdb -simrunnum 0 -socket 9376
+Running: xsim.dir/fifo_spitter_tb_behav/xsimk.exe -simmode gui -wdb fifo_spitter_tb_behav.wdb -simrunnum 0 -socket 9606
 Design successfully loaded
-Design Loading Memory Usage: 28616 KB (Peak: 28616 KB)
-Design Loading CPU Usage: 843 ms
+Design Loading Memory Usage: 28588 KB (Peak: 28588 KB)
+Design Loading CPU Usage: 749 ms

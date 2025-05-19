@@ -15,12 +15,12 @@ module fifo_spitter_tb();
     wire flipflopflipped;
     wire full, empty, errorstate;
     wire [4:0] count;
-    wire [0:2] branch_debug;
+    // wire [0:2] branch_debug;
     wire [0:2] rgbled0;
     reg [0:1] switches;
     reg [0:3] buttons;
-    wire [0:3] leds;
-    wire [0:2] rgbled1;
+    // wire [0:3] leds;
+    // wire [0:2] rgbled1;
     
     // Test control signals
     integer test_stage = 0;
@@ -114,6 +114,36 @@ module fifo_spitter_tb();
         flipflopin = ~flipflopout; // Toggle flipflop
         r_en = 1; // Enable reading
         #100; // Simultaneous operations
+        
+        // self add
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #10
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #10
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #10
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #10
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #30
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #30
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #30
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #50
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #50
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #50
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #20
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #20
+        flipflopin = ~flipflopout; // Toggle flipflop
+        #20
+        
+        
         
         // Test Stage 8: Final reset
         test_stage = 8;
