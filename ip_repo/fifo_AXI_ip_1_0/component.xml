@@ -266,7 +266,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>22025997</spirit:value>
+            <spirit:value>9ef4a985</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -282,7 +282,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>22025997</spirit:value>
+            <spirit:value>9ef4a985</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -870,6 +870,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>CHECKSUM_55a1fba3</spirit:userFileType>
       </spirit:file>
+      <spirit:file>
+        <spirit:name>../edit_fifo_AXI_ip_v1_0.srcs/sources_1/new/fifo_AXI_connector.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_9f3e583b</spirit:userFileType>
+      </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
@@ -887,6 +892,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/fifo_AXI_ip.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../edit_fifo_AXI_ip_v1_0.srcs/sources_1/new/fifo_AXI_connector.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1020,14 +1029,14 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>fifo_AXI_ip_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>55</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2025-05-19T14:41:30Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>58</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2025-05-19T18:48:20Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2024.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7a63f3fc"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="84ef6832"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="5d03eadb"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="81efa644"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="540e2cd2"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="f5d42fe4"/>
