@@ -29,3 +29,4 @@ source fifo_buffer_tb.tcl
 close_sim
 launch_simulation
 source fifo_buffer_tb.tcl
+close_sim

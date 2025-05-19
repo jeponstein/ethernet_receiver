@@ -234,3 +234,7 @@ $finish called at time : 147 ns : File "C:/Users/20212024/Github/ethernet_receiv
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'fifo_buffer_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
 launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 2221.852 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon May 19 23:53:17 2025...

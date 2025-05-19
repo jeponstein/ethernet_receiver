@@ -1,0 +1,22 @@
+Time resolution is 1 ps
+Push In: w_en=1, r_en=0, data_in=12153524
+Push In: w_en=1, r_en=0, data_in=c0895e81
+Push In: w_en=1, r_en=0, data_in=8484d609
+Push In: w_en=1, r_en=0, data_in=b1f05663
+Push In: w_en=1, r_en=0, data_in=06b97b0d
+Push In: w_en=1, r_en=0, data_in=46df998d
+Push In: w_en=1, r_en=0, data_in=b2c28465
+Push In: w_en=1, r_en=0, data_in=89375212
+Push In: w_en=1, r_en=0, data_in=00f3e301
+Push In: w_en=1, r_en=0, data_in=06d7cd0d
+Pop Out: w_en=0, r_en=1, data_out=12153524
+Pop Out: w_en=0, r_en=1, data_out=12153524
+Pop Out: w_en=0, r_en=1, data_out=c0895e81
+Pop Out: w_en=0, r_en=1, data_out=c0895e81
+Pop Out: w_en=0, r_en=1, data_out=8484d609
+Pop Out: w_en=0, r_en=1, data_out=8484d609
+Pop Out: w_en=0, r_en=1, data_out=b1f05663
+Pop Out: w_en=0, r_en=1, data_out=b1f05663
+Pop Out: w_en=0, r_en=1, data_out=06b97b0d
+Pop Out: w_en=0, r_en=1, data_out=06b97b0d
+$finish called at time : 147 ns : File "C:/Users/20212024/Github/ethernet_receiver/fifo_buffer/fifo_buffer/fifo_buffer.srcs/sim_1/new/fifo_buffer_tb.v" Line 48

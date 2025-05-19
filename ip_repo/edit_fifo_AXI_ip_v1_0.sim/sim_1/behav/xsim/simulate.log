@@ -1,0 +1,15 @@
+Time resolution is 1 ps
+Stage 1 - Write Test: count=Z, empty=1, full=0
+Time=25000, Stage=1: full=0, empty=1, error=0, branch=000, count=Z
+Stage 2 - Read Test: data_out=00000000, count=Z, flipflopflipped=0
+Stage 5 - Full Test: count=Z, full=0, w_en=1
+Time=245000, Stage=5: full=0, empty=0, error=0, branch=101, count=Z
+Stage 6 - Full Test: count=Z, full=1, w_en=0
+Stage 7 - Read/Write Test: count=Z, branch_debug=111
+Time=445000, Stage=7: full=1, empty=0, error=0, branch=111, count=Z
+Stage 7 - Read/Write Test: count=Z, branch_debug=110
+Stage 7 - Read/Write Test: count=Z, branch_debug=111
+Time=645000, Stage=7: full=1, empty=0, error=0, branch=111, count=Z
+Stage 7 - Read/Write Test: count=Z, branch_debug=111
+Simulation complete with 0 errors
+$finish called at time : 820 ns : File "C:/Users/20212024/Github/ethernet_receiver/ip_repo/edit_fifo_AXI_ip_v1_0.srcs/sim_1/new/fifo_spitter_tb.v" Line 155

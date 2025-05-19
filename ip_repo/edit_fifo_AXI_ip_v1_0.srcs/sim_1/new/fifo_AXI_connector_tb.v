@@ -182,7 +182,7 @@ module fifo_AXI_connector_tb();
         
         if (errorstate !== 1) begin
             $display("ERROR: FIFO should be in error state");
-        else begin
+        end else begin
             $display("SUCCESS: FIFO entered error state as expected");
         end
         
