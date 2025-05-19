@@ -114,10 +114,10 @@
 	//-- Signals for user logic register space example
 	//------------------------------------------------
 	//-- Number of Slave Registers 4
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg0;
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg1; // out data
+	wire [C_S_AXI_DATA_WIDTH-1:0]	slv_reg0;
+	wire [C_S_AXI_DATA_WIDTH-1:0]	slv_reg1; // out data
 	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg2; // in config
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg3; // out config
+	wire [C_S_AXI_DATA_WIDTH-1:0]	slv_reg3; // out config
 	integer	 byte_index;
 
 	// I/O Connections assignments

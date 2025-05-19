@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+// AI-generated for quick testing. Not fully verified.
 
 module fifo_spitter_tb();
     // Clock and reset signals
