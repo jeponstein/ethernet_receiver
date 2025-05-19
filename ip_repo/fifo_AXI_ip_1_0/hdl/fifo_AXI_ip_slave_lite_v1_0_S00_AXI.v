@@ -3,7 +3,7 @@
 	module fifo_AXI_ip_slave_lite_v1_0_S00_AXI #
 	(
 		// Users to add parameters here
-
+		parameter BUFFER_DEPTH_SET = 32'd32,
 		// User parameters ends
 		// Do not modify the parameters beyond this line
 
@@ -11,6 +11,7 @@
 		parameter integer C_S_AXI_DATA_WIDTH	= 32,
 		// Width of S_AXI address bus
 		parameter integer C_S_AXI_ADDR_WIDTH	= 4
+		
 	)
 	(
 		// Users to add ports here
@@ -321,7 +322,7 @@
 	
 	// reg [2:0] rgbled0buf;
 	// wire [2:0] rgbled1buf; // temp wire for function outputs
-	wire [4:0] count_output_buf;
+	wire [$clog2(BUFFER_DEPTH_SET)-1:0] count_buf;
 
 	wire w_en; // Comment out when externally should be used
 	wire localreset;
@@ -371,7 +372,7 @@
 	assign localreset = buttons[0] | !S_AXI_ARESETN | slv_reg2[3]; // reset button, slvreg2 or external reset perform a reset
 	
 	fifo_buffer #(
-        .BUFFER_DEPTH(32'd32)) fifo_buffer_inst(
+        .BUFFER_DEPTH(BUFFER_DEPTH_SET)) fifo_buffer_inst(
         
         .clk(S_AXI_ACLK),
         .rst(localreset),
@@ -384,7 +385,7 @@
         .empty(leds[1]), // input into axi
         .errorstate(leds[2]),    // input into axi
         .flipflopout(leds[3]),  // input into axi
-        .count_output(count_output_buf),
+        .count(count_buf),
 		.flipflopflipped(rgbled1[1]), // led to check flipflopflipped
 		.branch_debug(rgbled0) // debug signal to check which if signal is being used
     );

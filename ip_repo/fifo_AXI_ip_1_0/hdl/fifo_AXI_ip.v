@@ -4,7 +4,7 @@
 	module fifo_AXI_ip #
 	(
 		// Users to add parameters here
-
+		parameter BUFFER_DEPTH_SET = 32'd32,
 		// User parameters ends
 		// Do not modify the parameters beyond this line
 

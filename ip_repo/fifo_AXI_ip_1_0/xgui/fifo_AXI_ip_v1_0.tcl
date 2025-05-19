@@ -8,7 +8,18 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "C_S00_AXI_BASEADDR" -parent ${Page_0}
   ipgui::add_param $IPINST -name "C_S00_AXI_HIGHADDR" -parent ${Page_0}
 
+  set BUFFER_DEPTH_SET [ipgui::add_param $IPINST -name "BUFFER_DEPTH_SET"]
+  set_property tooltip {Depth of the buffer. Needs to be a power of 2} ${BUFFER_DEPTH_SET}
 
+}
+
+proc update_PARAM_VALUE.BUFFER_DEPTH_SET { PARAM_VALUE.BUFFER_DEPTH_SET } {
+	# Procedure called to update BUFFER_DEPTH_SET when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.BUFFER_DEPTH_SET { PARAM_VALUE.BUFFER_DEPTH_SET } {
+	# Procedure called to validate BUFFER_DEPTH_SET
+	return true
 }
 
 proc update_PARAM_VALUE.C_S00_AXI_DATA_WIDTH { PARAM_VALUE.C_S00_AXI_DATA_WIDTH } {
@@ -56,5 +67,10 @@ proc update_MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH { MODELPARAM_VALUE.C_S00_AXI_D
 proc update_MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH { MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH PARAM_VALUE.C_S00_AXI_ADDR_WIDTH } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.C_S00_AXI_ADDR_WIDTH}] ${MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH}
+}
+
+proc update_MODELPARAM_VALUE.BUFFER_DEPTH_SET { MODELPARAM_VALUE.BUFFER_DEPTH_SET PARAM_VALUE.BUFFER_DEPTH_SET } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.BUFFER_DEPTH_SET}] ${MODELPARAM_VALUE.BUFFER_DEPTH_SET}
 }
 
