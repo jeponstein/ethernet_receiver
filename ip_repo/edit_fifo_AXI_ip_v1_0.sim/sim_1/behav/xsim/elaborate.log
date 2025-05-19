@@ -1,0 +1,17 @@
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot fifo_spitter_tb_behav xil_defaultlib.fifo_spitter_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 3 for port 'count' [C:/Users/20212024/Github/ethernet_receiver/ip_repo/edit_fifo_AXI_ip_v1_0.srcs/sim_1/new/fifo_spitter_tb.v:45]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.fifo_buffer(BUFFER_DEPTH=32'b010...
+Compiling module xil_defaultlib.spitter
+Compiling module xil_defaultlib.fifo_spitter_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot fifo_spitter_tb_behav

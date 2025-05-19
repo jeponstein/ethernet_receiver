@@ -11,7 +11,7 @@ module fifo_buffer#(
     input flipflopin,
     output reg [31:0] data_out,
     output full, empty, errorstate,
-    output wire [$clog2(BUFFER_DEPTH)-1:0] count_output,
+    output reg [$clog2(BUFFER_DEPTH)-1:0] count,
     output reg flipflopout,
     output wire flipflopflipped,
     output reg [0:2] branch_debug // debug signal to check which if signal is being used
@@ -19,7 +19,7 @@ module fifo_buffer#(
     );
     
     // reg flipflopflipped; // 1 if the flipflop had flipped
-    reg [$clog2(BUFFER_DEPTH)-1:0] w_ptr, r_ptr, count;
+    reg [$clog2(BUFFER_DEPTH)-1:0] w_ptr, r_ptr;
     reg [31:0] fifo[BUFFER_DEPTH:0];
     reg error;
  
@@ -121,7 +121,7 @@ module fifo_buffer#(
           
     assign full = (count == BUFFER_DEPTH-1);
     assign empty = (count == 0);
-    assign count_output = count;
+    // assign count_output = count;
     assign errorstate = error;
     
 endmodule
