@@ -57,4 +57,29 @@ Time=              555000, full=0, empty=0, error=0, flipflop=0, slv_reg1=000000
 Time=              565000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=09090909
   SUCCESS: Flipflop remains at 1 after input cleared
   Test 4.2: Reset flipflop with system reset
-Time=              575000, full=0, empty=1, erro
+Time=              575000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=00000000
+Time=              585000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
+Time=              595000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
+Time=              605000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=00000000
+  SUCCESS: Flipflop was reset to 0
+  Test 4.3: Rapid toggling test
+Time=              615000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=00000000
+Time=              625000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=01010101
+Time=              635000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=02020202
+Time=              645000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=03030303
+Time=              655000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=04040404
+Time=              665000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=05050505
+Time=              675000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=06060606
+Time=              685000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=07070707
+Time=              695000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=08080808
+Time=              705000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=09090909
+  Flipflop state after rapid toggling: 0
+  Test 4.4: Long delay test
+Time=              715000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=0a0a0a0a
+Time=              725000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=0a0a0a0a
+Time=              765000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=0a0a0a0a
+Time=              775000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=0a0a0a0a
+  SUCCESS: Flipflop remained at 1 for extended period
+Time=              915000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=0b0b0b0b
+Time=              925000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=0b0b0b0b
+Time=              935000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=0b0b0b0b

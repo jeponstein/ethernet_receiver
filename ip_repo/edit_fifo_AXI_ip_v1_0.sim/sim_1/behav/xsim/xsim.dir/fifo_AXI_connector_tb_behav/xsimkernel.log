@@ -2,3 +2,6 @@ Running: xsim.dir/fifo_AXI_connector_tb_behav/xsimk.exe -simmode gui -wdb fifo_A
 Design successfully loaded
 Design Loading Memory Usage: 28664 KB (Peak: 28664 KB)
 Design Loading CPU Usage: 1233 ms
+Simulation completed
+Simulation Memory Usage: 29664 KB (Peak: 29664 KB)
+Simulation CPU Usage: 1405 ms
