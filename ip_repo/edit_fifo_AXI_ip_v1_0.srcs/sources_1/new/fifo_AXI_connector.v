@@ -43,7 +43,7 @@ module fifo_AXI_connector #(
         output reg [31:0]	slv_reg0,
         output reg [31:0]	slv_reg1, // out data
         input wire [31:0]	slv_reg2, // in config
-        output reg [31:0]	slv_reg3 // out config
+        output wire [31:0]	slv_reg3 // out config
 
     );
     
@@ -68,13 +68,13 @@ module fifo_AXI_connector #(
         slv_reg1 <= 32'd0;
         //     slv_reg3 <= 32'd0;
 
-		if (switches[0]) begin // This switch should remain on 1
-			// slv_reg0 <= data_out_buffer;
-			slv_reg3 <= spitter_data;
-		end else begin
-			// slv_reg0 <= spitter_data;
-			slv_reg3 <= data_out_buffer;
-		end 
+		// if (switches[0]) begin // This switch should remain on 1
+		// 	// slv_reg0 <= data_out_buffer;
+		// 	slv_reg3 <= spitter_data;
+		// end else begin
+		// 	// slv_reg0 <= spitter_data;
+		// 	slv_reg3 <= data_out_buffer;
+		// end 
 
 		slv_reg1[0] <= leds[0]; // full
 		slv_reg1[1] <= leds[1]; // empty
@@ -106,7 +106,7 @@ module fifo_AXI_connector #(
         .r_en(slv_reg2[1]),  // ouput from axi
         .flipflopin(slv_reg2[2]), // ouput from axi
         .data_in(spitter_data),
-        .data_out(data_out_buffer), // slv_reg1
+        .data_out(slv_reg3), // slv_reg3
         .full(leds[0]),  // input into axi
         .empty(leds[1]), // input into axi
         .errorstate(leds[2]),    // input into axi

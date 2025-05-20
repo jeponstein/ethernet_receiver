@@ -3,54 +3,58 @@ Time=                   0, full=x, empty=x, error=x, flipflop=x, slv_reg1=xxxxxx
 Time=                5000, full=0, empty=1, error=0, flipflop=0, slv_reg1=0000000x, slv_reg3=00000000
 Time=               15000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
 Time=               55000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
-Time=               65000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=01010101
-Time=               75000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=02020202
-Time=               85000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=03030303
-Time=               95000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=04040404
+Time=               65000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=00000000
 TESTCASE 1: Testing reset functionality
-Time=              105000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=05050505
+Time=              105000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=00000000
 Time=              115000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
 Time=              155000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
-Time=              165000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=01010101
-Time=              175000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=02020202
-Time=              185000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=03030303
-Time=              195000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=04040404
+Time=              165000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=00000000
 ERROR: FIFO should be empty after reset
 TESTCASE 2: Testing FIFO fill with spitter
-Time=              205000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=05050505
-Time=              215000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=06060606
-Time=              225000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=07070707
+Time=              215000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=00000000
+Time=              225000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=00000000
 SUCCESS: FIFO is full
 TESTCASE 3: Reading data from FIFO
-Read data: 07070707
-Read data: 07070707
-Read data: 07070707
-Read data: 07070707
-Read data: 07070707
-Read data: 07070707
-Read data: 07070707
-Read data: 07070707
+Read data: 00000000
+Time=              375000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=00000000
+  Toggled flipflop from 0 to 1
+Time=              385000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=00000000
+Read data: 00000000
+Time=              395000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=01010101
+  Toggled flipflop from 1 to 0
+Time=              405000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=01010101
+Read data: 01010101
+Time=              415000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=02020202
+  Toggled flipflop from 0 to 1
+Time=              425000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=02020202
+Read data: 02020202
+Time=              435000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=03030303
+  Toggled flipflop from 1 to 0
+Time=              445000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=03030303
+Read data: 03030303
+Time=              455000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=04040404
+  Toggled flipflop from 0 to 1
+Time=              465000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=04040404
+Read data: 04040404
+Time=              475000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=05050505
+  Toggled flipflop from 1 to 0
+Time=              485000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=05050505
+Read data: 05050505
+Time=              495000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=06060606
+  Toggled flipflop from 0 to 1
+Time=              505000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=06060606
+Read data: 06060606
+Time=              515000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=07070707
+  Toggled flipflop from 1 to 0
+Time=              525000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=07070707
 ERROR: FIFO should be empty after reading all data
 TESTCASE 4: Testing flipflop functionality with various delays
   Test 4.1: Single pulse test
-Time=              455000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=07070707
-Time=              465000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=07070707
+Time=              535000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=08080808
+Time=              545000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=08080808
   SUCCESS: Flipflop output is 1
-Time=              475000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=08080808
-Time=              485000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=08080808
+Time=              555000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=09090909
+Time=              565000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=09090909
   SUCCESS: Flipflop remains at 1 after input cleared
   Test 4.2: Reset flipflop with system reset
-Time=              495000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=09090909
-Time=              505000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
-Time=              515000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
-Time=              525000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=01010101
-  SUCCESS: Flipflop was reset to 0
-  Test 4.3: Rapid toggling test
-Time=              535000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=02020202
-Time=              545000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=03030303
-Time=              555000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=04040404
-Time=              565000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=05050505
-Time=              575000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=06060606
-Time=              585000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=07070707
-Time=              595000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=08080808
-Time=              605000
+Time=              575000, full=0, empty=1, erro

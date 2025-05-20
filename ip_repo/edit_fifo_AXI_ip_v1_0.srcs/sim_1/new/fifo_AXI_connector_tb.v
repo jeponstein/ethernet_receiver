@@ -105,14 +105,20 @@ module fifo_AXI_connector_tb();
             $display("SUCCESS: FIFO is full");
         end
         
-        // TESTCASE 3: Read data from the FIFO
+        // TESTCASE 3: Reading data from FIFO
         $display("TESTCASE 3: Reading data from FIFO");
         slv_reg2[1] = 1; // Enable read
         
         for (i = 0; i < BUFFER_DEPTH_SET; i = i + 1) begin
             #(CLK_PERIOD);
             $display("Read data: %h", slv_reg3);
+            
+            // Toggle flipflop based on its current value
+            slv_reg2[2] = ~leds[3]; // Set flipflop input to opposite of its current output
+            #(CLK_PERIOD); // Wait for flipflop to update
+            $display("  Toggled flipflop from %b to %b", ~leds[3], leds[3]);
         end
+        slv_reg2[1] = 0; // Disable read after reading all data
         
         #(CLK_PERIOD);
         if (empty !== 1) begin

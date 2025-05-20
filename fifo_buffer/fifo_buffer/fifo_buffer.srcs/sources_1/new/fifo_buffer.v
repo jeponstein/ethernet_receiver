@@ -60,7 +60,7 @@ module fifo_buffer#(
                 
             end else if( w_en & full) begin
                 // trying to write while full. not possible. 
-                
+                data_out <= data_out; // fix dummy data spitting?
                 count <= count;
                 branch_debug <= 3'b010;
                 // error <= 1'b1; // temporarily disabled
@@ -86,7 +86,8 @@ module fifo_buffer#(
                 
             end else if (w_en) begin
                 // just writing while not full
-                
+                data_out <= data_out; // fix dummy data spitting?
+
                 fifo[w_ptr] <= data_in;
                 count <= count + 1;
                 w_ptr <= w_ptr + 1;
@@ -101,8 +102,8 @@ module fifo_buffer#(
                 branch_debug <= 3'b110;
             end else begin
                 // no action taken
-                // data_out <= data_out; // unsure whether this is needed
-                // count <= count;
+                data_out <= data_out; // unsure whether this is needed
+                count <= count;
                 branch_debug <= 3'b111;
             end
         end
