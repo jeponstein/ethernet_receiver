@@ -68,7 +68,7 @@ module fifo_AXI_connector #(
         slv_reg1 <= 32'd0;
         //     slv_reg3 <= 32'd0;
 
-		if (switches[0]) begin // This switch should remain on 0
+		if (switches[0]) begin // This switch should remain on 1
 			// slv_reg0 <= data_out_buffer;
 			slv_reg3 <= spitter_data;
 		end else begin

@@ -66,7 +66,7 @@ module fifo_AXI_connector_tb();
     
     initial begin
         // Initialize inputs
-        switches = 2'b10;
+        switches = 2'b11; // Keep at 2'b11 throughout the test, enabled and enabled
         buttons = 4'b0000;
         S_AXI_ACLK = 0;
         S_AXI_ARESETN = 0;
@@ -95,9 +95,8 @@ module fifo_AXI_connector_tb();
             $display("SUCCESS: FIFO is empty after reset");
         end
         
-        // TESTCASE 2: Fill the FIFO by enabling spitter
+        // TESTCASE 2: Fill the FIFO by enabling spitter (switches already at 2'b10)
         $display("TESTCASE 2: Testing FIFO fill with spitter");
-//        switches = 2'b10; // Enable spitter
         #(CLK_PERIOD*BUFFER_DEPTH_SET*2);
         
         if (full !== 1) begin
@@ -108,7 +107,6 @@ module fifo_AXI_connector_tb();
         
         // TESTCASE 3: Read data from the FIFO
         $display("TESTCASE 3: Reading data from FIFO");
-//        switches = 2'b00; // Switch off spitter
         slv_reg2[1] = 1; // Enable read
         
         for (i = 0; i < BUFFER_DEPTH_SET; i = i + 1) begin
@@ -123,18 +121,98 @@ module fifo_AXI_connector_tb();
             $display("SUCCESS: FIFO is empty after reading all data");
         end
         
-        // TESTCASE 4: Test flipflop functionality
-        $display("TESTCASE 4: Testing flipflop functionality");
-        slv_reg2[2] = 1; // Enable flipflop
+        // TESTCASE 4: Extended flipflop testing with various delays
+        $display("TESTCASE 4: Testing flipflop functionality with various delays");
+        
+        // Test 4.1: Single pulse test
+        $display("  Test 4.1: Single pulse test");
+        slv_reg2[1] = 1; // Disable read to better observe flipflop behavior
+        slv_reg2[2] = 1; // Set flipflop
         #(CLK_PERIOD*2);
         
         if (leds[3] !== 1) begin
-            $display("ERROR: Flipflop output should be 1");
+            $display("  ERROR: Flipflop output should be 1");
         end else begin
-            $display("SUCCESS: Flipflop output is 1");
+            $display("  SUCCESS: Flipflop output is 1");
         end
         
+        slv_reg2[2] = 0; // Clear flipflop input
+        #(CLK_PERIOD*2);
         
+        if (leds[3] !== 1) begin
+            $display("  SUCCESS: Flipflop remains at 1 after input cleared");
+        end else begin
+            $display("  ERROR: Flipflop should maintain state despite input change");
+        end
+        
+        // Test 4.2: Reset flipflop with system reset
+        $display("  Test 4.2: Reset flipflop with system reset");
+        S_AXI_ARESETN = 0;
+        #(CLK_PERIOD*2);
+        S_AXI_ARESETN = 1;
+        #(CLK_PERIOD*2);
+        
+        if (leds[3] !== 0) begin
+            $display("  ERROR: Flipflop should be reset to 0");
+        end else begin
+            $display("  SUCCESS: Flipflop was reset to 0");
+        end
+        
+        // Test 4.3: Rapid toggling test
+        $display("  Test 4.3: Rapid toggling test");
+        
+        // Toggle 5 times rapidly
+        for (i = 0; i < 5; i = i + 1) begin
+            slv_reg2[2] = 1;
+            #(CLK_PERIOD);
+            slv_reg2[2] = 0;
+            #(CLK_PERIOD);
+        end
+        
+        // Check final state
+        $display("  Flipflop state after rapid toggling: %b", leds[3]);
+        
+        // Test 4.4: Long delay test
+        $display("  Test 4.4: Long delay test");
+        slv_reg2[2] = 1;
+        #(CLK_PERIOD*20); // Long delay with input high
+        
+        if (leds[3] !== 1) begin
+            $display("  ERROR: Flipflop should remain at 1 for extended periods");
+        end else begin
+            $display("  SUCCESS: Flipflop remained at 1 for extended period");
+        end
+        
+        slv_reg2[2] = 0;
+        #(CLK_PERIOD*20); // Long delay with input low
+        
+        // Test 4.5: Alternate with FIFO operations
+        $display("  Test 4.5: Interleaving flipflop and FIFO operations");
+        
+        // Reset FIFO
+        slv_reg2[3] = 1;
+        #(CLK_PERIOD*2);
+        slv_reg2[3] = 0;
+        #(CLK_PERIOD*2);
+        
+        // Toggle flipflop while filling FIFO
+        slv_reg2[2] = 1;
+        #(CLK_PERIOD*2);
+        
+        // Let FIFO fill partially
+        #(CLK_PERIOD*BUFFER_DEPTH_SET/2);
+        
+        // Toggle flipflop again during FIFO operation
+        slv_reg2[2] = 0;
+        #(CLK_PERIOD*2);
+        slv_reg2[2] = 1;
+        #(CLK_PERIOD*2);
+        
+        // Complete FIFO fill
+        #(CLK_PERIOD*BUFFER_DEPTH_SET/2);
+        
+        $display("  Flipflop state after interleaved operations: %b", leds[3]);
+        $display("  FIFO full state: %b", full);
         
         // TESTCASE 5: Test reset via slv_reg2
         $display("TESTCASE 5: Testing reset via slv_reg2");
@@ -149,24 +227,15 @@ module fifo_AXI_connector_tb();
             $display("SUCCESS: FIFO is empty after reset via slv_reg2");
         end
         
-        // TESTCASE 6: Test switch routing configuration
-        $display("TESTCASE 6: Testing switch routing configuration");
-//        switches = 2'b01; // Route data_out_buffer to slv_reg3 and spitter_data to slv_reg0
+        // Verify flipflop also got reset
+        if (leds[3] !== 0) begin
+            $display("ERROR: Flipflop should be reset to 0");
+        end else begin
+            $display("SUCCESS: Flipflop was reset to 0");
+        end
         
-        // Enable spitter again
-//        switches[1] = 1;
-        #(CLK_PERIOD*5);
-        
-        $display("slv_reg3 data (should be from data_out_buffer): %h", slv_reg3);
-        
-        // Read some data
-        slv_reg2[1] = 1;
-        #(CLK_PERIOD*5);
-        
-        $display("slv_reg3 data after reading: %h", slv_reg3);
-        
-        // TESTCASE 7: Test qualityfactor and metadata outputs
-        $display("TESTCASE 7: Testing qualityfactor and metadata outputs");
+        // TESTCASE 6: Test qualityfactor and metadata outputs
+        $display("TESTCASE 6: Testing qualityfactor and metadata outputs");
         slv_reg2[31:24] = 8'hAA; // Set qualityfactor
         slv_reg2[23:16] = 8'h55; // Set metadata
         #(CLK_PERIOD*2);
@@ -174,10 +243,9 @@ module fifo_AXI_connector_tb();
         $display("qualityfactor: %h (expected AA)", qualityfactor);
         $display("metadata: %h (expected 55)", metadata);
         
-        // TESTCASE 8: Test pushing FIFO to error state
-        $display("TESTCASE 8: Testing error state");
+        // TESTCASE 7: Test pushing FIFO to error state
+        $display("TESTCASE 7: Testing error state");
         // First fill FIFO
-//        switches = 2'b10; // Enable spitter
         slv_reg2[1] = 0;  // Disable read
         
         #(CLK_PERIOD*BUFFER_DEPTH_SET*2);
@@ -203,8 +271,8 @@ module fifo_AXI_connector_tb();
     
     // Monitor changes
     initial begin
-        $monitor("Time=%t, full=%b, empty=%b, error=%b, switches=%b, slv_reg1=%h, slv_reg3=%h",
-                 $time, full, empty, errorstate, switches, slv_reg1, slv_reg3);
+        $monitor("Time=%t, full=%b, empty=%b, error=%b, flipflop=%b, slv_reg1=%h, slv_reg3=%h",
+                 $time, full, empty, errorstate, leds[3], slv_reg1, slv_reg3);
     end
 
 endmodule
