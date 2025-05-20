@@ -26,6 +26,10 @@ module fifo_AXI_connector_tb();
     wire [31:0] slv_reg1;
     wire [31:0] slv_reg3;
     
+    // Flipflop vis
+    wire flipflop_in;
+    wire flipflop_out;
+    
     // Instantiate the Unit Under Test (UUT)
     fifo_AXI_connector #(
         .BUFFER_DEPTH_SET(BUFFER_DEPTH_SET)
@@ -48,6 +52,9 @@ module fifo_AXI_connector_tb();
         .slv_reg3(slv_reg3)
     );
     
+    assign flipflop_out = leds[3];
+    assign flipflop_in = slv_reg2[2];
+    
     // Clock generation
     always begin
         #(CLK_PERIOD/2) S_AXI_ACLK = ~S_AXI_ACLK;
@@ -59,7 +66,7 @@ module fifo_AXI_connector_tb();
     
     initial begin
         // Initialize inputs
-        switches = 2'b00;
+        switches = 2'b10;
         buttons = 4'b0000;
         S_AXI_ACLK = 0;
         S_AXI_ARESETN = 0;
@@ -90,7 +97,7 @@ module fifo_AXI_connector_tb();
         
         // TESTCASE 2: Fill the FIFO by enabling spitter
         $display("TESTCASE 2: Testing FIFO fill with spitter");
-        switches = 2'b10; // Enable spitter
+//        switches = 2'b10; // Enable spitter
         #(CLK_PERIOD*BUFFER_DEPTH_SET*2);
         
         if (full !== 1) begin
@@ -101,7 +108,7 @@ module fifo_AXI_connector_tb();
         
         // TESTCASE 3: Read data from the FIFO
         $display("TESTCASE 3: Reading data from FIFO");
-        switches = 2'b00; // Switch off spitter
+//        switches = 2'b00; // Switch off spitter
         slv_reg2[1] = 1; // Enable read
         
         for (i = 0; i < BUFFER_DEPTH_SET; i = i + 1) begin
@@ -127,6 +134,8 @@ module fifo_AXI_connector_tb();
             $display("SUCCESS: Flipflop output is 1");
         end
         
+        
+        
         // TESTCASE 5: Test reset via slv_reg2
         $display("TESTCASE 5: Testing reset via slv_reg2");
         slv_reg2[3] = 1; // Reset via slv_reg2
@@ -142,10 +151,10 @@ module fifo_AXI_connector_tb();
         
         // TESTCASE 6: Test switch routing configuration
         $display("TESTCASE 6: Testing switch routing configuration");
-        switches = 2'b01; // Route data_out_buffer to slv_reg3 and spitter_data to slv_reg0
+//        switches = 2'b01; // Route data_out_buffer to slv_reg3 and spitter_data to slv_reg0
         
         // Enable spitter again
-        switches[1] = 1;
+//        switches[1] = 1;
         #(CLK_PERIOD*5);
         
         $display("slv_reg3 data (should be from data_out_buffer): %h", slv_reg3);
@@ -168,7 +177,7 @@ module fifo_AXI_connector_tb();
         // TESTCASE 8: Test pushing FIFO to error state
         $display("TESTCASE 8: Testing error state");
         // First fill FIFO
-        switches = 2'b10; // Enable spitter
+//        switches = 2'b10; // Enable spitter
         slv_reg2[1] = 0;  // Disable read
         
         #(CLK_PERIOD*BUFFER_DEPTH_SET*2);

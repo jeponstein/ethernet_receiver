@@ -64,14 +64,11 @@ module fifo_AXI_connector #(
         // if ( localreset == 1'b1 ) // Adding a reset might not make sense
 		// used to be S_AXI_ARESETN (negative), swapped for positive localreset
 	    // begin
-        //     slv_reg0 <= 32'd0; // slv_reg0 and slv_reg1 have been swapped purpose
-        //     slv_reg1 <= 32'd0;
+        slv_reg0 <= 32'd0; // slv_reg0 and slv_reg1 have been swapped purpose
+        slv_reg1 <= 32'd0;
         //     slv_reg3 <= 32'd0;
 
-			// rgbled1buf <= 3'd1; // reset led has to be turned on 
-	    // end else begin
-		// rgbled1buf[0] <= 0; // turn off the reset led
-		if (switches[0]) begin
+		if (switches[0]) begin // This switch should remain on 0
 			// slv_reg0 <= data_out_buffer;
 			slv_reg3 <= spitter_data;
 		end else begin
