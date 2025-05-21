@@ -29,7 +29,7 @@ module spitter(
     reg [7:0] counter = 8'd0;
     reg [7:0] counter_nxt = 8'd0;
     
-    always @(negedge clk) begin
+    always @(posedge clk) begin
         if (rst == 1) begin
             counter <= 8'd0;
             data = 32'd11;
