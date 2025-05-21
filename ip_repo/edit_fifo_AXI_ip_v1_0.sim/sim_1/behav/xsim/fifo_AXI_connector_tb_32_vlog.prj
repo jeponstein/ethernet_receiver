@@ -3,7 +3,7 @@ verilog xil_defaultlib  \
 "../../../../edit_fifo_AXI_ip_v1_0.srcs/sources_1/new/fifo_AXI_connector.v" \
 "../../../../../fifo_buffer/fifo_buffer/fifo_buffer.srcs/sources_1/new/fifo_buffer.v" \
 "../../../../../fifo_buffer/data_spitter/data_spitter.srcs/sources_1/new/spitter.v" \
-"../../../../edit_fifo_AXI_ip_v1_0.srcs/sim_1/new/fifo_AXI_connector_tb.v" \
+"../../../../edit_fifo_AXI_ip_v1_0.srcs/sim_1/new/fifo_AXI_connector_tb_32.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"
