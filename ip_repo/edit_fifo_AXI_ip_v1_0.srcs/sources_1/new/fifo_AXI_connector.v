@@ -64,12 +64,13 @@ module fifo_AXI_connector #(
         // if ( localreset == 1'b1 ) // Adding a reset might not make sense
 		// used to be S_AXI_ARESETN (negative), swapped for positive localreset
 	    // begin
-        slv_reg0 <= 32'd0; // slv_reg0 and slv_reg1 have been swapped purpose
+        // slv_reg0 <= 32'd0; // slv_reg0 and slv_reg1 have been swapped purpose
+        // not appliccable on a wire
         slv_reg1 <= 32'd0;
         //     slv_reg3 <= 32'd0;
 
 		// if (switches[0]) begin // This switch should remain on 1
-		// 	// slv_reg0 <= data_out_buffer;
+        slv_reg0 <= slv_reg3; // slv_reg0 is synchronized with the clock to get slv_reg3
 		// 	slv_reg3 <= spitter_data;
 		// end else begin
 		// 	// slv_reg0 <= spitter_data;
@@ -85,8 +86,8 @@ module fifo_AXI_connector #(
     end
 	
 	// assign rgbled0 = rgbled0buf; // disable buffer as output of function needs to be wire
-	assign rgbled1[0] = localreset; // reset led
-	assign rgbled1[2] = 0; 
+	assign rgbled1[0] = slv_reg3[0]; // reset led
+	assign rgbled1[2] = slv_reg3[1]; // flipflop in
 
 	assign qualityfactor = slv_reg2[31:24];
 	assign metadata = slv_reg2[23:16];
@@ -115,6 +116,7 @@ module fifo_AXI_connector #(
 		.flipflopflipped(rgbled1[1]), // led to check flipflopflipped
 		.branch_debug(rgbled0) // debug signal to check which if signal is being used
     );
+    
     
     spitter spitter_inst(
         .clk(S_AXI_ACLK),
