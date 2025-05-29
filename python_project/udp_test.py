@@ -21,6 +21,10 @@ if __name__ == "__main__":
 
     sock.sendto(b'\x01' , (HOST, PORT) )
     sock.sendto(b'\x02' , (HOST, PORT) )
+    sock.sendto(b'\x04' , (HOST, PORT) )
+
+    sock.sendto(b'\x03' , (HOST, PORT) )
+
 
 
     sock.sendto(b'\xFF\xFF\xFF\xFF\xFF', (HOST, PORT) )

@@ -1,6 +1,6 @@
 from socket import *
 
-DEST_HOST, DEST_PORT = "192.168.1.10", 5001
+DEST_HOST, DEST_PORT = "192.168.0.105", 5001
 
 
 def sendPacket(data):
@@ -22,8 +22,6 @@ def sendPacket(data):
 if __name__ == "__main__":
 
 
-    sendPacket(b'6')
-
-    sendPacket(b'9000000000000000000000000000000000000000000000000000000000000000000000000000000')
+    # sendPacket(b'6')
 
     sendPacket(b'2')

@@ -19,7 +19,7 @@ def sendPacket():
 
     data=b'\x00'
 
-    for i in range(1,100):
+    for i in range(1,101):
         i = i+1031
         i = i.to_bytes(2, 'little')
         print(i)
