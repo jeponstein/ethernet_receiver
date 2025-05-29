@@ -32,6 +32,7 @@ module spitter(
     always @(posedge clk) begin
         if (rst == 1) begin
             counter <= 8'd0;
+            counter_nxt <= 8'd0; // otherwize does not get reset
             data = 32'd11;
             w_en = 0;
         end else if (enable == 1 && full != 1) begin
