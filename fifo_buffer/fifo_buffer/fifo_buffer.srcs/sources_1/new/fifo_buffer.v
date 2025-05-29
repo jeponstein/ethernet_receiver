@@ -50,6 +50,8 @@ module fifo_buffer#(
                       
             // r_en is only valid when it is raised together with flipflopflipped
             // otherwise it gotta wait
+
+            // cases might work better
             
             if((r_en & flipflopflipped) & w_en & empty) begin
                 // trying to read & write while empty -> directly place input to output    

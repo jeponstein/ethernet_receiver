@@ -27,12 +27,12 @@ module spitter(
     );
     
     reg [7:0] counter = 8'd0;
-    reg [7:0] counter_nxt = 8'd0;
+    wire [7:0] counter_nxt = 8'd0;
     
     always @(posedge clk) begin
         if (rst == 1) begin
-            counter <= 8'd0;
-            counter_nxt <= 8'd0; // otherwize does not get reset
+            counter <= 8'd112;
+            // counter_nxt <= 8'd113; // otherwize does not get reset
             data = 32'd11;
             w_en = 0;
         end else if (enable == 1 && full != 1) begin
@@ -47,10 +47,11 @@ module spitter(
         data[31:24] = counter;
     end
     
-    always @(*) begin
-        counter_nxt = counter + 8'd1;
+    assign counter_nxt = counter + 8'd1;
+    // always @(*) begin
+        // counter_nxt = counter + 8'd1;
         
         
-    end
+    // end
         
 endmodule
