@@ -16,18 +16,22 @@ data = b'attempting to send from desktop to pynq board'
 
 if __name__ == "__main__":
 
-    sock.sendto( b'\x00\x00\x00\x00\x01' , (HOST, PORT) )
-    sock.sendto( b'\x00\x00\x00\x00\x00\x00\x00\x00\x00' , (HOST, PORT) )
 
+    # ignored
+    sock.sendto( b'\x00\x00\x00\x00\x01' , (HOST, PORT) )
+
+    # indicates that the image starts here (startflag \x00\x00\x00\x00)
+    sock.sendto( b'\x00\x00\x00\x00\x00\x00\x00\x00'  , (HOST, PORT) )
+
+    # start packet (counter at 0, 32bits/4bytes. data is \x01)
     sock.sendto(b'\x00\x00\x00\x00\x01' , (HOST, PORT) )
     sock.sendto(b'\x00\x00\x00\x01\x02' , (HOST, PORT) )
     sock.sendto(b'\x00\x00\x00\x02\x04' , (HOST, PORT) )
-
     sock.sendto(b'\x00\x00\x00\x03\x03' , (HOST, PORT) )
+    # counter incremented to 3, all data should be \x01\x02\x04\x03
 
-
-
-    sock.sendto(b'\x00\x00\x00\x00\xFF\xFF\xFF\xFF\xFF', (HOST, PORT) )
+    # indicates image has ended. (finishFlag \xFF\xFF\xFF\xFF)
+    sock.sendto(b'\x00\x00\x00\x00\xFF\xFF\xFF\xFF', (HOST, PORT) )
 
 
 

@@ -5,8 +5,8 @@ import math
 # used for qf demonstration, can be removed in later versions
 from random import randint
 
-startPayload = b'\x00\x00\x00\x00\x00'
-finishPayload = b'\xFF\xFF\xFF\xFF\xFF'
+startPayload = b'\x00\x00\x00\x00'
+finishPayload = b'\xFF\xFF\xFF\xFF'
 
 ### MAC adresses of host machine & interface name of host           ###
 ### Find adress of host by using "ifconfig" in shell (linux)        ###
@@ -35,12 +35,6 @@ def start_server(host, port):
 
         counter = int.from_bytes(data_array[0:4], byteorder='big', signed=False)
         data = data_array[4:]
-
-
-        # print("Printing counter: ")
-        # print(counter)
-        # print("Printing data: ")
-        # print(data)
 
         if data == startPayload:
 
