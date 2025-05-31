@@ -25,22 +25,46 @@ def start_server(host, port):
     sock.bind((host, port))
 
     imageFlag = 0
-    imageData = b''
+    imageData = bytearray(b'')
+    expectedCounter = 0
 
     while True:
         data, addr = sock.recvfrom(1024)
 
+        data_array = bytearray(data)
+
+        counter = int.from_bytes(data_array[0:4], byteorder='big', signed=False)
+        data = data_array[4:]
+
+
+        # print("Printing counter: ")
+        # print(counter)
+        # print("Printing data: ")
+        # print(data)
+
         if data == startPayload:
+
             imageFlag = 1
-            imageData = b''
+            imageData = bytearray(b'')
+            expectedCounter = 0
+
         elif data == finishPayload:
+
             imageFlag = 0
             return(imageData)
+        
         elif imageFlag == 1:
-            imageData += data
+
+            if(expectedCounter != counter):
+                print("ERROR IN RECEIVED ORDER OF PACKETS")
+            else:
+                imageData += data
+                expectedCounter += 1
+
 
 def decode(data):
-    print(data)
+    # print(data)
+    pass
 
 def sendPacket(qf):
     # quality factor is rounded up to nearest increment of 4% due to limited #ethertype. 
@@ -51,7 +75,7 @@ def sendPacket(qf):
     # pynq uses little endian encoding? check to be sure, wireshark on pc seems to be big endian. 
     factor = factor.to_bytes(2, 'little')
 
-    print(factor)
+    # print(factor)
 
     s = socket(AF_PACKET, SOCK_RAW)
     s.bind( (interface, 0) )
@@ -62,7 +86,9 @@ def sendPacket(qf):
 if __name__ == "__main__":
 
     while True:
-        data = start_server(HOST, PORT)
+        data = bytes(start_server(HOST, PORT))
+
+        print(data)
 
         # placeholder decoding function.
         decode(data)

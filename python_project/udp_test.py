@@ -12,22 +12,22 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 data = b'attempting to send from desktop to pynq board'
 
-sock.sendto( data , (HOST, PORT) )
+# sock.sendto( data , (HOST, PORT) )
 
 if __name__ == "__main__":
 
-    sock.sendto( b'\x01' , (HOST, PORT) )
-    sock.sendto( b'\x00\x00\x00\x00\x00' , (HOST, PORT) )
+    sock.sendto( b'\x00\x00\x00\x00\x01' , (HOST, PORT) )
+    sock.sendto( b'\x00\x00\x00\x00\x00\x00\x00\x00\x00' , (HOST, PORT) )
 
-    sock.sendto(b'\x01' , (HOST, PORT) )
-    sock.sendto(b'\x02' , (HOST, PORT) )
-    sock.sendto(b'\x04' , (HOST, PORT) )
+    sock.sendto(b'\x00\x00\x00\x00\x01' , (HOST, PORT) )
+    sock.sendto(b'\x00\x00\x00\x01\x02' , (HOST, PORT) )
+    sock.sendto(b'\x00\x00\x00\x02\x04' , (HOST, PORT) )
 
-    sock.sendto(b'\x03' , (HOST, PORT) )
+    sock.sendto(b'\x00\x00\x00\x03\x03' , (HOST, PORT) )
 
 
 
-    sock.sendto(b'\xFF\xFF\xFF\xFF\xFF', (HOST, PORT) )
+    sock.sendto(b'\x00\x00\x00\x00\xFF\xFF\xFF\xFF\xFF', (HOST, PORT) )
 
 
 
