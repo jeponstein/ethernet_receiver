@@ -20,7 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module spitter(
+module spitter( 
+
         input clk, enable, rst, full,
         output reg [31:0] data,
         output reg w_en
@@ -44,7 +45,7 @@ module spitter(
         data[7:0] = counter;
         data[15:8] = counter;
         data[23:16] = counter;
-        data[31:24] = counter;
+        data[31:24] = 8'd88; // test value
     end
     
     assign counter_nxt = counter + 8'd1;

@@ -2,7 +2,8 @@
 
 module fifo_buffer#(
 
-    parameter BUFFER_DEPTH = 32'd32
+    parameter BUFFER_DEPTH = 32'd32,
+    parameter integer DEBUG_ENABLED = 1 // 1 to enable debug signals, 0 to disable debug signals
     
     )(
     

@@ -5,6 +5,9 @@
 	(
 		// Users to add parameters here
 		parameter BUFFER_DEPTH_SET = 32'd32,
+		parameter integer UTILIZE_SPITTER = 1, // 1 to use spitter, 0 to not use spitter
+		parameter integer DEBUG_ENABLED = 1, // 1 to enable debug signals, 0 to disable debug signals
+
 		// User parameters ends
 		// Do not modify the parameters beyond this line
 
@@ -15,11 +18,14 @@
 	)
 	(
 		// Users to add ports here
-        input wire [0:1] switches,
-        input wire [0:3] buttons,
-        output wire [0:3] leds,
-        output wire [0:2] rgbled0,
-        output wire [0:2] rgbled1,
+
+		input wire [31:0] encoder_data, // data from spitter
+		input wire w_en, // write enable external
+		output wire [0:3] leds,
+		output wire [0:2] rgbled0,
+		output wire [0:2] rgbled1,
+		input wire [0:1] switches,
+		input wire [0:3] buttons,
         output wire [0:7] qualityfactor,
         output wire [0:7] metadata,
         
