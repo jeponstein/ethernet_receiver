@@ -1,7 +1,4 @@
-Running: xsim.dir/fifo_AXI_connector_tb_32_behav/xsimk.exe -simmode gui -wdb fifo_AXI_connector_tb_32_behav.wdb -simrunnum 0 -socket 7592
+Running: xsim.dir/fifo_AXI_connector_tb_32_behav/xsimk.exe -simmode gui -wdb fifo_AXI_connector_tb_32_behav.wdb -simrunnum 0 -socket 12198
 Design successfully loaded
-Design Loading Memory Usage: 28672 KB (Peak: 28672 KB)
-Design Loading CPU Usage: 827 ms
-Simulation completed
-Simulation Memory Usage: 29728 KB (Peak: 29728 KB)
-Simulation CPU Usage: 937 ms
+Design Loading Memory Usage: 28676 KB (Peak: 28676 KB)
+Design Loading CPU Usage: 811 ms

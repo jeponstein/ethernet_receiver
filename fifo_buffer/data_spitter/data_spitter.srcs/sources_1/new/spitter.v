@@ -28,23 +28,26 @@ module spitter(
     );
     
     reg [7:0] counter = 8'd0;
+    reg [7:0] counter_inline = 8'd0;
     wire [7:0] counter_nxt = 8'd0;
     
     always @(posedge clk) begin
         if (rst == 1) begin
             counter <= 8'd112;
+            counter_inline <= 8'd113;
             // counter_nxt <= 8'd113; // otherwize does not get reset
             data = 32'd11;
             w_en = 0;
         end else if (enable == 1 && full != 1) begin
             counter <= counter_nxt;
+            counter_inline <= counter_inline + 8'd1;
             w_en = 1;
         end else begin
             w_en = 0;
         end
         data[7:0] = counter;
-        data[15:8] = counter;
-        data[23:16] = counter;
+        data[15:8] = counter_inline; // test value
+        data[23:16] = counter + 8'd2; // test value
         data[31:24] = 8'd88; // test value
     end
     
