@@ -29,7 +29,7 @@ module fifo_AXI_connector #(
     input wire encoder_data, // data from encoder (used when UTILIZE_SPITTER=0)
     input wire w_en_external, // write enable external (used when UTILIZE_SPITTER=0)
     
-    // Conditional debug ports based on DEBUG_ENABLED
+    // Conditional debug ports based on DEBUG_ENABLED 
     output wire [0:3] leds,
     output wire [0:2] rgbled0,
     output wire [0:2] rgbled1,
@@ -54,6 +54,7 @@ module fifo_AXI_connector #(
     // Debug disable logic by setting the switches and buttons to a neutral position
     wire [1:0] switch_local;
     wire [3:0] buttons_local;
+    
     generate
     if (DEBUG_ENABLED) begin : debug_enabled
         assign switch_local = switches;

@@ -30,7 +30,7 @@ module fifo_buffer#(
     
         error <= error;
         
-        //general reset logic
+        // reset logic
         if (rst == 1) begin
         
             w_ptr <= 0; 
@@ -44,15 +44,11 @@ module fifo_buffer#(
             // flipflopflipped <= 0;
 
         end else if (!errorstate) begin
-        
-            // if (flipflopflipped) begin // disable this for now and only do on read
-            //     flipflopout <= flipflopin; // flip the flippy floppies
-            // end
                       
             // r_en is only valid when it is raised together with flipflopflipped
             // otherwise it gotta wait
 
-            // cases might work better
+            // feedback: cases might work better
             
             if((r_en & flipflopflipped) & w_en & empty) begin
                 // trying to read & write while empty -> directly place input to output    
