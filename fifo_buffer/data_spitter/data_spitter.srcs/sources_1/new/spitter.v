@@ -29,7 +29,6 @@ module spitter(
     
     reg [7:0] counter = 8'd0;
     // wire [7:0] counter_nxt = 8'd0;
-
     reg countup_done = 0;
     
     always @(posedge clk) begin
