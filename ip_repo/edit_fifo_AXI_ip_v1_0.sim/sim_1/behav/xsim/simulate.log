@@ -177,4 +177,28 @@ Time=             2095000, full=0, empty=1, error=0, flipflop=0, slv_reg1=000000
 Time=             2105000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
 Time=             2125000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
 Time=             2135000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58707070
-Time=             2145000, full=0, empty
+Time=             2145000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58707070
+Time=             2315000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58717171
+Time=             2325000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58717171
+Time=             2335000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58727272
+Time=             2345000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58727272
+Time=             2455000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58727272
+Time=             2465000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=58727272
+  Flipflop state after interleaved operations: 1
+  FIFO full state: 1
+TESTCASE 5: Testing reset via slv_reg2
+Time=             2515000, full=0, empty=1, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=00000000
+Time=             2525000, full=0, empty=1, error=0, flipflop=1, slv_reg1=0000000a, slv_reg3=00000000
+Time=             2545000, full=0, empty=0, error=0, flipflop=1, slv_reg1=0000000a, slv_reg3=00000000
+ERROR: FIFO should be empty after reset via slv_reg2
+ERROR: Flipflop should be reset to 0
+TESTCASE 6: Testing qualityfactor and metadata outputs
+Time=             2555000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=00000000
+qualityfactor: aa (expected AA)
+metadata: 55 (expected 55)
+TESTCASE 7: Testing error state
+Time=             2845000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=00000000
+Time=             2855000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=00000000
+ERROR: FIFO should be in error state
+Testbench completed
+$finish called at time : 3415 ns : File "C:/Users/20212024/Github/ethernet_receiver/ip_repo/edit_fifo_AXI_ip_v1_0.srcs/sim_1/new/fifo_AXI_connector_tb_32.v" Line 278
