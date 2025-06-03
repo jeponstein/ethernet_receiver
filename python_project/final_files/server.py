@@ -10,14 +10,16 @@ finishPayload = b'\xFF\xFF\xFF\xFF'
 
 ### MAC adresses of host machine & interface name of host           ###
 ### Find adress of host by using "ifconfig" in shell (linux)        ###
-interface = "enp37s0"           #something like enp37s0 or eth0
+#interface = "enp37s0"           #something like enp37s0 or eth0
+interface = "enp0s31f6"
 host_addr = b'\x00\xd8\x61\x2d\x29\x41'
 pynq_addr = b'\x00\x0a\x35\x00\x01\x02'
 
 ### IP adress and port that is used on the host machine.            ###
 # HOST, PORT = "169.254.113.239", 9000
 # HOST, PORT = "192.168.0.101", 9000
-HOST, PORT = "127.0.0.1", 9000
+#HOST, PORT = "127.0.0.1", 9000
+HOST, PORT = "169.254.8.158", 5001 
 
 
 def start_server(host, port):
@@ -29,18 +31,19 @@ def start_server(host, port):
     expectedCounter = 0
 
     while True:
-        data, addr = sock.recvfrom(1024)
+        data, addr = sock.recvfrom(1500)
 
         data_array = bytearray(data)
 
         counter = int.from_bytes(data_array[0:4], byteorder='big', signed=False)
+        print(counter)
         data = data_array[4:]
 
         if data == startPayload:
 
             imageFlag = 1
             imageData = bytearray(b'')
-            expectedCounter = 0
+            expectedCounter = counter
 
         elif data == finishPayload:
 
@@ -54,6 +57,8 @@ def start_server(host, port):
             else:
                 imageData += data
                 expectedCounter += 1
+                if(expectedCounter == 42949672964294967296):
+                    expectedCounter = 0
 
 
 def decode(data):
@@ -65,7 +70,12 @@ def sendPacket(qf):
     # if data of packet can be exported on pynq board then finer control can be used
     # the 1501 comes from the fact that ethertype values of 1501 - 1535 are undefined, 
     # so using them should not give any trouble. there are 25 (100/4) possible qf
+    
+    
     factor = math.ceil(qf/4) + 1501
+    
+    factor = qf + 1501
+    
     # pynq uses little endian encoding? check to be sure, wireshark on pc seems to be big endian. 
     factor = factor.to_bytes(2, 'little')
 
