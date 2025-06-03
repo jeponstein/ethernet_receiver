@@ -16,194 +16,165 @@ Time=              475000, full=1, empty=0, error=0, flipflop=0, slv_reg1=000000
 SUCCESS: FIFO is full
 TESTCASE 3: Reading data from FIFO
 Read data: 00000000
+  Toggled flipflop from 1 to 0
 Time=              855000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=58707070
-  Toggled flipflop from 0 to 1
-Time=              865000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58707070
 Read data: 58707070
+Time=              865000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58707070
+  Toggled flipflop from 0 to 1
 Time=              875000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58717171
-  Toggled flipflop from 1 to 0
-Time=              885000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58717171
 Read data: 58717171
+Time=              885000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58717171
+  Toggled flipflop from 1 to 0
 Time=              895000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=58717171
-  Toggled flipflop from 1 to 0
+Read data: 58717171
 Time=              905000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=58727272
+  Toggled flipflop from 0 to 1
+Time=              915000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58727272
 Read data: 58727272
-Time=              915000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58737373
+Time=              925000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58727272
+  Toggled flipflop from 0 to 1
+Time=              935000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=58727272
+Read data: 58727272
+Time=              945000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=58737373
   Toggled flipflop from 1 to 0
-Time=              925000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58737373
+Time=              955000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58737373
 Read data: 58737373
-Time=              935000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58747474
+Time=              965000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58737373
+  Toggled flipflop from 1 to 0
+Time=              975000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=58737373
+Read data: 58737373
+Time=              985000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=58747474
   Toggled flipflop from 0 to 1
-Time=              945000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58747474
+Time=              995000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58747474
 Read data: 58747474
-Time=              955000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=58747474
+Time=             1005000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58747474
   Toggled flipflop from 0 to 1
-Time=              965000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=58757575
+Time=             1015000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=58747474
+Read data: 58747474
+Time=             1025000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=58757575
+  Toggled flipflop from 1 to 0
+Time=             1035000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58757575
 Read data: 58757575
-Time=              975000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58767676
+Time=             1045000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58757575
+  Toggled flipflop from 1 to 0
+Time=             1055000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=58757575
+Read data: 58757575
+Time=             1065000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=58767676
   Toggled flipflop from 0 to 1
-Time=              985000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58767676
+Time=             1075000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58767676
 Read data: 58767676
-Time=              995000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58777777
+Time=             1085000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58767676
+  Toggled flipflop from 0 to 1
+Time=             1095000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=58767676
+Read data: 58767676
+Time=             1105000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=58777777
   Toggled flipflop from 1 to 0
-Time=             1005000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58777777
+Time=             1115000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58777777
 Read data: 58777777
-Time=             1015000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=58777777
+Time=             1125000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58777777
   Toggled flipflop from 1 to 0
-Time=             1025000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=58787878
+Time=             1135000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=58777777
+Read data: 58777777
+Time=             1145000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=58787878
+  Toggled flipflop from 0 to 1
+Time=             1155000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58787878
 Read data: 58787878
-Time=             1035000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58797979
+Time=             1165000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58787878
+  Toggled flipflop from 0 to 1
+Time=             1175000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=58787878
+Read data: 58787878
+Time=             1185000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=58797979
   Toggled flipflop from 1 to 0
-Time=             1045000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58797979
+Time=             1195000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58797979
 Read data: 58797979
-Time=             1055000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=587a7a7a
+Time=             1205000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58797979
+  Toggled flipflop from 1 to 0
+Time=             1215000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=58797979
+Read data: 58797979
+Time=             1225000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=587a7a7a
   Toggled flipflop from 0 to 1
-Time=             1065000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=587a7a7a
+Time=             1235000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=587a7a7a
 Read data: 587a7a7a
-Time=             1075000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=587a7a7a
+Time=             1245000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=587a7a7a
   Toggled flipflop from 0 to 1
-Time=             1085000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=587b7b7b
+Time=             1255000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=587a7a7a
+Read data: 587a7a7a
+Time=             1265000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=587b7b7b
+  Toggled flipflop from 1 to 0
+Time=             1275000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=587b7b7b
 Read data: 587b7b7b
-Time=             1095000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=587c7c7c
+Time=             1285000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=587b7b7b
+  Toggled flipflop from 1 to 0
+Time=             1295000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=587b7b7b
+Read data: 587b7b7b
+Time=             1305000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=587c7c7c
   Toggled flipflop from 0 to 1
-Time=             1105000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=587c7c7c
+Time=             1315000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=587c7c7c
 Read data: 587c7c7c
-Time=             1115000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=587d7d7d
+Time=             1325000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=587c7c7c
+  Toggled flipflop from 0 to 1
+Time=             1335000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=587c7c7c
+Read data: 587c7c7c
+Time=             1345000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=587d7d7d
   Toggled flipflop from 1 to 0
-Time=             1125000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=587d7d7d
+Time=             1355000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=587d7d7d
 Read data: 587d7d7d
-Time=             1135000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=587d7d7d
+Time=             1365000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=587d7d7d
   Toggled flipflop from 1 to 0
-Time=             1145000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=587e7e7e
+Time=             1375000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=587d7d7d
+Read data: 587d7d7d
+Time=             1385000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=587e7e7e
+  Toggled flipflop from 0 to 1
+Time=             1395000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=587e7e7e
 Read data: 587e7e7e
-Time=             1155000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=587f7f7f
+Time=             1405000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=587e7e7e
+  Toggled flipflop from 0 to 1
+Time=             1415000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=587e7e7e
+Read data: 587e7e7e
+Time=             1425000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=587f7f7f
   Toggled flipflop from 1 to 0
-Time=             1165000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=587f7f7f
+Time=             1435000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=587f7f7f
 Read data: 587f7f7f
-Time=             1175000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58808080
-  Toggled flipflop from 0 to 1
-Time=             1185000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58808080
-Read data: 58808080
-Time=             1195000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=58808080
-  Toggled flipflop from 0 to 1
-Time=             1205000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=58818181
-Read data: 58818181
-Time=             1215000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58828282
-  Toggled flipflop from 0 to 1
-Time=             1225000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58828282
-Read data: 58828282
-Time=             1235000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58838383
+Time=             1445000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=587f7f7f
   Toggled flipflop from 1 to 0
-Time=             1245000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58838383
-Read data: 58838383
-Time=             1255000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=58838383
-  Toggled flipflop from 1 to 0
-Time=             1265000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=58848484
-Read data: 58848484
-Time=             1275000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58858585
-  Toggled flipflop from 1 to 0
-Time=             1285000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58858585
-Read data: 58858585
-Time=             1295000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58868686
+Time=             1455000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=587f7f7f
+Read data: 587f7f7f
+Time=             1465000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=58808080
   Toggled flipflop from 0 to 1
-Time=             1305000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58868686
-Read data: 58868686
-Time=             1315000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=58868686
-  Toggled flipflop from 0 to 1
-Time=             1325000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=58878787
-Read data: 58878787
-Time=             1335000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58888888
-  Toggled flipflop from 0 to 1
-Time=             1345000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58888888
-Read data: 58888888
-Time=             1355000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58898989
-  Toggled flipflop from 1 to 0
-Time=             1365000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58898989
-Read data: 58898989
-Time=             1375000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=58898989
-  Toggled flipflop from 1 to 0
-Time=             1385000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=588a8a8a
-Read data: 588a8a8a
-Time=             1395000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=588b8b8b
-  Toggled flipflop from 1 to 0
-Time=             1405000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=588b8b8b
-Read data: 588b8b8b
-Time=             1415000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=588c8c8c
-  Toggled flipflop from 0 to 1
-Time=             1425000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=588c8c8c
-Read data: 588c8c8c
-Time=             1435000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=588c8c8c
-  Toggled flipflop from 0 to 1
-Time=             1445000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=588d8d8d
-Read data: 588d8d8d
-Time=             1455000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=588e8e8e
-  Toggled flipflop from 0 to 1
-Time=             1465000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=588e8e8e
-Read data: 588e8e8e
-Time=             1475000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58909090
-  Toggled flipflop from 1 to 0
-Time=             1485000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58909090
+Time=             1475000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58808080
 ERROR: FIFO should be empty after reading all data
 TESTCASE 4: Testing flipflop functionality with various delays
   Test 4.1: Single pulse test
-Time=             1495000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=58909090
-Time=             1505000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000001, slv_reg3=58919191
+Time=             1485000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58808080
+Time=             1495000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=58808080
   SUCCESS: Flipflop output is 1
-Time=             1515000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58939393
-Time=             1525000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58939393
+Time=             1535000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000009, slv_reg3=58818181
   SUCCESS: Flipflop remains at 1 after input cleared
   Test 4.2: Reset flipflop with system reset
-Time=             1535000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=00000000
-Time=             1545000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
-Time=             1565000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
+Time=             1545000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58818181
+Time=             1555000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58818181
+Time=             1565000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=00000000
+Time=             1575000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
   SUCCESS: Flipflop was reset to 0
   Test 4.3: Rapid toggling test
-Time=             1575000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58707070
-Time=             1585000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58717171
-Time=             1595000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58727272
-Time=             1605000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58737373
-Time=             1615000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58747474
-Time=             1625000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58757575
-Time=             1635000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58767676
-Time=             1645000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58777777
-Time=             1655000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58787878
-Time=             1665000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58797979
+Time=             1595000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
+Time=             1605000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58707070
+Time=             1625000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58717171
+Time=             1645000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58727272
+Time=             1665000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58737373
+Time=             1685000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58747474
   Flipflop state after rapid toggling: 0
   Test 4.4: Long delay test
-Time=             1675000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=587a7a7a
-Time=             1685000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=587a7a7a
+Time=             1705000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58757575
+Time=             1715000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58757575
   SUCCESS: Flipflop remained at 1 for extended period
-Time=             1875000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=587b7b7b
-Time=             1885000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=587b7b7b
-Time=             1985000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=587b7b7b
-Time=             1995000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=587b7b7b
+Time=             1895000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58767676
+Time=             1905000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58767676
+Time=             1965000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58767676
+Time=             1975000, full=1, empty=0, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=58767676
   Test 4.5: Interleaving flipflop and FIFO operations
-Time=             2075000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=00000000
-Time=             2085000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
-Time=             2105000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
-Time=             2115000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58707070
-Time=             2125000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58707070
-Time=             2295000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000008, slv_reg3=58717171
-Time=             2305000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000000, slv_reg3=58717171
-Time=             2315000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58727272
-Time=             2325000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58727272
-Time=             2435000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=58727272
-Time=             2445000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=58727272
-  Flipflop state after interleaved operations: 1
-  FIFO full state: 1
-TESTCASE 5: Testing reset via slv_reg2
-Time=             2495000, full=0, empty=1, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=00000000
-Time=             2505000, full=0, empty=1, error=0, flipflop=1, slv_reg1=0000000a, slv_reg3=00000000
-Time=             2525000, full=0, empty=0, error=0, flipflop=1, slv_reg1=0000000a, slv_reg3=00000000
-ERROR: FIFO should be empty after reset via slv_reg2
-ERROR: Flipflop should be reset to 0
-TESTCASE 6: Testing qualityfactor and metadata outputs
-Time=             2535000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=00000000
-qualityfactor: aa (expected AA)
-metadata: 55 (expected 55)
-TESTCASE 7: Testing error state
-Time=             2825000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000008, slv_reg3=00000000
-Time=             2835000, full=1, empty=0, error=0, flipflop=1, slv_reg1=00000009, slv_reg3=00000000
-ERROR: FIFO should be in error state
-Testbench completed
-$finish called at time : 3390 ns : File "C:/Users/20212024/Github/ethernet_receiver/ip_repo/edit_fifo_AXI_ip_v1_0.srcs/sim_1/new/fifo_AXI_connector_tb_32.v" Line 275
+Time=             2095000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000001, slv_reg3=00000000
+Time=             2105000, full=0, empty=1, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
+Time=             2125000, full=0, empty=0, error=0, flipflop=0, slv_reg1=00000002, slv_reg3=00000000
+Time=             2135000, full=0, empty=0, error=0, flipflop=1, slv_reg1=00000000, slv_reg3=58707070
+Time=             2145000, full=0, empty
