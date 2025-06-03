@@ -95,7 +95,7 @@ module fifo_AXI_connector #(
         slv_reg1[3] <= leds[3]; // flipflop to axi
     end
     
-    assign rgbled1[0] = slv_reg3[0]; // reset led
+    // assign rgbled1[0] = slv_reg3[0]; // reset led
     assign rgbled1[2] = slv_reg3[1]; // flipflop in
 
     assign qualityfactor = slv_reg2[31:24];
@@ -106,6 +106,7 @@ module fifo_AXI_connector #(
     assign errorstate = leds[2]; // make the states external
 
     assign localreset = buttons[0] | !S_AXI_ARESETN | slv_reg2[3]; // reset button, slvreg2 or external reset perform a reset
+    assign rgbled1[0] = w_en;
 
     // Generate block to instantiate based on UTILIZE_SPITTER parameter
     generate

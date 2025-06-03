@@ -110,17 +110,17 @@ module fifo_AXI_connector_tb_32();
         slv_reg2[1] = 1; // Enable read
         
         for (i = 0; i < BUFFER_DEPTH_SET; i = i + 1) begin
-            #(CLK_PERIOD);
+            @(posedge S_AXI_ACLK); // Wait for positive clock edge
             $display("Read data: %h", slv_reg3);
             
             // Toggle flipflop based on its current value
             slv_reg2[2] = ~leds[3]; // Set flipflop input to opposite of its current output
-            #(CLK_PERIOD); // Wait for flipflop to update
+            @(posedge S_AXI_ACLK); // Wait for positive clock edge to update
             $display("  Toggled flipflop from %b to %b", ~leds[3], leds[3]);
         end
         slv_reg2[1] = 0; // Disable read after reading all data
         
-        #(CLK_PERIOD);
+        @(posedge S_AXI_ACLK);
         if (empty !== 1) begin
             $display("ERROR: FIFO should be empty after reading all data");
         end else begin
@@ -132,9 +132,10 @@ module fifo_AXI_connector_tb_32();
         
         // Test 4.1: Single pulse test
         $display("  Test 4.1: Single pulse test");
+        @(posedge S_AXI_ACLK);
         slv_reg2[1] = 1; // Disable read to better observe flipflop behavior
         slv_reg2[2] = 1; // Set flipflop
-        #(CLK_PERIOD*2);
+        repeat(2) @(posedge S_AXI_ACLK); // Wait for 2 positive clock edges
         
         if (leds[3] !== 1) begin
             $display("  ERROR: Flipflop output should be 1");
@@ -142,8 +143,9 @@ module fifo_AXI_connector_tb_32();
             $display("  SUCCESS: Flipflop output is 1");
         end
         
+        @(posedge S_AXI_ACLK);
         slv_reg2[2] = 0; // Clear flipflop input
-        #(CLK_PERIOD*2);
+        repeat(2) @(posedge S_AXI_ACLK); // Wait for 2 positive clock edges
         
         if (leds[3] !== 1) begin
             $display("  SUCCESS: Flipflop remains at 1 after input cleared");
@@ -153,10 +155,11 @@ module fifo_AXI_connector_tb_32();
         
         // Test 4.2: Reset flipflop with system reset
         $display("  Test 4.2: Reset flipflop with system reset");
+        @(posedge S_AXI_ACLK);
         S_AXI_ARESETN = 0;
-        #(CLK_PERIOD*2);
+        repeat(2) @(posedge S_AXI_ACLK); // Wait for 2 positive clock edges
         S_AXI_ARESETN = 1;
-        #(CLK_PERIOD*2);
+        repeat(2) @(posedge S_AXI_ACLK); // Wait for 2 positive clock edges
         
         if (leds[3] !== 0) begin
             $display("  ERROR: Flipflop should be reset to 0");
@@ -170,9 +173,9 @@ module fifo_AXI_connector_tb_32();
         // Toggle 5 times rapidly
         for (i = 0; i < 5; i = i + 1) begin
             slv_reg2[2] = 1;
-            #(CLK_PERIOD);
+            @(posedge S_AXI_ACLK);
             slv_reg2[2] = 0;
-            #(CLK_PERIOD);
+            @(posedge S_AXI_ACLK);
         end
         
         // Check final state

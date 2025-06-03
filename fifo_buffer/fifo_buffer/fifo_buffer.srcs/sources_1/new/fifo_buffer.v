@@ -39,7 +39,7 @@ module fifo_buffer#(
             count <= 0;
             error <= 0;
             flipflopout <= flipflopin;
-            branch_debug <= 3'b000; // reset the branch debug signal	
+            branch_debug <= 3'd0; // reset the branch debug signal	
             
             // flipflopflipped <= 0;
 
@@ -55,13 +55,13 @@ module fifo_buffer#(
                 data_out <= data_in;
                 count <= count;
                 flipflopout <= flipflopin; // flip the flippy floppies
-                branch_debug <= 3'b001; 
+                branch_debug <= 3'd1; 
                 
             end else if( w_en & full) begin
                 // trying to write while full. not possible. 
                 data_out <= data_out; // fix dummy data spitting?
                 count <= count;
-                branch_debug <= 3'b010;
+                branch_debug <= 3'd2;
                 // error <= 1'b1; // temporarily disabled
                 
             end else if ((r_en & flipflopflipped) & empty) begin
@@ -69,7 +69,7 @@ module fifo_buffer#(
                 data_out <= 32'd0;
                 count <= count;
                 error <= 1'b1;
-                branch_debug <= 3'b011;
+                branch_debug <= 3'd3;
                 // flipflopout <= flipflopin; // flip the flippy floppies
                 
             end else if ((r_en & flipflopflipped) & w_en ) begin
@@ -81,7 +81,7 @@ module fifo_buffer#(
                 r_ptr <= r_ptr + 1;
                 count <= count;
                 flipflopout <= flipflopin; // flip the flippy floppies
-                branch_debug <= 3'b100;
+                branch_debug <= 3'd4;
                 
             end else if (w_en) begin
                 // just writing while not full
@@ -90,7 +90,7 @@ module fifo_buffer#(
                 fifo[w_ptr] <= data_in;
                 count <= count + 1;
                 w_ptr <= w_ptr + 1;
-                branch_debug <= 3'b101;
+                branch_debug <= 3'd5;
                 
             end else if (r_en & flipflopflipped) begin
                 // just reading while not empty
@@ -98,12 +98,12 @@ module fifo_buffer#(
                 data_out <= fifo[r_ptr];
                 r_ptr <= r_ptr + 1;
                 flipflopout <= flipflopin; // flip the flippy floppies
-                branch_debug <= 3'b110;
+                branch_debug <= 3'd6;
             end else begin
                 // no action taken
                 data_out <= data_out; // unsure whether this is needed
                 count <= count;
-                branch_debug <= 3'b111;
+                branch_debug <= 3'd7;
             end
         end
         
